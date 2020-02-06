@@ -1,0 +1,20 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'User filters') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'description',
+            searchable: true
+        },{
+            name: 'config'
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

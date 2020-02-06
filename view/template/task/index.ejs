@@ -1,0 +1,31 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Tasks') %>
+<% block('tools', {template: _view.get('_part/tool/refreshScheduler')}); %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'name',
+            searchable: true
+        },{
+            name: 'job'
+        },{
+            name: 'description',
+            searchable: true
+        },{
+            name: 'startup',
+            format: 'boolean'
+        },{
+            name: 'period'
+        },{
+            name: 'lastDoneAt',
+            format: 'timestamp'
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

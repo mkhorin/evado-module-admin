@@ -1,0 +1,19 @@
+<% layout(_view.get('_layout/modal/select')) %>
+
+<% block('title', 'Notice') %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'subject',
+            searchable: true
+        },{
+            name: 'text',
+            searchable: true
+        }],
+        order: {[model.PK]: -1}
+    }
+}) %>

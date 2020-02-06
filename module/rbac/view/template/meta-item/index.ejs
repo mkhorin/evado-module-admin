@@ -1,0 +1,37 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Metadata permissions') %>
+<% block('tools', {template: _view.get('_part/tool/restartSecurity')}); %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'type',
+            escape: false,
+            searchable: true,
+            sortable: true
+        },{
+            name: 'actions',
+            searchable: true,
+            translate: 'rbac'
+        }, {
+            name: 'targets',
+            escape: false
+        },{
+            name: 'roles',
+            format: {
+                name: 'relation',
+                url: _url('item/update-role')
+            }
+        },{
+            name: 'description'
+        },{
+            name: 'rule',
+            format: {
+                name: 'relation',
+                url: _url('rule/update')
+            }
+        }],
+        filter: {}
+    }
+}) %>

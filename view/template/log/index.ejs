@@ -1,0 +1,33 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Logs') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'size',
+            sortable: true,
+            format: 'bytes'
+        },{
+            name: 'updatedAt',
+            sortable: true,
+            format: 'timestamp'
+        }],
+        data: items,
+        key: 'name',
+        order: {updatedAt: -1},
+        multiple: false,
+        list: null,
+        create: null,
+        update: null,
+        delete: null
+    },
+    tools: [{
+        template: _view.get('_part/tool/download'),
+        url: 'log/download'
+    }]
+}) %>

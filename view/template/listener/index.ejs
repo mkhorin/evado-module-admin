@@ -1,0 +1,22 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Listeners') %>
+<% block('tools', {template: _view.get('_part/tool/restartObserver')}) %>
+<% block('tools', {template: _view.get('_part/tool/trigger')}) %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'events',
+            searchable: true
+        },{
+            name: 'description',
+            searchable: true
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

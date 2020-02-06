@@ -1,0 +1,18 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Tables') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true,
+            sortable: true
+        }],
+        key: 'name',
+        order: {name: 1},
+        create: null,
+        delete: null,
+        multiple: false
+    }
+}) %>

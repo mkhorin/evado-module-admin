@@ -1,0 +1,75 @@
+
+<div class="indexes list-group-container overlay-wrapper">
+    <div class="overlay"><i class="fa fa-spinner fa-spin"></i></div>
+    <div class="controls">
+        <button data-id="create" type="button" class="btn btn-success btn-light" title="Create">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button data-id="delete" type="button" class="btn btn-white" title="Delete">
+            <span class="glyphicon glyphicon-trash text-danger"></span>
+        </button>
+    </div>
+    <div class="index-list list-group"></div>
+</div>
+
+<template data-id="index">
+    <button type="button" class="list-group-item">{{text}}</button>
+</template>
+
+<template data-id="modal">
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" data-t="">Create index</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal form">
+
+                        <input name="Indexing[table]" type="hidden" value="<%- model.get('name') %>">
+
+                        <div class="form-group required">
+                            <label for="create-index-keys" class="col-sm-2 control-label" data-t="">Keys</label>
+                            <div class="col-sm-10">
+                                <input name="Indexing[keys]" type="text" class="form-control" placeholder="key1: 1, key2: -1">
+                                <div class="error-block"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="create-index-name" class="col-sm-2 control-label" data-t="">Name</label>
+                            <div class="col-sm-10">
+                                <input name="Indexing[name]" type="text" class="form-control">
+                                <div class="error-block"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Indexing[unique]" type="checkbox">
+                                        <span data-t="">Unique</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Indexing[background]" type="checkbox">
+                                        <span data-t="">Background</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button data-command="save" type="button" class="btn btn-primary" data-t="">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-t="">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

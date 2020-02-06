@@ -1,0 +1,62 @@
+<% layout(_view.get(_layout)) %>
+<% block('tab', 'Permission') %>
+
+<%- include(_view.get('_part/attr/radioList'), {
+    attr: 'type',
+    items: types
+}) %>
+
+<%- include(_view.get('_part/attr/checkList'), {
+    attr: 'actions',
+    items: actions,
+    allValue: true,
+    translate: 'rbac'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'targets',
+    data: {
+        columns: [{
+            name: 'type',
+            translate: ''
+        },{
+            name: 'key',
+        }],
+        link: null,
+        unlink: null
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'roles',
+    data: {
+        columns: [{
+            name: 'name'
+        },{
+            name: 'label'
+        },{
+            name: 'description'
+        }],
+        order: {name: 1},
+        link: ['item/select', {list: _url('item/list-role')}],
+        delete: null
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'rule',
+    data: {
+        columns: [{
+            name: 'name'
+        },{
+            name: 'description'
+        },{
+            name: 'config'
+        }],
+        delete: null
+    }
+}) %>

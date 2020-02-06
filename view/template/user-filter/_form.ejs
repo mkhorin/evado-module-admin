@@ -1,0 +1,75 @@
+<% layout(_view.get(_layout)); %>
+<% block('tab', 'User filter'); %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
+}) %>
+
+<%- include(_view.get('_part/attr/json'), {
+    attr: 'config'
+}) %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'Access items',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'items',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'type',
+                    format: 'label'
+                },{
+                    name: 'name'
+                }, {
+                    name: 'label'
+                }, {
+                    name: 'rule'
+                }],
+                link: 'rbac/item/select',
+                create: null,
+                update: 'rbac/item/update',
+                delete: null
+            }
+        }
+    }, {
+        id: 'Included',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'includes',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'email'
+                }],
+                order: {name: 1},
+                create: null,
+                delete: null
+            }
+        }
+    }, {
+        id: 'Excluded',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'excludes',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'email'
+                }],
+                order: {name: 1},
+                create: null,
+                delete: null
+            }
+        }
+    }]
+}) %>

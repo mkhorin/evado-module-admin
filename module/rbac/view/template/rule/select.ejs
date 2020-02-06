@@ -1,0 +1,13 @@
+<% layout(_view.get('_layout/modal/select')) %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'name'
+        },{
+            name: 'description'
+        },{
+            name: 'config'
+        }]
+    }
+}) %>

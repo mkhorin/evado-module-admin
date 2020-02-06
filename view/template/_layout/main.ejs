@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <base href="<%- _baseUrl %>">
+
+    <title data-text="<%= blocks.title %>"><%- _module.getTitle() %></title>
+
+    <%- include(_view.get('_part/asset/style/defaults'), {skin: 'yellow'}) %>
+    <link rel="stylesheet" href="admin/style/module.css">
+    <%- include(_view.get('_part/asset/style/custom')) %>
+</head>
+<body class="hold-transition skin-yellow sidebar-mini" data-csrf="<%- _controller.getCsrfToken() %>">
+
+    <%- body %>
+
+    <%- include(_view.get('_part/other/modal')) %>
+    <%- include(_view.get('_part/other/dialog')) %>
+
+    <div class="global-loader overlay">
+        <span class="fa fa-spinner fa-spin"></span>
+    </div>
+
+    <%- include(_view.get('_part/asset/script/jam')) %>
+
+    <script src="admin/jam/element/Indexing.js"></script>
+    <script src="admin/jam/model/TableModel.js"></script>
+
+    <%- include(_view.get('_part/asset/script/messages')) %>
+    <%- include(_view.get('_part/asset/script/defaults')) %>
+    <%- include(_view.get('_part/asset/script/custom')) %>
+
+    <script src="script/init.js"></script>
+</body>
+</html>

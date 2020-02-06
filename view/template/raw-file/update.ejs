@@ -1,0 +1,49 @@
+<% layout(_view.get(_layout)) %>
+<% block('title', 'Raw file'); %>
+
+<%- include(_view.get('_part/attr/static'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'size',
+            format: 'bytes'
+        }
+    }, {
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'mime'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'createdAt',
+            format: 'timestamp'
+        }
+    }, {
+        template: _view.get('_part/attr/modelLink'),
+        params: {
+            attr: 'creator',
+            url: 'user/update'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/attr/static'), {
+    attr: 'owner'
+}) %>
+
+<%- include(_view.get('_part/attr/download'), {
+    attr: 'file',
+    label: 'Download',
+    downloadPath: _url('download'),
+    thumbnail: 'large',
+    thumbnailPath: _url('thumbnail')
+}) %>

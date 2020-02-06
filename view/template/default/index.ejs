@@ -1,0 +1,40 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Manage application') %>
+
+<div class="folder panel-default panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">Overview</h4>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li>Assign access rights</li>
+            <li>Control file upload</li>
+            <li>Create tasks</li>
+            <li>Manage users</li>
+            <li>Monitor logs</li>
+            <li>Optimize database</li>
+            <li>Send notifications</li>
+        </ul>
+    </div>
+</div>
+
+<div class="folder panel-default panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">Security</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            Security system is based on role-based access control (RBAC).
+        </p>
+        <p>
+            A special <a href="admin/rbac/meta-item">permission</a> type is defined for metadata.
+        </p>
+        <p>
+            <b>Guest</b> role is automatically assigned to unauthenticated users.
+        </p>
+        <p>
+            Restart security system for your changes to take effect.
+        </p>
+    </div>
+</div>

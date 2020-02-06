@@ -1,0 +1,39 @@
+<% block('title', 'Notice message') %>
+
+<% if (model.canSend()) { %>
+<% block('commands', {template: _view.get('notice-message/_toolSend')}); %>
+<% } %>
+
+<%- include('./_form') %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'sentAt',
+            format: 'timestamp'
+        }
+    }, {
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'createdAt',
+            format: 'timestamp'
+        }
+    }]
+}) %>
+
+<% if (model.isSent()) { %>
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'recipients',
+    data: {
+        columns: [{
+            name: 'read',
+            format: 'boolean'
+        },{
+            name: 'user'
+        }],
+        link: null,
+        unlink: null
+    }
+}) %>
+<% } %>

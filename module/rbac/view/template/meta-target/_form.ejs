@@ -1,0 +1,110 @@
+<% layout(_view.get(_layout)) %>
+<% block('tab', 'Target') %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'type',
+    items: types
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'class',
+    items: null,
+    displayValue: metaClass ? metaClass.getTitle(): null,
+    select2: {ajax: {url: 'api/document/meta/list-class-select'}},
+    actionBinder: {
+        show: {type: ['class', 'view', 'attr', 'object', 'state', 'transition']}
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'view',
+    items: null,
+    displayValue: view ? view.getTitle(): null,
+    select2: {pageSize: 0, ajax: {url: 'api/document/meta/list-view-select'}},
+    depends: [{attr: 'class'}],
+    actionBinder: {
+        show: {type: ['view', 'state', 'attr', 'object']},
+        enable: ['NOT EMPTY', 'class']
+    },
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'state',
+    items: null,
+    displayValue: state ? state.getTitle(): null,
+    select2: {ajax: {url: 'api/document/meta/list-state-select'}},
+    depends: [{attr: 'class'}],
+    actionBinder: {
+        show: {type: ['state', 'attr', 'object']},
+        enable: ['NOT EMPTY', 'class']
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'object',
+    items: null,
+    select2: {
+        ajax: {url: 'api/document/meta/list-object-select'},
+        placeholder: 'All',
+        translate: '',
+        minimumResultsForSearch: 2
+    },
+    depends: [{attr: 'class'}, {attr: 'view'}],
+    actionBinder: {
+        show: {type: ['attr', 'object', 'transition']},
+        enable: ['NOT EMPTY', 'class']
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'transition',
+    items: null,
+    displayValue: transition ? transition.getTitle(): null,
+    select2: {
+        ajax: {url: 'api/document/meta/list-transition-select'},
+        placeholder: 'All',
+        translate: '',
+    },
+    depends: [{attr: 'class'}],
+    actionBinder: {
+        show: {type: ['transition']},
+        enable: ['NOT EMPTY', 'class']
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'attr',
+    items: null,
+    displayValue: attr ? attr.getTitle(): null,
+    select2: {ajax: {url: 'api/document/meta/list-attr-select'}},
+    depends: [{attr: 'class'}, {attr: 'view'}],
+    actionBinder: {
+        show: {type: ['attr']},
+        enable: ['NOT EMPTY', 'class']
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'navSection',
+    items: null,
+    displayValue: navSection ? navSection.getTitle() : null,
+    select2: {ajax: {url: 'api/navigation/meta/list-section-select'}},
+    actionBinder: {
+        show: {type: ['navSection', 'navNode']}
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/select'), {
+    attr: 'navNode',
+    items: null,
+    displayValue: navNode ? navNode.getTitle(): null,
+    select2: {ajax: {url: 'api/navigation/meta/list-node-select'}},
+    depends: [{
+        attr: 'navSection',
+        param: 'section',
+    }],
+    actionBinder: {
+        show: {type: ['navNode']},
+        enable: ['NOT EMPTY', 'navSection']
+    }
+}) %>

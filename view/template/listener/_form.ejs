@@ -1,0 +1,74 @@
+<% layout(_view.get(_layout)) %>
+
+<%- include(_view.get('_part/attr/checkbox'), {
+    attr: 'active'
+}) %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'events',
+    hint: 'Separate with comma',
+    value: _view.ArrayHelper.join(model.get('events'))
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
+}) %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'Notices',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'notices',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'active',
+                    format: 'boolean'
+                }, {
+                    name: 'subject'
+                }, {
+                    name: 'text'
+                }, {
+                    name: 'types'
+                }],
+                delete: null
+            }
+        }
+    },{
+        id: 'Tasks',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'tasks',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'active',
+                    format: 'boolean'
+                }, {
+                    name: 'name'
+                }, {
+                    name: 'description'
+                }, {
+                    name: 'job'
+                }],
+                delete: null
+            }
+        }
+    },{
+        id: 'Handlers',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'handlers',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'config'
+                }],
+                delete: null
+            }
+        }
+    }]
+}) %>

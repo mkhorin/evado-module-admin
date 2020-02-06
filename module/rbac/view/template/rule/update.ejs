@@ -1,0 +1,42 @@
+<% block('title', 'Rule') %>
+
+<%- include('./_form') %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'Owners',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'items',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'description'
+                }],
+                create: null,
+                delete: null
+            }
+        }
+    }, {
+        id: 'Metadata permissions',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'metaItems',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'type'
+                }, {
+                    name: 'actions',
+                    translate: 'rbac'
+                }, {
+                    name: 'targets'
+                }],
+                create: null,
+                delete: null
+            }
+        }
+    }]
+}) %>

@@ -1,0 +1,30 @@
+<%- include(_view.get('_part/list/filter'), {
+    data: {
+        columns: [{
+            name: 'blocked',
+            type: 'boolean'
+        },{
+            name: 'createdAt',
+            type: 'date'
+        },{
+            name: 'email'
+        },{
+            name: 'expiredPassword',
+            type: 'boolean'
+        },{
+            name: 'name'
+        },{
+            name: 'roles', // user roles relation via assignments
+            type: 'selector',
+            items: roles,
+            relation: 'users' // role users relation via assignments
+        },{
+            name: 'updatedAt',
+            type: 'date'
+        },{
+            name: 'verified',
+            type: 'boolean'
+        }]
+    }
+}) %>
+

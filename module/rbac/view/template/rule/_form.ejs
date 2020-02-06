@@ -1,0 +1,14 @@
+<% layout(_view.get(_layout)) %>
+<% block('tab', 'Rule') %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/attr/json'), {
+    attr: 'config'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
+}) %>

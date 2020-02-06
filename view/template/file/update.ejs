@@ -1,0 +1,66 @@
+<% layout(_view.get(_layout)) %>
+
+<% block('title', 'File'); %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'size',
+            format: 'bytes'
+        }
+    }, {
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'mime'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'createdAt',
+            format: 'timestamp'
+        }
+    }, {
+        template: _view.get('_part/attr/modelLink'),
+        params: {
+            attr: 'creator',
+            url: 'user/update'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: _view.get('_part/attr/static'),
+        params: {
+            attr: 'updatedAt',
+            format: 'timestamp'
+        }
+    }, {
+        template: _view.get('_part/attr/modelLink'),
+        params: {
+            attr: 'editor',
+            url: 'user/update'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/attr/file'), {
+    attr: 'file',
+    required: false,
+    options: {}
+}) %>
+
+<%- include(_view.get('_part/attr/download'), {
+    attr: 'filename',
+    label: 'Download',
+    thumbnail: 'large'
+}) %>

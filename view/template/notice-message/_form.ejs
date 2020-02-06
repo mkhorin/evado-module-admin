@@ -1,0 +1,23 @@
+<% layout(_view.get(_layout)) %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'subject'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'text'
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'notice',
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'subject'
+        },{
+            name: 'text'
+        }]
+    }
+}) %>

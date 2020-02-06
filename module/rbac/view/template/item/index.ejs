@@ -1,0 +1,41 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Items'); %>
+<% block('tools', {template: _view.get('_part/tool/restartSecurity')}); %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'type',
+            format: {
+                name: 'select',
+                items: null
+            }
+        },{
+            name: 'description'
+        },{
+            name: 'name'
+        },{
+            name: 'children',
+            format: {
+                name: 'link',
+                url: _url('update')
+            }
+        },{
+            name: 'parents',
+            format: {
+                name: 'link',
+                url: _url('update')
+            },
+            escape: false
+        },{
+            name: 'rule',
+            format: {
+                name: 'relation',
+                url: _url('rule/update')
+            }
+        }],
+        order: {name: 1},
+        filter: {}
+    }
+}) %>

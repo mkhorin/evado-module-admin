@@ -1,0 +1,14 @@
+<% layout(_view.get('_layout/modal/select')) %>
+
+<% block('title', 'User filter') %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'name',
+            sortable: true,
+            searchable: true
+        }],
+        order: {[model.PK]: -1}
+    }
+}) %>

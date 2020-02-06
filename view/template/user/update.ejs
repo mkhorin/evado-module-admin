@@ -1,0 +1,108 @@
+<% block('title', 'User') %>
+<%
+const relationTemplate = _view.get('_part/attr/relation');
+const staticTemplate = _view.get('_part/attr/static');
+%>
+<%- include('./_form') %>
+
+<%- include(_view.get('_part/group/columns'), {
+    items: [{
+        template: staticTemplate,
+        params: {
+            attr: 'updatedAt',
+            format: 'timestamp'
+        }
+    }, {
+        template: staticTemplate,
+        params: {
+            attr: 'createdAt',
+            format: 'timestamp'
+        }
+    }]
+}) %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'Roles',
+        content: {
+            template: relationTemplate,
+            attr: 'roles',
+            css: 'no-label',
+            relRoute: 'rbac/item',
+            data: {
+                columns: [{
+                    name: 'name'
+                },{
+                    name: 'label'
+                },{
+                    name: 'description'
+                }],
+                order: {name: 1},
+                link: ['rbac/item/select', {list: _url('rbac/item/list-role')}],
+                create: null,
+                delete: null
+            }
+        }
+    }, {
+        id: 'Passwords',
+        content: {
+            template: relationTemplate,
+            attr: 'userPasswords',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'createdAt',
+                    format: 'timestamp'
+                },{
+                    name: 'hash'
+                }],
+                link: null,
+                unlink: null
+            }
+        }
+    }, {
+        id: 'Notifications',
+        content: {
+            template: relationTemplate,
+            attr: 'recipients',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'read',
+                    format: 'boolean'
+                },{
+                    name: 'message'
+                }],
+                link: null,
+                unlink: null
+            }
+        }
+    }, {
+        id: 'Logs',
+        content: {
+            template: relationTemplate,
+            attr: 'userLogs',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'event',
+                    searchable: true
+                },{
+                    name: 'time',
+                    format: 'timestamp'
+                },{
+                    name: 'ip',
+                    searchable: true
+                },{
+                    name: 'data'
+                }],
+                create: null,
+                update: null,
+                delete: null,
+                link: null,
+                unlink: null,
+                showTop: true
+            }
+        }
+    }]
+}) %>

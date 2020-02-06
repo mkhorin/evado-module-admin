@@ -1,0 +1,23 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Notices') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'subject',
+            searchable: true
+        },{
+            name: 'text',
+            searchable: true
+        },{
+            name: 'methods',
+            format: 'label'
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

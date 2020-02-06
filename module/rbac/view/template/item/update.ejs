@@ -1,0 +1,120 @@
+<% layout(_view.get(_layout)) %>
+<% block('title', model.getAttrValueLabel('type')) %>
+<%
+const relationTemplate = _view.get('_part/attr/relation');
+const stringTemplate = _view.get('_part/attr/string');
+%>
+<%- include(stringTemplate, {
+    attr: 'name'
+}) %>
+
+<%- include(stringTemplate, {
+    attr: 'label'
+}) %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'Main',
+        active: true,
+        content: [{
+            template: _view.get('_part/attr/text'),
+            attr: 'description'
+        }]
+    }, {
+        id: 'Hierarchy',
+        content: [{
+            template: relationTemplate,
+            attr: 'children',
+            extHint: 'Items contained in the current',
+            data: {
+                columns: [{
+                    name: 'type',
+                    format: 'label',
+                    sortable: true
+                },{
+                    name: 'name',
+                    sortable: true
+                },{
+                    name: 'label',
+                    sortable: true
+                }],
+                order: {name: 1},
+                link: ['select', {list: _url('list-free-children', model)}],
+                delete: null
+            }
+        }, {
+            template: relationTemplate,
+            attr: 'parents',
+            extHint: 'Items containing the current',
+            data: {
+                columns: [{
+                    name: 'type',
+                    format: 'label',
+                    sortable: true
+                },{
+                    name: 'name',
+                    sortable: true
+                },{
+                    name: 'label',
+                    sortable: true
+                }],
+                order: {name: 1},
+                link: ['select', {list: _url('list-free-parents', model)}],
+                delete: null
+            }
+        }]
+    }, {
+        id: 'Assignments',
+        content: [{
+            template: relationTemplate,
+            attr: 'users',
+            relRoute: '/admin/user',
+            data: {
+                columns: [{
+                    name: 'name',
+                    sortable: true
+                },{
+                    name: 'email',
+                    sortable: true
+                }],
+                order: {name: 1},
+                create: null,
+                delete: null
+            }
+        }, {
+            template: relationTemplate,
+            attr: 'assignmentRules',
+            extHint: 'Role will be assigned if at least one rule is allowed',
+            data: {
+                columns: [{
+                    name: 'name',
+                    sortable: true
+                },{
+                    name: 'description'
+                },{
+                    name: 'config'
+                }],
+                order: {name: 1},
+                delete: null
+            }
+        }]
+    }, {
+        id: 'Rule',
+        content: {
+            template: relationTemplate,
+            attr: 'rule',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name',
+                    sortable: true
+                }, {
+                    name: 'description'
+                }, {
+                    name: 'config'
+                }],
+                delete: null
+            }
+        }
+    }]
+}) %>

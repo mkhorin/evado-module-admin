@@ -1,0 +1,48 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Permissions'); %>
+<% block('tools', {template: _view.get('_part/tool/restartSecurity')}); %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'label',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'parentRoles',
+            label: 'Roles',
+            format: {
+                name: 'relation',
+                url: _url('update-role')
+            }
+        },{
+            name: 'children',
+            format: {
+                name: 'relation',
+                url: _url('update-permission')
+            }
+        },{
+            name: 'parentPermissions',
+            format: {
+                name: 'relation',
+                url: _url('update-permission')
+            }
+        },{
+            name: 'rule',
+            format: {
+                name: 'relation',
+                url: _url('rule/update')
+            }
+        }],
+        order: {name: 1},
+        filter: {},
+        list: 'list-permission',
+        create: 'create-permission',
+        update: 'update-permission'
+    }
+}) %>

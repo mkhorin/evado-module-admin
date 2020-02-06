@@ -1,0 +1,15 @@
+<% layout(_view.get('_layout/modal/select')) %>
+
+<% block('title', 'Event handler') %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true
+        },{
+            name: 'config'
+        }],
+        order: {[model.PK]: -1}
+    }
+}) %>

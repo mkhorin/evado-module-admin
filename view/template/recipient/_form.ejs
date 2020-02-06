@@ -1,0 +1,37 @@
+<% layout(_view.get(_layout)) %>
+
+<%- include(_view.get('_part/attr/checkbox'), {
+    attr: 'read'
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'message',
+    data: {
+        columns: [{
+            name: 'notice'
+        },{
+            name: 'subject'
+        }, {
+            name: 'createdAt'
+        }],
+        link: null,
+        unlink: null,
+        create: null,
+        delete: null
+    }
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'user',
+    data: {
+        columns: [{
+            name: 'name'
+        },{
+            name: 'email'
+        }],
+        link: null,
+        unlink: null,
+        create: null,
+        delete: null
+    }
+}) %>

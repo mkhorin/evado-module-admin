@@ -1,0 +1,32 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Users'); %>
+<% block('tools', {template: _view.get('_part/tool/restartSecurity')}); %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'blocked',
+            format: 'boolean'
+        },{
+            name: 'name',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'email',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'verified',
+            format: 'boolean'
+        },{
+            name: 'roles',
+            format: {
+                name: 'relation',
+                url: _url('rbac/item/update')
+            }
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

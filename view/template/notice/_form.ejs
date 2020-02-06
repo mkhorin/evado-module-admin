@@ -1,0 +1,78 @@
+<% layout(_view.get(_layout)) %>
+
+<%- include(_view.get('_part/attr/checkbox'), {
+    attr: 'active'
+}) %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'subject'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'text',
+    rows: 4
+}) %>
+
+<%- include(_view.get('_part/attr/checkList'), {
+    attr: 'methods',
+    items: _controller.getMapSelectItems(model.constructor.getAttrValueLabels('methods')),
+}) %>
+
+<%- include(_view.get('_part/attr/json'), {
+    attr: 'options'
+}) %>
+
+<%- include(_view.get('_part/group/tabs'), {
+    items: [{
+        id: 'User filters',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'userFilters',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'config'
+                }],
+                delete: null
+            }
+        }
+    }, {
+        id: 'Users',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'users',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'name'
+                }, {
+                    name: 'email'
+                }],
+                delete: null
+            }
+        }
+    }, {
+        id: 'Messages',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'noticeMessages',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'subject'
+                }, {
+                    name: 'text'
+                }, {
+                    name: 'sentAt'
+                }, {
+                    name: 'createdAt'
+                }],
+                link: null,
+                unlink: null,
+                create: null
+            }
+      }
+    }]
+}) %>

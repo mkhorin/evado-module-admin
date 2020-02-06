@@ -1,0 +1,24 @@
+<% layout(_view.get('_layout/modal/select')) %>
+
+<% block('title', 'Select') %>
+
+<%- nclude(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'read',
+            format: 'boolean'
+        },{
+            name: 'message',
+            format: {
+                name: 'relation',
+                url: _url('notice-message/update')
+            }
+        },{
+            name: 'user',
+            format: {
+                name: 'relation',
+                url: _url('user/update')
+            }
+        }]
+    }
+}) %>

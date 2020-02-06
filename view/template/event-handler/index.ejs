@@ -1,0 +1,17 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Event handlers') %>
+<% block('tools', {template: _view.get('_part/tool/restartObserver')}) %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true
+        },{
+            name: 'config'
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

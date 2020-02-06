@@ -1,0 +1,13 @@
+<% layout(_view.get('_layout/modal/form')) %>
+
+<% block('tab', 'Trigger') %>
+<% block('title', 'Trigger events') %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'events',
+    hint: 'Separate with comma'
+}) %>
+
+<%- include(_view.get('_part/attr/json'), {
+    attr: 'data'
+}) %>

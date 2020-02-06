@@ -1,0 +1,40 @@
+<% layout(_view.get('_layout/content')) %>
+
+<% block('title', 'Управление приложением') %>
+
+<div class="folder panel-default panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">Краткий обзор</h4>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li>Назначение прав доступа</li>
+            <li>Контроль загрузки файлов</li>
+            <li>Создание задач</li>
+            <li>Управление пользователями</li>
+            <li>Отслеживание логов</li>
+            <li>Оптимизация базы данных</li>
+            <li>Отправка уведомлений</li>
+        </ul>
+    </div>
+</div>
+
+<div class="folder panel-default panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">Безопасность</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            В основе системы безопасности лежит управление доступом на основе ролей (RBAC).
+        </p>
+        <p>
+            Для метаданных определен специальный тип <a href="admin/rbac/meta-item">разрешения</a>.
+        </p>
+        <p>
+            Роль <b>guest</b> автоматически назначается пользователям не прошедшим аутентификацию.
+        </p>
+        <p>
+            Перезапустите систему безопасности, чтобы изменения всупили в силу.
+        </p>
+    </div>
+</div>

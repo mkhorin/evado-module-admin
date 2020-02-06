@@ -1,0 +1,26 @@
+<%- include(_view.get('_part/list/filter'), {
+    data: {
+        columns: [{
+            name: 'createdAt',
+            type: 'date'
+        },{
+            name: 'creator',
+            type: 'id'
+        },{
+            name: 'editor',
+            type: 'id'
+        },{
+            name: 'file'
+        },{
+            name: 'mime'
+        },{
+            name: 'name'
+        },{
+            name: 'size',
+            type: 'number'
+        },{
+            name: 'updatedAt',
+            type: 'date'
+        }]
+    }
+}) %>

@@ -1,0 +1,19 @@
+<%- include(_view.get('_part/list/filter'), {
+    data: {
+        columns: [,{
+            name: 'createdAt',
+            type: 'date'
+        },{
+            name: 'notice',
+            type: 'id'
+        },{
+            name: 'sentAt',
+            type: 'date'
+        },{
+            name: 'subject'
+        },{
+            name: 'text'
+        }]
+    }
+}) %>
+

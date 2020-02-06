@@ -1,0 +1,33 @@
+<% layout(_view.get(_layout)) %>
+
+<% block('title', 'Create item') %>
+
+<%- include(_view.get('_part/attr/radioList'), {
+    attr: 'type',
+    items: 'labels'
+}) %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'label'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
+}) %>
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'rule',
+    data: {
+        columns: [{
+            name: 'name'
+        },{
+            name: 'model'
+        },{
+            name: 'params'
+        }]
+    }
+}) %>

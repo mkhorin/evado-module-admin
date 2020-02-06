@@ -1,0 +1,38 @@
+<%- include(_view.get('_part/list/filter'), {
+    data: {
+        columns: [{
+            name: 'type',
+            type: 'selector',
+            items: types
+        },{
+            name: 'actions',
+            type: 'selector',
+            items: actions,
+            translate: 'rbac'
+        },{
+            name: 'description'
+        },{
+            name: 'roles',
+            type: 'selector',
+            valueType: 'id',
+            items: roles
+        },{
+            name: 'targets',
+            type: 'selector',
+            columns: [{
+                name: 'type',
+                type: 'selector',
+                items: targetTypes
+            }]
+        },{
+            name: 'rule',
+            type: 'selector',
+            url: _url('rule/list-select'),
+            columns: [{
+                name: 'name'
+            },{
+                name: 'description'
+            }]
+        }]
+    }
+}) %>
