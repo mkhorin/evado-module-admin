@@ -11,8 +11,8 @@ module.exports = class MetaItemForm extends Base {
         const model = this.data.model;
         const rbac = model.getRbac();
         return {
-            types: this.controller.getMapSelectItems(rbac.VALUE_LABELS.types),
-            actions: this.controller.getMapSelectItems(rbac.VALUE_LABELS.actions)
+            types: rbac.VALUE_LABELS.types,
+            actions: rbac.VALUE_LABELS.actions
         };
     }
 };

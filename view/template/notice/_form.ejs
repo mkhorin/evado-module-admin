@@ -15,7 +15,7 @@
 
 <%- include(_view.get('_part/attr/checkList'), {
     attr: 'methods',
-    items: _controller.getMapSelectItems(model.constructor.getAttrValueLabels('methods')),
+    items: model.constructor.getAttrValueLabels('methods'),
 }) %>
 
 <%- include(_view.get('_part/attr/json'), {
