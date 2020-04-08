@@ -10,21 +10,25 @@ module.exports = class MetaItemList extends Base {
     prepareModels (models) {
         const rbac = this.module.getRbac();
         const actionMap = rbac.VALUE_LABELS.actions;
-        const targetTypeMap = rbac.VALUE_LABELS.targets;
-        const formatter = this.controller.formatter;
+        const targetMap = rbac.VALUE_LABELS.targets;
         for (const model of models) {
-            model.setViewAttr('type', formatter.asPermissionType(model.get('type')));
-
-            let actions = model.get('actions');
-            actions = Array.isArray(actions) ? actions.map(key => actionMap[key]) : actions;
-            model.setViewAttr('actions', actions);
-
-            let targets = [];
-            for (const target of model.rel('targets')) {
-                const type = formatter.asTranslatable(targetTypeMap[target.get('type')]);
-                targets.push(`${type} (${target.getTargetKey()})`);
-            }
-            model.setViewAttr('targets', targets);
+            model.setViewAttr('type', this.controller.formatter.asPermissionType(model.get('type')));
+            model.setViewAttr('actions', this.getActions(model, actionMap));
+            model.setViewAttr('targets', this.getTargets(model, targetMap));
         }
+    }
+
+    getActions (model, actionMap) {
+        const actions = model.get('actions');
+        return Array.isArray(actions) ? actions.map(key => actionMap[key]) : actions;
+    }
+
+    getTargets (model, targetMap) {
+        const targets = [];
+        for (const target of model.rel('targets')) {
+            const type = this.controller.formatter.asTranslatable(targetMap[target.get('type')]);
+            targets.push(`${type} (${target.getTargetKey()})`);
+        }
+        return targets;
     }
 };
