@@ -3,11 +3,14 @@
 <%- include(_view.get('_part/list/select'), {
     data: {
         columns: [{
-            name: 'name'
-        },{
-            name: 'description'
+            name: 'name',
+            sortable: true,
+            searchable: true
         },{
             name: 'config'
-        }]
+        },{
+            name: 'description'
+        }],
+        order: {name: 1}
     }
 }) %>

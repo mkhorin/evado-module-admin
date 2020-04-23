@@ -7,9 +7,7 @@
     data: {
         columns: [{
             name: 'name',
-            searchable: true
-        },{
-            name: 'description',
+            sortable: true,
             searchable: true
         },{
             name: 'config'
@@ -19,7 +17,10 @@
                 name: 'link',
                 url: _url('item/update')
             }
+        },{
+            name: 'description'
         }],
+        order: {name: 1},
         filter: {}
     }
 }) %>

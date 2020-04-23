@@ -31,7 +31,7 @@ Object.assign(Jam.I18n.defaults, {
     'Child items': 'Дочерние элементы',
     'Child permissions': 'Дочерние разрешения',
     'Child roles': 'Дочерние роли',
-    'Children': 'Дети',
+    'Children': 'Наследники',
     'Class': 'Класс',
     'Close': 'Закрыть',
     'Configuration': 'Конфигурация',

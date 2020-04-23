@@ -49,7 +49,7 @@ module.exports = class MetaTarget extends Base {
 
     validateItem (attr) {
         if (!this.get(attr)) {
-            this.addError(attr, new Message('Value cannot be blank', I18n.CORE_SOURCE));
+            this.addError(attr, new Message('Value cannot be blank', null, I18n.CORE_SOURCE));
         }
     }
 

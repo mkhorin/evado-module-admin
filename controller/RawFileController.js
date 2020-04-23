@@ -44,24 +44,31 @@ module.exports = class RawFileController extends Base {
 
     async actionDownload () {
         const model = await this.getModel();
-        const file = model.getPath();
-        const stat = await FileHelper.getStat(file);
-        if (!stat) {
-            model.log('error', 'File not found');
-            return this.sendStatus(404);
-        }
-        this.setHttpHeader(model.getFileHeaders());
-        this.sendFile(file);
+        this.sendModelFile(model);
     }
 
     async actionThumbnail () {
         const model = await this.getModel();
+        if (model.isSvg()) {
+            return this.sendModelFile(model);
+        }
         const file = await model.ensureThumbnail(this.getQueryParam('s'));
         if (!file) {
             return this.sendStatus(404);
         }
         this.setHttpHeader(model.getThumbnailHeaders());
         this.sendFile(file);
+    }
+
+    async sendModelFile (model) {
+        const file = model.getPath();
+        const stat = await FileHelper.getStat(file);
+        if (stat) {
+            this.setHttpHeader(model.getFileHeaders());
+            return this.sendFile(file);
+        }
+        model.log('error', 'File not found');
+        return this.sendStatus(404);
     }
 };
 module.exports.init(module);

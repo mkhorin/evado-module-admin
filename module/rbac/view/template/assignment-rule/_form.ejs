@@ -5,12 +5,12 @@
     attr: 'name'
 }) %>
 
-<%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
-}) %>
-
 <%- include(_view.get('_part/attr/json'), {
     attr: 'config'
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
 }) %>
 
 <%- include(_view.get('_part/attr/relation'), {
