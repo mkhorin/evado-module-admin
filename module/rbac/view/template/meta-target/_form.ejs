@@ -10,7 +10,7 @@
     attr: 'class',
     items: null,
     displayValue: metaClass ? metaClass.getTitle(): null,
-    select2: {ajax: {url: 'api/document/meta/list-class-select'}},
+    select2: {ajax: {url: 'api/base/meta/list-class-select'}},
     actionBinder: {
         show: {type: ['class', 'view', 'attr', 'object', 'state', 'transition']}
     }
@@ -20,7 +20,7 @@
     attr: 'view',
     items: null,
     displayValue: view ? view.getTitle(): null,
-    select2: {pageSize: 0, ajax: {url: 'api/document/meta/list-view-select'}},
+    select2: {pageSize: 0, ajax: {url: 'api/base/meta/list-view-select'}},
     depends: [{attr: 'class'}],
     actionBinder: {
         show: {type: ['view', 'state', 'attr', 'object']},
@@ -32,7 +32,7 @@
     attr: 'state',
     items: null,
     displayValue: state ? state.getTitle(): null,
-    select2: {ajax: {url: 'api/document/meta/list-state-select'}},
+    select2: {ajax: {url: 'api/base/meta/list-state-select'}},
     depends: [{attr: 'class'}],
     actionBinder: {
         show: {type: ['state', 'attr', 'object']},
@@ -44,7 +44,7 @@
     attr: 'object',
     items: null,
     select2: {
-        ajax: {url: 'api/document/data/list-select'},
+        ajax: {url: 'api/base/data/list-select'},
         placeholder: 'All',
         translate: '',
         minimumResultsForSearch: 2
@@ -61,7 +61,7 @@
     items: null,
     displayValue: transition ? transition.getTitle(): null,
     select2: {
-        ajax: {url: 'api/document/meta/list-transition-select'},
+        ajax: {url: 'api/base/meta/list-transition-select'},
         placeholder: 'All',
         translate: '',
     },
@@ -76,7 +76,7 @@
     attr: 'attr',
     items: null,
     displayValue: attr ? attr.getTitle(): null,
-    select2: {ajax: {url: 'api/document/meta/list-attr-select'}},
+    select2: {ajax: {url: 'api/base/meta/list-attr-select'}},
     depends: [{attr: 'class'}, {attr: 'view'}],
     actionBinder: {
         show: {type: ['attr']},

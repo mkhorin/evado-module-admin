@@ -10,7 +10,7 @@ module.exports = class MetaTargetForm extends Base {
     resolveTemplateData () {
         const model = this.data.model;
         const rbac = model.getRbac();
-        const metaClass = rbac.docMeta.getClass(model.get('class'));
+        const metaClass = rbac.baseMeta.getClass(model.get('class'));
         const navSection = rbac.navMeta.getSection(model.get('navSection'));
         return {
             types: this.controller.getMapSelectItems(rbac.VALUE_LABELS.targets),
