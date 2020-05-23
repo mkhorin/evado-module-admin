@@ -33,7 +33,7 @@ module.exports = class RawFileController extends Base {
     async actionDelete () {
         const model = await this.getModel();
         if (model.getOwner()) {
-            throw new BadRequest('File has owner');
+            throw new BadRequest('This file has an owner. Remove it before');
         }
         await model.delete();
         this.sendText(model.getId());
