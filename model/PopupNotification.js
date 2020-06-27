@@ -3,9 +3,9 @@
  */
 'use strict';
 
-const Base = require('evado/component/notifier/Recipient');
+const Base = require('evado/component/notifier/PopupNotification');
 
-module.exports = class Recipient extends Base {
+module.exports = class PopupNotification extends Base {
 
     static getConstants () {
         return {

@@ -22,7 +22,7 @@ module.exports = class User extends Base {
                 'filterIncludes',
                 'filterExcludes',
                 'notices',
-                'recipients',
+                'popupNotifications',
                 'userLogs',
                 'userPasswords'
             ],
@@ -66,8 +66,8 @@ module.exports = class User extends Base {
         return this.hasMany(Class, 'users', this.PK).viaArray();
     }
 
-    relRecipients () {
-        const Class = this.getClass('model/Recipient');
+    relPopupNotifications () {
+        const Class = this.getClass('model/PopupNotification');
         return this.hasMany(Class, 'user', this.PK).deleteOnUnlink();
     }
 

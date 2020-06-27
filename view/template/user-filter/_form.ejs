@@ -15,7 +15,7 @@
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Access items',
+        id: 'Assignments',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'items',
@@ -38,7 +38,7 @@
             }
         }
     }, {
-        id: 'Included',
+        id: 'Included users',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'includes',
@@ -55,7 +55,7 @@
             }
         }
     }, {
-        id: 'Excluded',
+        id: 'Excluded users',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'excludes',

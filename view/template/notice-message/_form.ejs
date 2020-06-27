@@ -8,12 +8,18 @@
     attr: 'text'
 }) %>
 
+<%- include(_view.get('_part/attr/json'), {
+    attr: 'data'
+}) %>
+
 <%- include(_view.get('_part/attr/relation'), {
     attr: 'notice',
     data: {
         columns: [{
             name: 'active',
             format: 'boolean'
+        },{
+            name: 'name'
         },{
             name: 'subject'
         },{

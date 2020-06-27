@@ -11,20 +11,20 @@ module.exports = class NoticeController extends Base {
         return this.getClass('model/Notice');
     }
 
-    async actionExecute () {
+    async actionCreateMessage () {
         const notice = await this.getModel();
         const model = this.spawn('model/Data');
         if (this.isGet()) {
-            return this.render('execute', {model});
+            return this.render('createMessage', {model});
         }
         if (!await model.load(this.getPostParams()).validate()) {
             return this.handleModelError(model);
         }
-        await notice.execute(model.get('data'));
+        await notice.createMessage(model.getData());
         if (notice.hasError()) {
             return this.handleModelError(notice);
         }
-        this.sendText('Notification executed');
+        this.sendText('Notice message created');
     }
 };
 module.exports.init(module);

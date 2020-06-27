@@ -9,19 +9,20 @@ module.exports = class Notice extends Base {
 
     static getConstants () {
         return {
-            RULES: [
-                [['subject', 'text', 'methods'], 'required'],
+            RULES: this.RULES.concat([
                 ['active', 'checkbox'],
                 ['methods', 'filter', {filter: 'split'}],
-                [['users', 'userFilters', 'noticeMessages'], 'relation'],
-                ['options', 'json']
-            ],
+                [['users', 'userFilters', 'noticeMessages'], 'relation']
+            ]),
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
+            ATTR_LABELS: {
+                'name': 'Code name'
+            },
             ATTR_VALUE_LABELS: {
                 'methods': {
-                    message: 'Message',
+                    popup: 'Popup',
                     email: 'Email'
                 }
             }

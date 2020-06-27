@@ -9,14 +9,9 @@ module.exports = class UserFilter extends Base {
 
     static getConstants () {
         return {
-            RULES: [
-                ['name', 'required'],
-                [['name', 'description'], 'string'],
-                ['name', 'regex', {pattern: /^[0-9a-zA-Z-]+$/}],
-                ['name', 'unique'],
-                [['items', 'includes', 'excludes'], 'relation'],
-                ['config', 'spawn']
-            ],
+            RULES: this.RULES.concat([
+                [['items', 'includes', 'excludes'], 'relation']
+            ]),
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
@@ -24,9 +19,10 @@ module.exports = class UserFilter extends Base {
                 'notices'
             ],
             ATTR_LABELS: {
+                'name': 'Code name',
                 'includes': 'Included users',
                 'excludes': 'Excluded users',
-                'config': 'Configuration'
+                'config': 'Spawn configuration'
             }
         };
     }

@@ -5,6 +5,10 @@
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
+    attr: 'name'
+}) %>
+
+<%- include(_view.get('_part/attr/string'), {
     attr: 'subject'
 }) %>
 
@@ -24,6 +28,29 @@
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
+        id: 'Messages',
+        content: {
+            template: _view.get('_part/attr/relation'),
+            attr: 'noticeMessages',
+            css: 'no-label',
+            data: {
+                columns: [{
+                    name: 'subject'
+                }, {
+                    name: 'text'
+                }, {
+                    name: 'sentAt',
+                    format: 'timestamp'
+                }, {
+                    name: 'createdAt',
+                    format: 'timestamp'
+                }],
+                link: null,
+                unlink: null,
+                create: null
+            }
+        }
+    }, {
         id: 'User filters',
         content: {
             template: _view.get('_part/attr/relation'),
@@ -53,26 +80,5 @@
                 delete: null
             }
         }
-    }, {
-        id: 'Messages',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'noticeMessages',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'subject'
-                }, {
-                    name: 'text'
-                }, {
-                    name: 'sentAt'
-                }, {
-                    name: 'createdAt'
-                }],
-                link: null,
-                unlink: null,
-                create: null
-            }
-      }
     }]
 }) %>

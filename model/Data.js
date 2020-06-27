@@ -14,5 +14,11 @@ module.exports = class Data extends Base {
             ]
         };
     }
+
+    getData () {
+        return CommonHelper.parseJson(this.get('data'));
+    }
 };
 module.exports.init(module);
+
+const CommonHelper = require('areto/helper/CommonHelper');

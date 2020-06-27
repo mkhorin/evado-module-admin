@@ -13,10 +13,6 @@
     translate: 'rbac'
 }) %>
 
-<%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
-}) %>
-
 <%- include(_view.get('_part/attr/relation'), {
     attr: 'targets',
     data: {
@@ -59,4 +55,8 @@
         }],
         delete: null
     }
+}) %>
+
+<%- include(_view.get('_part/attr/text'), {
+    attr: 'description'
 }) %>

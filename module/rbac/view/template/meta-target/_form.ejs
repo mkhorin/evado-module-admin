@@ -19,7 +19,7 @@
 <%- include(_view.get('_part/attr/select'), {
     attr: 'view',
     items: null,
-    displayValue: view ? view.getTitle(): null,
+    displayValue: view ? `${view.label} (${view.name})`: null,
     select2: {pageSize: 0, ajax: {url: 'api/base/meta/list-view-select'}},
     depends: [{attr: 'class'}],
     actionBinder: {

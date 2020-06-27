@@ -21,5 +21,12 @@ module.exports = class NoticeMessageController extends Base {
     actionList () {
         return super.actionList(this.createModel().find().with('notice'));
     }
+
+    actionListRelated (params = {}) {
+        switch (this.getQueryParam('rel')) {
+            case 'popupNotifications': params.with = 'user'; break;
+        }
+        return super.actionListRelated(params);
+    }
 };
 module.exports.init(module);

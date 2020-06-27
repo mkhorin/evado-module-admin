@@ -13,7 +13,7 @@ module.exports = {
     'model/Log': require('../model/Log'),
     'model/Notice': require('../model/Notice'),
     'model/NoticeMessage': require('../model/NoticeMessage'),
-    'model/Recipient': require('../model/Recipient'),
+    'model/PopupNotification': require('../model/PopupNotification'),
     'model/Table': require('../model/Table'),
     'model/Task': require('../model/Task'),
     'model/Trigger': require('../model/Trigger'),

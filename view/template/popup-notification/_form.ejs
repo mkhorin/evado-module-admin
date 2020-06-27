@@ -8,7 +8,11 @@
     attr: 'message',
     data: {
         columns: [{
-            name: 'notice'
+            name: 'notice',
+            format: {
+                name: 'relation',
+                url: _url('notice/update')
+            }
         },{
             name: 'subject'
         }, {

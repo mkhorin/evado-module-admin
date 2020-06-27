@@ -44,7 +44,7 @@ module.exports = class RawFileController extends Base {
 
     async actionDownload () {
         const model = await this.getModel();
-        this.sendModelFile(model);
+        await this.sendModelFile(model);
     }
 
     async actionThumbnail () {
@@ -68,7 +68,7 @@ module.exports = class RawFileController extends Base {
             return this.sendFile(file);
         }
         model.log('error', 'File not found');
-        return this.sendStatus(404);
+        this.sendStatus(404);
     }
 };
 module.exports.init(module);
