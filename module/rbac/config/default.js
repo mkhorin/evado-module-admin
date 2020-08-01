@@ -4,6 +4,9 @@
 'use strict';
 
 module.exports = {
+
+    title: 'RBAC',
+
     components: {
         'formatter': {
             Class: require('../component/Formatter')

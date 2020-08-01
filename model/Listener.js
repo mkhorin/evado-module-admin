@@ -9,21 +9,11 @@ module.exports = class Listener extends Base {
 
     static getConstants () {
         return {
-            ATTRS: [
-                'active',
-                'events',
-                'description',
-                'handlers',
-                'notices',
-                'tasks'
-            ],
-            RULES: [
-                ['events', 'required'],
+            RULES: super.RULES.concat([
                 ['active', 'checkbox'],
-                [['events', 'description'], 'string'],
-                ['events', 'filter', {filter: 'split'}],
+                ['description', 'string'],
                 [['notices', 'handlers', 'tasks'], 'relation']
-            ],
+            ]),
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             }

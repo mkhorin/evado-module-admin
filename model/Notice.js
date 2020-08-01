@@ -9,7 +9,7 @@ module.exports = class Notice extends Base {
 
     static getConstants () {
         return {
-            RULES: this.RULES.concat([
+            RULES: super.RULES.concat([
                 ['active', 'checkbox'],
                 ['methods', 'filter', {filter: 'split'}],
                 [['users', 'userFilters', 'noticeMessages'], 'relation']
@@ -31,7 +31,7 @@ module.exports = class Notice extends Base {
 
     relNoticeMessages () {
         const Class = this.getClass('model/NoticeMessage');
-        return this.hasMany(Class, 'notice', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'notice', this.PK);
     }
 
     relUserFilters () {

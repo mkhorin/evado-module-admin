@@ -37,4 +37,4 @@ module.exports.init(module);
 
 const path = require('path');
 const FileHelper = require('areto/helper/FileHelper');
-const NotFound = require('areto/error/NotFoundHttpException');
+const NotFound = require('areto/error/http/NotFound');

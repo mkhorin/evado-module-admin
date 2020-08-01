@@ -17,14 +17,16 @@ module.exports = class User extends Base {
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
-            UNLINK_ON_DELETE: [
+            DELETE_ON_UNLINK: [
                 'assignments',
-                'filterIncludes',
-                'filterExcludes',
-                'notices',
                 'popupNotifications',
                 'userLogs',
                 'userPasswords'
+            ],
+            UNLINK_ON_DELETE: [
+                'filterIncludes',
+                'filterExcludes',
+                'notices'
             ],
         };
     }
@@ -43,7 +45,7 @@ module.exports = class User extends Base {
 
     relAssignments () {
         const Class = this.getClass('rbac/model/Assignment');
-        return this.hasMany(Class, 'user', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'user', this.PK);
     }
 
     relRoles () {
@@ -68,17 +70,17 @@ module.exports = class User extends Base {
 
     relPopupNotifications () {
         const Class = this.getClass('model/PopupNotification');
-        return this.hasMany(Class, 'user', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'user', this.PK);
     }
 
     relUserLogs () {
         const Class = this.getClass('model/UserLog');
-        return this.hasMany(Class, 'user', this.PK).order({[Class.PK]: -1}).deleteOnUnlink();
+        return this.hasMany(Class, 'user', this.PK).order({[Class.PK]: -1});
     }
 
     relUserPasswords () {
         const Class = this.getClass('model/UserPassword');
-        return this.hasMany(Class, 'user', this.PK).order({[Class.PK]: -1}).deleteOnUnlink();
+        return this.hasMany(Class, 'user', this.PK).order({[Class.PK]: -1});
     }
 };
 module.exports.init(module);

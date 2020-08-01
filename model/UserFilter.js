@@ -9,7 +9,7 @@ module.exports = class UserFilter extends Base {
 
     static getConstants () {
         return {
-            RULES: this.RULES.concat([
+            RULES: super.RULES.concat([
                 [['items', 'includes', 'excludes'], 'relation']
             ]),
             BEHAVIORS: {

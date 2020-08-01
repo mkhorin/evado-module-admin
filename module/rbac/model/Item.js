@@ -28,11 +28,13 @@ module.exports = class Item extends Base {
                 [['description', 'label'], 'string'],
                 [['childPermissions', 'childRoles', 'parentRoles', 'rule', 'users', 'assignmentRules'], 'relation']
             ],
-            UNLINK_ON_DELETE: [
+            DELETE_ON_UNLINK: [
                 'assignments',
                 'childItems',
-                'metaItems',
                 'parentItems'
+            ],
+            UNLINK_ON_DELETE: [
+                'metaItems'
             ],
             QUERY_CLASS: require('../query/ItemQuery'),
             TYPE_PERMISSION: 'permission',
@@ -68,7 +70,7 @@ module.exports = class Item extends Base {
 
     relAssignments () {
         const Class = this.getClass('model/Assignment');
-        return this.hasMany(Class, 'item', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'item', this.PK);
     }
 
     relAssignmentRules () {
@@ -78,7 +80,7 @@ module.exports = class Item extends Base {
 
     relChildItems () {
         const Class = this.getClass('model/ItemChild');
-        return this.hasMany(Class, 'parent', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'parent', this.PK);
     }
 
     relChildren () {
@@ -100,7 +102,7 @@ module.exports = class Item extends Base {
 
     relParentItems () {
         const Class = this.getClass('model/ItemChild');
-        return this.hasMany(Class, 'child', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'child', this.PK);
     }
 
     relParents () {

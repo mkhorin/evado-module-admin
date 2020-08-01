@@ -13,7 +13,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
         this.$commands = this.$element.find('[data-command]');
         this.findCommand('create').click(this.onCreate.bind(this));
-        this.findCommand('remove').click(this.onRemove.bind(this));
+        this.findCommand('delete').click(this.onDelete.bind(this));
 
         this.$list = this.$element.find('.index-list');
         this.$list.html(this.renderItems(this.params.indexes));
@@ -28,7 +28,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     findCommand (name) {
-        return this.$commands.find(`[data-command="${name}"]`);
+        return this.$commands.filter(`[data-command="${name}"]`);
     }
 
     getSelectedItems () {
@@ -47,30 +47,30 @@ Jam.Indexing = class Indexing extends Jam.Element {
         this.$modal.modal();
     }
 
-    onRemove () {
+    onDelete () {
         const $items = this.getSelectedItems();
         if ($items.length === 1) {
-            Jam.dialog.confirmRemove().then(this.remove.bind(this, $items));
+            Jam.dialog.confirmDeletion('Delete this index permanently?')
+                .then(this.delete.bind(this, $items));
         }
     }
 
-    remove ($item) {
+    delete ($item) {
         Jam.toggleGlobalLoader(true);
         const data = {
             table: this.table,
             name: this.getItemData($item).name
         };
-        this.post(this.params.remove, data).done(()=> {
+        this.post(this.params.delete, data).done(()=> {
             $item.remove();
         }).fail(({responseText}) => {
-            this.notice.danger(this.getModelError(responseText, 'Remove failed'));
+            this.notice.danger(this.getModelError(responseText, 'Deletion failed'));
         });
     }
 
     post (url, data) {
         Jam.toggleGlobalLoader(true);
-        return Jam.Helper.post(this.$element, url, data)
-            .always(()=> Jam.toggleGlobalLoader(false));
+        return Jam.Helper.post(url, data).always(()=> Jam.toggleGlobalLoader(false));
     }
 
     onClickIndex (event) {
@@ -83,10 +83,9 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     renderItem (data) {
+        const text = JSON.stringify(data);
         const template = Jam.Helper.getTemplate('index', this.$element);
-        return Jam.Helper.resolveTemplate(template, {
-            text: JSON.stringify(data)
-        });
+        return Jam.Helper.resolveTemplate(template, {text});
     }
 
     getItemData ($item) {
@@ -102,7 +101,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     onSave () {
         this.modalNotice.hide();
-        Jam.Helper.post(this.$form, this.params.create, this.$form.serialize()).done(data => {
+        Jam.Helper.post(this.params.create, this.$form.serialize()).done(data => {
             this.$list.html(this.renderItems(data));
             this.$modal.modal('hide');
         }).fail(({responseText}) => {
@@ -112,7 +111,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     getModelError (data, defaults) {
         let message = Jam.Helper.parseJson(data);
-        if (message) {
+        if (message && typeof message === 'object') {
             message = this.formatErrorData(message);
         }
         return message || data || defaults;

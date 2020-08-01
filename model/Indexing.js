@@ -54,36 +54,45 @@ module.exports = class Indexing extends Base {
 
     async create () {
         if (await this.validate()) {
-            await this.getDb().createIndex(this.get('table'), this.getCreateData());
-            return true;
+            const handler = () => this.getDb().createIndex(this.get('table'), this.getCreateData());
+            return this.catchError(handler);
         }
     }
 
     getCreateData () {
-        return [
-            this.get('keys'),
-            {
-                name: this.get('name') || undefined,
-                unique: this.get('unique') || undefined,
-                background: this.get('background') || undefined
-            }
-        ];
+        const data = {
+            name: this.get('name') || undefined,
+            unique: this.get('unique') || undefined,
+            background: this.get('background') || undefined
+        };
+        ObjectHelper.deleteEmptyProperties(data);
+        return [this.get('keys'), data];
     }
 
     async delete () {
         if (await this.validate()) {
-            await this.getDb().dropIndex(this.get('table'), this.get('name'));
-            return true;
+            const handler = () => this.getDb().dropIndex(this.get('table'), this.get('name'));
+            return this.catchError(handler);
         }
     }
 
     async reindex () {
         if (await this.validate()) {
-            await this.getDb().reindex(this.get('table'));
-            return true;
+            return this.catchError(() => this.getDb().reindex(this.get('table')));
         }
     }
+
+    async catchError (handler) {
+        try {
+            await handler();
+            return true;
+        } catch (err) {
+            this.addError('table', String(err));
+        }
+    }
+
 };
 module.exports.init(module);
 
+const ObjectHelper = require('areto/helper/ObjectHelper');
 const StringHelper = require('areto/helper/StringHelper');

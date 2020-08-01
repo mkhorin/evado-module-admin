@@ -7,11 +7,11 @@ const Base = require('../component/base/CrudController');
 
 module.exports = class RuleController extends Base {
 
-    actionListRelated (params = {}) {
-        switch (this.getQueryParam('rel')) {
-            case 'metaItems': params.with = ['targets']; break;
+    getListRelatedWith (relation) {
+        switch (relation) {
+            case 'metaItems':
+                return 'targets';
         }
-        return super.actionListRelated(params);
     }
 };
 module.exports.init(module);

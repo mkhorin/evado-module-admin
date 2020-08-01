@@ -33,7 +33,7 @@ module.exports = class RawFileController extends Base {
     async actionDelete () {
         const model = await this.getModel();
         if (model.getOwner()) {
-            throw new BadRequest('This file has an owner. Remove it before');
+            throw new BadRequest('This file has an owner. Remove it first');
         }
         await model.delete();
         this.sendText(model.getId());
@@ -73,5 +73,5 @@ module.exports = class RawFileController extends Base {
 };
 module.exports.init(module);
 
-const BadRequest = require('areto/error/BadRequestHttpException');
+const BadRequest = require('areto/error/http/BadRequest');
 const FileHelper = require('areto/helper/FileHelper');

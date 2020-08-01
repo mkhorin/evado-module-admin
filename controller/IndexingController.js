@@ -22,6 +22,7 @@ module.exports = class IndexingController extends Base {
     }
 
     async actionCreate () {
+        this.checkCsrfToken();
         const model = this.createModel();
         model.scenario = 'create';
         model.load(this.getPostParams());
@@ -31,6 +32,7 @@ module.exports = class IndexingController extends Base {
     }
 
     async actionDelete () {
+        this.checkCsrfToken();
         const model = this.createModel();
         model.scenario = 'delete';
         model.set('table', this.getPostParam('table'));
@@ -41,6 +43,7 @@ module.exports = class IndexingController extends Base {
     }
 
     async actionReindex () {
+        this.checkCsrfToken();
         const model = this.createModel();
         model.scenario = 'reindex';
         model.set('table', this.getPostParam('table'));

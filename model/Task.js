@@ -9,8 +9,9 @@ module.exports = class Task extends Base {
 
     static getConstants () {
         return {
-            RULES: this.RULES.concat([
-            ])
+            ATTR_LABELS: {
+                'name': 'Code name'
+            }
         };
     }
 

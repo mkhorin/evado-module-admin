@@ -26,7 +26,7 @@ module.exports = class MetaItem extends Base {
                 ['description', 'string'],
                 [['roles', 'rule', 'targets'], 'relation']
             ],
-            UNLINK_ON_DELETE: [
+            DELETE_ON_UNLINK: [
                 'targets'
             ]
         };
@@ -59,7 +59,7 @@ module.exports = class MetaItem extends Base {
     }
 
     relTargets (Class = MetaTarget) {
-        return this.hasMany(Class, 'item', Class.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'item', Class.PK);
     }
 };
 module.exports.init(module);

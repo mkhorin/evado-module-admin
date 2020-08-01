@@ -9,7 +9,7 @@ module.exports = class NoticeMessage extends Base {
 
     static getConstants () {
         return {
-            RULES: this.RULES.concat([
+            RULES: super.RULES.concat([
                 ['notice', 'relation']
             ]),
             BEHAVIORS: {
@@ -26,7 +26,7 @@ module.exports = class NoticeMessage extends Base {
 
     relPopupNotifications () {
         const Class = this.getClass('model/PopupNotification');
-        return this.hasMany(Class, 'message', this.PK).deleteOnUnlink();
+        return this.hasMany(Class, 'message', this.PK);
     }
 };
 module.exports.init(module);

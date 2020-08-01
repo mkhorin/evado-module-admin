@@ -29,6 +29,7 @@
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
         id: 'Messages',
+        hint: 'Messages created by this notice',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'noticeMessages',
@@ -52,6 +53,7 @@
         }
     }, {
         id: 'User filters',
+        hint: 'Message recipients for this notice',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'userFilters',
@@ -67,6 +69,7 @@
         }
     }, {
         id: 'Users',
+        hint: 'Message recipients for this notice',
         content: {
             template: _view.get('_part/attr/relation'),
             attr: 'users',

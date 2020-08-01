@@ -8,15 +8,10 @@ const Base = require('evado/component/observer/EventHandler');
 module.exports = class EventHandler extends Base {
 
     static getConstants () {
-        return {            
-            RULES: [
-                [['name', 'config'], 'required'],
-                ['name', 'string'],
-                ['name', 'unique'],
-                ['config', 'spawn']
-            ],
+        return {
             ATTR_LABELS: {
-                'config': 'Spawn configuration'
+                'config': 'Spawn configuration',
+                'name': 'Code name'
             }
         };
     }

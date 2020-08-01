@@ -1,19 +1,5 @@
 'use strict';
 
-Jam.I18n.rbac = {
-
-    'Actions': 'Действия',
-    'All': 'Все',
-
-    'Create': 'Создавать',
-
-    'Delete': 'Удалять',
-
-    'Read': 'Читать',
-
-    'Update': 'Изменять'
-};
-
 Object.assign(Jam.I18n.defaults, {
 
     'Access items': 'Элементы доступа',
@@ -91,9 +77,11 @@ Object.assign(Jam.I18n.defaults, {
     'Logs': 'Логи',
 
     'Message': 'Сообщение',
+    'Message recipients for this notice': 'Получатели сообщений по данному уведомлению',
     'Message sent': 'Сообщение отправлено',
     'Message users': 'Пользователи сообщений',
     'Messages': 'Сообщения',
+    'Messages created by this notice': 'Сообщения созданные по данному увемлению',
     'Metadata items': 'Элементы метаданных',
     'Metadata permission': 'Разрешение метаданных',
     'Metadata permissions': 'Разрешения метаданных',
@@ -192,3 +180,22 @@ Object.assign(Jam.I18n.defaults, {
     'Verified': 'Проверен',
     'View': 'Представление',
 });
+
+Jam.I18n.rbac = {
+
+    'Actions': 'Действия',
+    'All': 'Все',
+
+    'Create': 'Создавать',
+
+    'Delete': 'Удалять',
+
+    'Read': 'Читать',
+
+    'Update': 'Изменять'
+};
+
+Jam.I18n.user = {
+
+    'Name': 'Имя'
+};
