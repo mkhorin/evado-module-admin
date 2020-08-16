@@ -5,6 +5,10 @@
     attr: 'name'
 }) %>
 
+<%- include(_view.get('_part/attr/string'), {
+    attr: 'label'
+}) %>
+
 <%- include(_view.get('_part/attr/text'), {
     attr: 'description'
 }) %>
@@ -25,11 +29,13 @@
                     name: 'type',
                     format: 'label'
                 },{
-                    name: 'name'
+                    name: 'name',
+                    sortable: true
                 }, {
-                    name: 'label'
+                    name: 'label',
+                    sortable: true
                 }, {
-                    name: 'rule'
+                    name: 'description'
                 }],
                 link: 'rbac/item/select',
                 create: null,

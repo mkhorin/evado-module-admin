@@ -12,14 +12,16 @@ module.exports = class AssignmentRule extends Base {
             TABLE: 'sys_rbac_assignment_rule',
             ATTRS: [
                 'name',
+                'label',
                 'description',
                 'config'
             ],
             RULES: [
                 [['name', 'config'], 'required'],
-                ['name', 'string', {min: 2, max: 64}],
+                ['name', 'string', {min: 2, max: 48}],
+                ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
-                ['description', 'string'],
+                [['description', 'label'], 'string'],
                 ['config', 'spawn'],
                 ['items', 'relation']
             ],
@@ -27,7 +29,8 @@ module.exports = class AssignmentRule extends Base {
                 'items'
             ],
             ATTR_LABELS: {
-                'config': 'Spawn configuration'
+                'config': 'Spawn configuration',
+                'name': 'Code name'
             }
         };
     }

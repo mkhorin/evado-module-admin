@@ -23,7 +23,7 @@ module.exports = class Item extends Base {
                 ['type', 'required', {on: 'create'}],
                 ['type', 'range', {range: ['permission', 'role', 'route'], on: 'create'}],
                 ['name', 'string', {min: 1, max: 48}],
-                ['name', 'regex', {pattern: /^[0-9a-z-_\/ ]+$/i}],
+                ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
                 [['description', 'label'], 'string'],
                 [['childPermissions', 'childRoles', 'parentRoles', 'rule', 'users', 'assignmentRules'], 'relation']
@@ -42,6 +42,7 @@ module.exports = class Item extends Base {
             TYPE_ROUTE: 'route',
             ATTR_LABELS: {
                 'children': 'Child items',
+                'name': 'Code name',
                 'parents': 'Parent items'
             },
             ATTR_VALUE_LABELS: {

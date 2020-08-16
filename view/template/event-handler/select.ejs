@@ -6,12 +6,18 @@
     data: {
         columns: [{
             name: 'name',
-            searchable: true
+            searchable: true,
+            sortable: true
         },{
-            name: 'description'
+            name: 'label',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'description',
+            searchable: true
         },{
             name: 'config'
         }],
-        order: {[model.PK]: -1}
+        order: {name: 1}
     }
 }) %>

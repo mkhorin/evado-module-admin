@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const Base = require('evado/component/notifier/UserFilter');
+const Base = require('evado/model/UserFilter');
 
 module.exports = class UserFilter extends Base {
 

@@ -8,7 +8,16 @@
             name: 'name',
             sortable: true,
             searchable: true
+        }, {
+            name: 'label',
+            sortable: true,
+            searchable: true
+        }, {
+            name: 'description',
+            searchable: true
+        }, {
+            name: 'config'
         }],
-        order: {[model.PK]: -1}
+        order: {name: 1}
     }
 }) %>

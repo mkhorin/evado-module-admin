@@ -9,12 +9,16 @@
             sortable: true,
             searchable: true
         },{
+            name: 'label',
+            searchable: true,
+            sortable: true
+        },{
             name: 'description',
             searchable: true
         },{
             name: 'config'
         }],
-        order: {[model.PK]: -1},
+        order: {name: 1},
         filter: {}
     }
 }) %>

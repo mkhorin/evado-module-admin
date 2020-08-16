@@ -12,14 +12,16 @@ module.exports = class Rule extends Base {
             TABLE: 'sys_rbac_rule',
             ATTRS: [
                 'name',
+                'label',
                 'description',
                 'config'
             ],
             RULES: [
                 [['name', 'config'], 'required'],
-                ['name', 'string', {min: 2, max: 64}],
+                ['name', 'string', {min: 2, max: 48}],
+                ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
-                ['description', 'string'],
+                [['description', 'label'], 'string'],
                 ['config', 'spawn', {BaseClass: require('areto/security/rbac/Rule')}],
                 [['items', 'metaItems'], 'relation']
             ],
@@ -29,7 +31,8 @@ module.exports = class Rule extends Base {
             ],
             ATTR_LABELS: {
                 'config': 'Spawn configuration',
-                'metaItems': 'Metadata items'
+                'metaItems': 'Metadata items',
+                'name': 'Code name'
             }
         };
     }

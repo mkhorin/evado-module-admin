@@ -10,15 +10,20 @@
             sortable: true,
             searchable: true
         },{
-            name: 'config'
+            name: 'label',
+            sortable: true,
+            searchable: true
+        },{
+            name: 'description',
+            searchable: true
         },{
             name: 'items',
             format: {
-                name: 'link',
+                name: 'relation',
                 url: _url('item/update')
             }
         },{
-            name: 'description'
+            name: 'config'
         }],
         order: {name: 1},
         filter: {}

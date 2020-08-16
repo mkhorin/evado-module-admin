@@ -10,20 +10,30 @@
             items: actions,
             translateData: 'rbac'
         },{
-            name: 'description'
-        },{
-            name: 'roles',
-            type: 'selector',
-            valueType: 'id',
-            items: roles
-        },{
             name: 'targets',
             type: 'selector',
             columns: [{
                 name: 'type',
                 type: 'selector',
                 items: targetTypes
+            },{
+                name: 'class',
+                type: 'selector',
+                url: _url('/api/base/meta/list-class-select'),
+                valueType: 'string'
+            },{
+                name: 'navSection',
+                type: 'selector',
+                url: _url('/api/navigation/meta/list-section-select'),
+                valueType: 'string'
             }]
+        },{
+            name: 'description'
+        },{
+            name: 'roles',
+            type: 'selector',
+            valueType: 'id',
+            items: roles
         },{
             name: 'rule',
             type: 'selector',
