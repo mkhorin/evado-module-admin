@@ -81,6 +81,7 @@ Object.assign(Jam.I18n.defaults, {
     'Listeners': 'Слушатели',
     'Logs': 'Логи',
 
+    'Main': 'Основные',
     'Message': 'Сообщение',
     'Message recipients for this notice': 'Получатели сообщений по данному уведомлению',
     'Message sent': 'Сообщение отправлено',
@@ -153,7 +154,7 @@ Object.assign(Jam.I18n.defaults, {
     'Start date': 'Дата начала',
     'Start every day at this time': 'Начинать каждый день в это время',
     'Start time': 'Время начала',
-    'Startup': 'Стартовый',
+    'Startup': 'Стартовая',
     'State': 'Состояние',
     'Stop on fail': 'Остановить при ошибке',
     'Stop running task on job error': 'Прекратить выполнение задачи в случае ошибки',

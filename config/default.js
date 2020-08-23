@@ -5,7 +5,7 @@
 
 module.exports = {
 
-    title: 'Admin',
+    title: 'Administration',
 
     components: {
         'i18n': {
