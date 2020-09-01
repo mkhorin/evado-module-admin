@@ -30,6 +30,7 @@ Object.assign(Jam.I18n.defaults, {
     'Create task': 'Создать задачу',
     'Create permission': 'Создать разрешение',
     'Create permission target': 'Создать цель разрешения',
+    'Create message': 'Создать сообщение',
     'Create metadata permission': 'Создать разрешение метаданных',
     'Create popup notification': 'Создать всплывающее уведомление',
     'Create role': 'Создать роль',

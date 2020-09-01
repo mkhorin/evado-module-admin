@@ -12,7 +12,7 @@ module.exports = class MetaItemList extends Base {
         const actionMap = rbac.VALUE_LABELS.actions;
         const targetMap = rbac.VALUE_LABELS.targets;
         for (const model of models) {
-            model.setViewAttr('type', this.controller.formatter.asPermissionType(model.get('type')));
+            model.setViewAttr('type', this.controller.format(model.get('type'), 'permissionType'));
             model.setViewAttr('actions', this.getActions(model, actionMap));
             model.setViewAttr('targets', this.getTargets(model, targetMap));
         }
@@ -26,7 +26,7 @@ module.exports = class MetaItemList extends Base {
     getTargets (model, targetMap) {
         const targets = [];
         for (const target of model.rel('targets')) {
-            const type = this.controller.formatter.asTranslatable(targetMap[target.get('type')]);
+            const type = this.controller.format(targetMap[target.get('type')], 'translatable');
             targets.push(`${type} (${target.getTargetKey()})`);
         }
         return targets;
