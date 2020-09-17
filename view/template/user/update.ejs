@@ -3,7 +3,7 @@
 const relationTemplate = _view.get('_part/attr/relation');
 const staticTemplate = _view.get('_part/attr/static');
 %>
-<%- include('./_form') %>
+<%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/group/columns'), {
     items: [{

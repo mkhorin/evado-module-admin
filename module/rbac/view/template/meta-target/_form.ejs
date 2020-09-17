@@ -85,26 +85,26 @@
 }) %>
 
 <%- include(_view.get('_part/attr/select'), {
-    attr: 'navSection',
+    attr: 'section',
     items: null,
-    displayValue: navSection ? navSection.getTitle() : null,
+    displayValue: section ? section.getTitle() : null,
     select2: {ajax: {url: 'api/navigation/meta/list-section-select'}},
     actionBinder: {
-        show: {type: ['navSection', 'navNode']}
+        show: {type: ['section', 'node']}
     }
 }) %>
 
 <%- include(_view.get('_part/attr/select'), {
-    attr: 'navNode',
+    attr: 'node',
     items: null,
-    displayValue: navNode ? navNode.getTitle(): null,
+    displayValue: node ? node.getTitle(): null,
     select2: {ajax: {url: 'api/navigation/meta/list-node-select'}},
     depends: [{
-        attr: 'navSection',
+        attr: 'section',
         param: 'section',
     }],
     actionBinder: {
-        show: {type: ['navNode']},
-        enable: ['NOT EMPTY', 'navSection']
+        show: {type: ['node']},
+        enable: ['NOT EMPTY', 'section']
     }
 }) %>

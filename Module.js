@@ -12,7 +12,9 @@ module.exports = class AdminModule extends Base {
             BEHAVIORS: {
                 'access': {
                     Class: require('areto/filter/AccessControl'),
-                    rules: [{permissions: ['moduleAdmin']}]
+                    rules: [{
+                        permissions: ['moduleAdmin']
+                    }]
                 }
             }
         };

@@ -84,7 +84,7 @@ module.exports = class ItemController extends Base {
         if (model.isRoute()) {
             return this.sendJson();
         }
-        const query = model.find().excludeModel(model);
+        const query = model.createQuery().excludeModel(model);
         if (model.isPermission()) {
             query.exceptRoles();
         }
@@ -94,7 +94,7 @@ module.exports = class ItemController extends Base {
 
     async actionListFreeParents () {
         const model = await this.getModel();
-        const query = model.find().excludeModel(model).exceptRoutes();
+        const query = model.createQuery().excludeModel(model).exceptRoutes();
         if (model.isRole()) {
             query.onlyRoles();
         }

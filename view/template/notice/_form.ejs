@@ -1,14 +1,20 @@
+<%
+const jsonTemplate = _view.get('_part/attr/json');
+const relationTemplate = _view.get('_part/attr/relation');
+const stringTemplate = _view.get('_part/attr/string');
+%>
 <% layout(_view.get(_layout)) %>
+
 
 <%- include(_view.get('_part/attr/checkbox'), {
     attr: 'active'
 }) %>
 
-<%- include(_view.get('_part/attr/string'), {
+<%- include(stringTemplate, {
     attr: 'name'
 }) %>
 
-<%- include(_view.get('_part/attr/string'), {
+<%- include(stringTemplate, {
     attr: 'subject'
 }) %>
 
@@ -22,7 +28,17 @@
     items: model.constructor.getAttrValueLabels('methods'),
 }) %>
 
-<%- include(_view.get('_part/attr/json'), {
+<%- include(jsonTemplate, {
+    attr: 'recipient',
+    extHint: 'User filter configuration to select recipients when notice message creating'
+}) %>
+
+<%- include(jsonTemplate, {
+    attr: 'template',
+    extHint: 'Message template class configuration'
+}) %>
+
+<%- include(jsonTemplate, {
     attr: 'options'
 }) %>
 
@@ -31,7 +47,7 @@
         id: 'Messages',
         hint: 'Messages created by this notice',
         content: {
-            template: _view.get('_part/attr/relation'),
+            template: relationTemplate,
             attr: 'noticeMessages',
             css: 'no-label',
             data: {
@@ -53,9 +69,9 @@
         }
     }, {
         id: 'User filters',
-        hint: 'Message recipients for this notice',
+        hint: 'User filters to select recipients when notice message sending',
         content: {
-            template: _view.get('_part/attr/relation'),
+            template: relationTemplate,
             attr: 'userFilters',
             css: 'no-label',
             data: {
@@ -73,7 +89,7 @@
         id: 'Users',
         hint: 'Message recipients for this notice',
         content: {
-            template: _view.get('_part/attr/relation'),
+            template: relationTemplate,
             attr: 'users',
             css: 'no-label',
             data: {

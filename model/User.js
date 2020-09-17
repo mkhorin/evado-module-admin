@@ -11,7 +11,7 @@ module.exports = class User extends Base {
         return {
             RULES: super.RULES.concat([
                 ['password', 'required', {on: 'create'}],
-                ['password', (attr, model) => model.spawn('security/PasswordValidator').validateAttr(attr, model)],
+                ['password', this.validatePassword.bind(this)],
                 [['roles', 'userPasswords'], 'relation']
             ]),
             BEHAVIORS: {
@@ -26,9 +26,14 @@ module.exports = class User extends Base {
             UNLINK_ON_DELETE: [
                 'filterIncludes',
                 'filterExcludes',
-                'notices'
+                'notices',
+                'noticeMessages'
             ],
         };
+    }
+
+    static validatePassword (attr, model) {
+        return model.spawn('security/PasswordValidator').validateAttr(attr, model);
     }
 
     async afterInsert () {
@@ -66,6 +71,11 @@ module.exports = class User extends Base {
     relNotices () {
         const Class = this.getClass('model/Notice');
         return this.hasMany(Class, 'users', this.PK).viaArray();
+    }
+
+    relNoticeMessages () {
+        const Class = this.getClass('model/NoticeMessage');
+        return this.hasMany(Class, 'recipients', this.PK).viaArray();
     }
 
     relPopupNotifications () {

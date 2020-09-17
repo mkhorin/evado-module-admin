@@ -17,20 +17,20 @@ module.exports = class MetaTarget extends Base {
                 'view',
                 'attr',
                 'object',
-                'navSection',
-                'navNode',
+                'section',
+                'node',
                 'state',
                 'transition'
             ],
             RULES: [
                 ['type', 'required'],
-                [['class', 'view', 'state', 'object', 'attr', 'navSection', 'navNode', 'transition'], 'string'],
+                [['class', 'view', 'state', 'object', 'attr', 'section', 'node', 'transition'], 'string'],
                 ['type', 'validateType']
             ],
             ATTR_LABELS: {
                 'attr': 'Attribute',
-                'navSection': 'Navigation section',
-                'navNode': 'Navigation node'
+                'section': 'Navigation section',
+                'node': 'Navigation node'
             }
         };
     }

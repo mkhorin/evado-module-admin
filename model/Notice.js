@@ -11,14 +11,15 @@ module.exports = class Notice extends Base {
         return {
             RULES: super.RULES.concat([
                 ['active', 'checkbox'],
-                ['methods', 'filter', {filter: 'split'}],
                 [['users', 'userFilters', 'noticeMessages'], 'relation']
             ]),
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
             ATTR_LABELS: {
-                'name': 'Code name'
+                'name': 'Code name',
+                'recipient': 'Recipient configuration',
+                'template': 'Template configuration'
             },
             ATTR_VALUE_LABELS: {
                 'methods': {

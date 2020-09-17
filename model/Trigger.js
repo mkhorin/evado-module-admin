@@ -19,12 +19,14 @@ module.exports = class Trigger extends Base {
 
     async execute () {
         if (await this.validate()) {
-            const data = this.get('data');
+            const data = CommonHelper.parseJson(this.get('data'));
             for (const event of this.get('events')) {
-                await this.module.getObserver().catch(event, data);
+                await this.module.emit(event, data);
             }
             return true;
         }
     }
 };
 module.exports.init(module);
+
+const CommonHelper = require('areto/helper/CommonHelper');
