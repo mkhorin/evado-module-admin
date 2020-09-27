@@ -10,7 +10,7 @@ module.exports = class Task extends Base {
     static getConstants () {
         return {
             ATTR_LABELS: {
-                'name': 'Code name'
+                name: 'Code name'
             }
         };
     }

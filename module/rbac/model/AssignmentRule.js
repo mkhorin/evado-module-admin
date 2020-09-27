@@ -29,8 +29,8 @@ module.exports = class AssignmentRule extends Base {
                 'items'
             ],
             ATTR_LABELS: {
-                'config': 'Spawn configuration',
-                'name': 'Code name'
+                config: 'Spawn configuration',
+                name: 'Code name'
             }
         };
     }

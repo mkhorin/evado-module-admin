@@ -19,10 +19,10 @@ module.exports = class UserFilter extends Base {
                 'notices'
             ],
             ATTR_LABELS: {
-                'name': 'Code name',
-                'includes': 'Included users',
-                'excludes': 'Excluded users',
-                'config': 'Spawn configuration'
+                name: 'Code name',
+                includes: 'Included users',
+                excludes: 'Excluded users',
+                config: 'Spawn configuration'
             }
         };
     }

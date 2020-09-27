@@ -30,9 +30,9 @@ module.exports = class Rule extends Base {
                 'metaItems'
             ],
             ATTR_LABELS: {
-                'config': 'Spawn configuration',
-                'metaItems': 'Metadata items',
-                'name': 'Code name'
+                config: 'Spawn configuration',
+                metaItems: 'Metadata items',
+                name: 'Code name'
             }
         };
     }

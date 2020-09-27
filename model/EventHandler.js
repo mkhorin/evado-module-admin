@@ -10,8 +10,8 @@ module.exports = class EventHandler extends Base {
     static getConstants () {
         return {
             ATTR_LABELS: {
-                'config': 'Spawn configuration',
-                'name': 'Code name'
+                config: 'Spawn configuration',
+                name: 'Code name'
             }
         };
     }

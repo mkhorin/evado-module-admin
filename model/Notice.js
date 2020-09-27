@@ -17,9 +17,9 @@ module.exports = class Notice extends Base {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
             ATTR_LABELS: {
-                'name': 'Code name',
-                'recipient': 'Recipient configuration',
-                'template': 'Template configuration'
+                name: 'Code name',
+                recipient: 'Recipient configuration',
+                template: 'Template configuration'
             },
             ATTR_VALUE_LABELS: {
                 'methods': {

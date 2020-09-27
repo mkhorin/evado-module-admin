@@ -41,9 +41,9 @@ module.exports = class Item extends Base {
             TYPE_ROLE: 'role',
             TYPE_ROUTE: 'route',
             ATTR_LABELS: {
-                'children': 'Child items',
-                'name': 'Code name',
-                'parents': 'Parent items'
+                children: 'Child items',
+                name: 'Code name',
+                parents: 'Parent items'
             },
             ATTR_VALUE_LABELS: {
                 'type': {

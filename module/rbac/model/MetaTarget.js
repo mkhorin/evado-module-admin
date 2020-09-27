@@ -28,9 +28,9 @@ module.exports = class MetaTarget extends Base {
                 ['type', 'validateType']
             ],
             ATTR_LABELS: {
-                'attr': 'Attribute',
-                'section': 'Navigation section',
-                'node': 'Navigation node'
+                attr: 'Attribute',
+                node: 'Navigation node',
+                section: 'Navigation section'                
             }
         };
     }
