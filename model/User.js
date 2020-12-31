@@ -11,7 +11,7 @@ module.exports = class User extends Base {
         return {
             RULES: super.RULES.concat([
                 ['password', 'required', {on: 'create'}],
-                ['password', this.validatePassword.bind(this)],
+                ['password', 'validator/PasswordValidator'],
                 [['roles', 'userPasswords'], 'relation']
             ]),
             BEHAVIORS: {
@@ -30,10 +30,6 @@ module.exports = class User extends Base {
                 'noticeMessages'
             ],
         };
-    }
-
-    static validatePassword (attr, model) {
-        return model.spawn('security/PasswordValidator').validateAttr(attr, model);
     }
 
     async afterInsert () {
