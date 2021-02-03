@@ -18,7 +18,7 @@ module.exports = class PopupNotificationController extends Base {
     getListRelatedWith (relation) {
         switch (relation) {
             case 'message':
-                return 'notice';
+                return 'notification';
         }
     }
 };

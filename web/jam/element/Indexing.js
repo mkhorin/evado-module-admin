@@ -8,7 +8,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
     init () {
         this.params = this.$element.data('params');
         this.model = Jam.Element.getInstance(this.$element.closest('.model'));
-        this.notice = this.model.notice;
+        this.alert = this.model.alert;
         this.table = this.model.id;
 
         this.$commands = this.$element.find('[data-command]');
@@ -17,14 +17,15 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
         this.$list = this.$element.find('.index-list');
         this.$list.html(this.renderItems(this.params.indexes));
-        this.$list.on('click', '.list-group-item', this.onClickIndex.bind(this));
+        this.$list.on('click', '.list-group-item', this.onIndex.bind(this));
 
-        // resolve nested forms
+        // append to body to resolve nested forms
         this.$modal = $(Jam.Helper.getTemplate('modal', this.$element)).appendTo(document.body);
         this.$modal.find('[data-command="save"]').click(this.onSave.bind(this));
         this.$modal.on('show.bs.modal', this.onBeforeShowModal.bind(this));
         this.$form = this.$modal.find('form');
-        this.modalNotice = new Jam.Notice({container: this.$form});
+        this.modalAlert = new Jam.Alert({container: this.$form});
+        Jam.Helper.bindLabelsToInputs(this.$form);
     }
 
     findCommand (name) {
@@ -36,11 +37,17 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     reindex () {
-        return this.post(this.params.reindex, {table: this.table}).done(()=> {
-            this.notice.success('Indexing completed');
-        }).fail(({responseText}) => {
-            this.notice.danger(this.getModelError(responseText, 'Indexing failed'));
-        });
+        return this.post(this.params.reindex, {table: this.table})
+            .done(this.onDoneIndexing.bind(this))
+            .fail(this.onFailIndexing.bind(this));
+    }
+
+    onDoneIndexing () {
+        this.alert.success('Indexing completed');
+    }
+
+    onFailIndexing ({responseText}) {
+        this.alert.danger(this.getModelError(responseText, 'Indexing failed'));
     }
 
     onCreate () {
@@ -56,24 +63,30 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     delete ($item) {
-        Jam.toggleGlobalLoader(true);
+        Jam.toggleLoader(true);
         const data = {
             table: this.table,
             name: this.getItemData($item).name
         };
-        this.post(this.params.delete, data).done(()=> {
-            $item.remove();
-        }).fail(({responseText}) => {
-            this.notice.danger(this.getModelError(responseText, 'Deletion failed'));
-        });
+        return this.post(this.params.delete, data)
+            .done(this.onDoneDeletion.bind(this, $item))
+            .fail(this.onFailDeletion.bind(this));
+    }
+
+    onDoneDeletion ($item) {
+        $item.remove();
+    }
+
+    onFailDeletion ({responseText}) {
+        this.alert.danger(this.getModelError(responseText, 'Deletion failed'));
     }
 
     post (url, data) {
-        Jam.toggleGlobalLoader(true);
-        return Jam.Helper.post(url, data).always(()=> Jam.toggleGlobalLoader(false));
+        Jam.toggleLoader(true);
+        return Jam.post(url, data).always(() => Jam.toggleLoader(false));
     }
 
-    onClickIndex (event) {
+    onIndex (event) {
         this.$list.children().removeClass('selected');
         $(event.currentTarget).addClass('selected');
     }
@@ -95,18 +108,24 @@ Jam.Indexing = class Indexing extends Jam.Element {
     // MODAL
 
     onBeforeShowModal () {
-        Jam.i18n.translateContainer(this.$modal);
-        this.modalNotice.hide();
+        Jam.t(this.$modal);
+        this.modalAlert.hide();
     }
 
     onSave () {
-        this.modalNotice.hide();
-        Jam.Helper.post(this.params.create, this.$form.serialize()).done(data => {
-            this.$list.html(this.renderItems(data));
-            this.$modal.modal('hide');
-        }).fail(({responseText}) => {
-            this.modalNotice.danger(this.getModelError(responseText, 'Save failed'));
-        });
+        this.modalAlert.hide();
+        return Jam.post(this.params.create, this.$form.serialize())
+            .done(this.onDoneSaving.bind(this))
+            .fail(this.onFailSaving.bind(this));
+    }
+
+    onDoneSaving (data) {
+        this.$list.html(this.renderItems(data));
+        this.$modal.modal('hide');
+    }
+
+    onFailSaving ({responseText}) {
+        this.modalAlert.danger(this.getModelError(responseText, 'Failed to save'));
     }
 
     getModelError (data, defaults) {

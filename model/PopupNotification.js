@@ -21,7 +21,7 @@ module.exports = class PopupNotification extends Base {
     }
 
     relMessage () {
-        const Class = this.getClass('model/NoticeMessage');
+        const Class = this.getClass('model/NotificationMessage');
         return this.hasOne(Class, Class.PK, 'message');
     }
 

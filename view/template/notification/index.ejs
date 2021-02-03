@@ -1,0 +1,26 @@
+<% layout(_view.get('_layout/list')) %>
+
+<% block('title', 'Notifications') %>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
+            name: 'name',
+            searchable: true
+        },{
+            name: 'subject',
+            searchable: true
+        },{
+            name: 'text',
+            searchable: true
+        },{
+            name: 'methods',
+            format: 'label'
+        }],
+        order: {[model.PK]: -1},
+        filter: {}
+    }
+}) %>

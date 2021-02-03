@@ -21,7 +21,7 @@ module.exports = class Item extends Base {
             RULES: [
                 ['name', 'required'],
                 ['type', 'required', {on: 'create'}],
-                ['type', 'range', {range: ['permission', 'role', 'route'], on: 'create'}],
+                ['type', 'range', {values: ['permission', 'role', 'route'], on: 'create'}],
                 ['name', 'string', {min: 1, max: 48}],
                 ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],

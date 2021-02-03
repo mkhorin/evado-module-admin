@@ -11,7 +11,7 @@ module.exports = class Log extends Base {
         const data = FileLogStore.parseFilename(name);
         if (data) {
             const store = this.getLogger().getStore(data[0]);
-            return store ? store.getFile(data[1]) : null;
+            return store?.getFile(data[1]);
         }
     }
 

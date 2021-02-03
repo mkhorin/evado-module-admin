@@ -9,7 +9,7 @@ module.exports = class Formatter extends Base {
 
     asPermissionType (value) {
         return value === 'deny'
-            ? '<b class="text-bold text-danger" data-t="">Deny</b>'
-            : '<span class="text-success" data-t="">Allow</span>'
+            ? '<b class="semi-bold text-danger" data-t="">Deny</b>'
+            : '<span class="semi-bold text-success" data-t="">Allow</span>'
     }
 };

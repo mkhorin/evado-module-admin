@@ -1,0 +1,25 @@
+<% layout(_view.get('_layout/frame/select')) %>
+
+<% block('title', 'Notification message') %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'subject',
+            searchable: true
+        },{
+            name: 'text',
+            searchable: true
+        },{
+            name: 'notification',
+            searchable: true
+        },{
+            name: 'sentAt',
+            format: 'timestamp'
+        },{
+            name: 'createdAt',
+            format: 'timestamp'
+        }],
+        order: {[model.PK]: -1}
+    }
+}) %>

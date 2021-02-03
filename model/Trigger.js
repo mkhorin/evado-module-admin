@@ -11,7 +11,7 @@ module.exports = class Trigger extends Base {
         return {
             RULES: [
                 ['events', 'required'],
-                ['events', 'filter', {filter: 'split'}],
+                ['events', 'filter', {method: 'split'}],
                 ['data', 'json']
             ]
         };

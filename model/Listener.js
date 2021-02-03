@@ -12,7 +12,7 @@ module.exports = class Listener extends Base {
             RULES: super.RULES.concat([
                 ['active', 'checkbox'],
                 ['description', 'string'],
-                [['notices', 'handlers', 'tasks'], 'relation']
+                [['notifications', 'handlers', 'tasks'], 'relation']
             ]),
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
@@ -25,9 +25,9 @@ module.exports = class Listener extends Base {
         return this.hasMany(Class, Class.PK, 'handlers').viaArray();
     }
 
-    relNotices () {
-        const Class = this.getClass('model/Notice');
-        return this.hasMany(Class, Class.PK, 'notices').viaArray();
+    relNotifications () {
+        const Class = this.getClass('model/Notification');
+        return this.hasMany(Class, Class.PK, 'notifications').viaArray();
     }
 
     relTasks () {

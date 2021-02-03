@@ -16,7 +16,7 @@ module.exports = class UserFilter extends Base {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },
             UNLINK_ON_DELETE: [
-                'notices'
+                'notifications'
             ],
             ATTR_LABELS: {
                 name: 'Code name',
@@ -42,8 +42,8 @@ module.exports = class UserFilter extends Base {
         return this.hasMany(Class, Class.PK, 'excludes').viaArray();
     }
 
-    relNotices () {
-        const Class = this.getClass('model/Notice');
+    relNotifications () {
+        const Class = this.getClass('model/Notification');
         return this.hasMany(Class, 'userFilters', this.PK).viaArray();
     }
 };

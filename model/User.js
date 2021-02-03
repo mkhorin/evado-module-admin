@@ -26,8 +26,8 @@ module.exports = class User extends Base {
             UNLINK_ON_DELETE: [
                 'filterIncludes',
                 'filterExcludes',
-                'notices',
-                'noticeMessages'
+                'notifications',
+                'notificationMessages'
             ],
         };
     }
@@ -64,13 +64,13 @@ module.exports = class User extends Base {
         return this.hasMany(Class, 'excludes', this.PK).viaArray();
     }
 
-    relNotices () {
-        const Class = this.getClass('model/Notice');
+    relNotifications () {
+        const Class = this.getClass('model/Notification');
         return this.hasMany(Class, 'users', this.PK).viaArray();
     }
 
-    relNoticeMessages () {
-        const Class = this.getClass('model/NoticeMessage');
+    relNotificationMessages () {
+        const Class = this.getClass('model/NotificationMessage');
         return this.hasMany(Class, 'recipients', this.PK).viaArray();
     }
 

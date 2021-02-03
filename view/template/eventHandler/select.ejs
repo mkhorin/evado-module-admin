@@ -1,0 +1,23 @@
+<% layout(_view.get('_layout/frame/select')) %>
+
+<% block('title', 'Event handler') %>
+
+<%- include(_view.get('_part/list/select'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'label',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'description',
+            searchable: true
+        },{
+            name: 'config'
+        }],
+        order: {name: 1}
+    }
+}) %>

@@ -1,14 +1,6 @@
 
-.skin-yellow .main-header .navbar {
-    background-color: #b79c72;
-}
-.skin-yellow .main-header .logo {
-    background-color: #9e7d4b;
-}
-.skin-yellow .main-header .logo:hover,
-.skin-yellow .main-header .navbar .sidebar-toggle:hover {
-    background-color: #a57e44;
-}
-.skin-yellow-light .sidebar-menu > li.active > a {
-    border-left-color: #b79c72;
+body {
+    --nav-item-acsent-color: #a936f7;
+    --navbar-color: #7b3dd6;
+    --super-navbar-color: #4c17b0;
 }

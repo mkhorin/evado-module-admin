@@ -37,7 +37,7 @@ module.exports = class TableController extends Base {
 
     async _actionCreate () {
         const model = this.createModel();
-        if (this.isGet()) {
+        if (this.isGetRequest()) {
             return this.render('create', {model});
         }
         model.load(this.getPostParams());

@@ -18,7 +18,7 @@ module.exports = class ListenerController extends Base {
 
     async actionTrigger () {
         const model = this.spawn('model/Trigger');
-        if (this.isGet()) {
+        if (this.isGetRequest()) {
             return this.render('trigger', {model});
         }
         model.load(this.getPostParams());

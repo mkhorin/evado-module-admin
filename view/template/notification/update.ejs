@@ -1,0 +1,5 @@
+<%
+block('title', 'Notification');
+block('commands', {template: _view.get('notification/_toolCreateMessage')});
+%>
+<%- include(_view.getInternalTemplate('_form')) %>

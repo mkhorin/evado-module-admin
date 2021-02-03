@@ -1,117 +1,124 @@
-<!-- admin/_part/menu/sideMenu -->
-<ul class="sidebar-menu tree-menu" data-widget="tree" data-jam="TreeMenu">
+<!-- admin/_part/nav/sideMenu -->
 
-    <li class="menu-item">
-        <a href="admin/user" class="menu-item-btn">
+<div class="nav-tree" data-jam="NavTree">
+
+    <div class="nav-item">
+        <a href="admin/user" class="nav-link">
             <span data-t="">Users</span>
         </a>
-    </li>
+    </div>
 
-    <li class="menu-item treeview">
-        <a href="javascript:void(0)" class="menu-item-btn">
+    <div class="nav-item tree">
+        <a href="javascript:void(0)" class="nav-link">
             <span data-t="">Security</span>
-            <i class="arrow fa fa-angle-left pull-right"></i>
+            <span class="arrow fa fa-angle-left"></span>
         </a>
-        <ul class="treeview-menu">
-            <li class="menu-item">
-                <a href="admin/rbac/meta-item" class="menu-item-btn">
+        <div class="nav-children">
+            <div class="nav-item">
+                <a href="admin/rbac/meta-item" class="nav-link">
                     <span data-t="">Metadata permissions</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/rbac/item/permissions" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/rbac/item/permissions" class="nav-link">
                     <span data-t="">Permissions</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/rbac/item/roles" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/rbac/item/roles" class="nav-link">
                     <span data-t="">Roles</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/rbac/assignment-rule" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/rbac/assignment-rule" class="nav-link">
                     <span data-t="">Assignment rules</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/rbac/rule" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/rbac/rule" class="nav-link">
                     <span data-t="">Rules</span>
                 </a>
-            </li>
-        </ul>
-    </li>
-    <li class="menu-item treeview">
-        <a href="javascript:void(0)" class="menu-item-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-item tree">
+        <a href="javascript:void(0)" class="nav-link">
             <span data-t="">Informing</span>
-            <i class="arrow fa fa-angle-left pull-right"></i>
+            <span class="arrow fa fa-angle-left"></span>
         </a>
-        <ul class="treeview-menu">
-            <li class="menu-item">
-                <a href="admin/notice" class="menu-item-btn">
-                    <span data-t="">Notices</span>
+        <div class="nav-children">
+            <div class="nav-item">
+                <a href="admin/notification" class="nav-link">
+                    <span data-t="">Notifications</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/notice-message" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/notification-message" class="nav-link">
                     <span data-t="">Messages</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/popup-notification" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/popup-notification" class="nav-link">
                     <span data-t="">Popup notifications</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/user-filter" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/user-filter" class="nav-link">
                     <span data-t="">User filters</span>
                 </a>
-            </li>
-        </ul>
-    </li>
-    <li class="menu-item treeview">
-        <a href="javascript:void(0)" class="menu-item-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-item tree">
+        <a href="javascript:void(0)" class="nav-link">
             <span data-t="">Events</span>
-            <i class="arrow fa fa-angle-left pull-right"></i>
+            <span class="arrow fa fa-angle-left"></span>
         </a>
-        <ul class="treeview-menu">
-            <li class="menu-item">
-                <a href="admin/listener" class="menu-item-btn">
+        <div class="nav-children">
+            <div class="nav-item">
+                <a href="admin/listener" class="nav-link">
                     <span data-t="">Listeners</span>
                 </a>
-            </li>
-            <li class="menu-item">
-                <a href="admin/event-handler" class="menu-item-btn">
+            </div>
+            <div class="nav-item">
+                <a href="admin/event-handler" class="nav-link">
                     <span data-t="">Event handlers</span>
                 </a>
-            </li>
-        </ul>
-    </li>
-    <li class="menu-item">
-        <a href="admin/task" class="menu-item-btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-item">
+        <a href="admin/task" class="nav-link">
             <span data-t="">Tasks</span>
         </a>
-    </li>
-    <li class="menu-item">
-        <a href="admin/table" class="menu-item-btn">
+    </div>
+
+    <div class="nav-item">
+        <a href="admin/table" class="nav-link">
             <span data-t="">Database</span>
         </a>
-    </li>
-    <li class="menu-item">
-        <a href="admin/log" class="menu-item-btn">
+    </div>
+
+    <div class="nav-item">
+        <a href="admin/log" class="nav-link">
             <span data-t="">Logs</span>
         </a>
-    </li>
-    <li class="menu-item treeview">
-        <a href="javascript:void(0)" class="menu-item-btn">
+    </div>
+
+    <div class="nav-item tree">
+        <a href="javascript:void(0)" class="nav-link">
             <span data-t="">Upload</span>
-            <i class="arrow fa fa-angle-left pull-right"></i>
+            <span class="arrow fa fa-angle-left"></span>
         </a>
-        <ul class="treeview-menu">
-            <li class="menu-item">
-                <a href="admin/raw-file" class="menu-item-btn">
+        <div class="nav-children">
+            <div class="nav-item">
+                <a href="admin/raw-file" class="nav-link">
                     <span data-t="">Raw files</span>
                 </a>
-            </li>
-        </ul>
-    </li>
-</ul>
+            </div>
+        </div>
+    </div>
+</div>

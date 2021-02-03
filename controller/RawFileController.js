@@ -10,7 +10,7 @@ module.exports = class RawFileController extends Base {
     static getConstants () {
         return {
             METHODS: {
-                'update': 'GET'
+                'update': 'get'
             }
         };
     }

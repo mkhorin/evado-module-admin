@@ -10,8 +10,8 @@ module.exports = class ItemController extends Base {
     static getConstants () {
         return {
             METHODS: {
-                'list-free-children': ['post'],
-                'list-free-parents': ['post']
+                'listFreeChildren': ['post'],
+                'listFreeParents': ['post']
             }
         };
     }

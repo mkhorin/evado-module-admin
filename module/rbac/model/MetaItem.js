@@ -19,9 +19,12 @@ module.exports = class MetaItem extends Base {
             ],
             RULES: [
                 [['type', 'actions'], 'required'],
-                ['type', 'range', {range: ['allow', 'deny']}],
-                ['actions', 'filter', {filter: 'split'}],
-                ['actions', 'each', {rule: 'range', params: {range: ['all', 'read', 'create', 'update', 'delete']}}],
+                ['type', 'range', {values: ['allow', 'deny']}],
+                ['actions', 'filter', {method: 'split'}],
+                ['actions', 'each', {
+                    rule: 'range',
+                    params: {values: ['all', 'read', 'create', 'update', 'delete']}
+                }],
                 ['actions', 'validateActions'],
                 ['description', 'string'],
                 [['roles', 'rule', 'targets'], 'relation']
