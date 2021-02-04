@@ -105,15 +105,15 @@ Object.assign(Jam.I18n.defaults, {
 
     'Name': 'Название',
     'Navigation section': 'Секция навигация',
-    'Navigation node': 'Пункт навигация',    
+    'Navigation node': 'Пункт навигация',
+    'Notification': 'Уведомление',
     'Notification message': 'Сообщение',
     'Notification message created': 'Сообщение создано',
     'Notification messages': 'Сообщения',
-    'Notification': 'Уведомление',
     'Notifications': 'Уведомления',
 
-    'Observer restarted': 'Наблюдатель перезапущен',
     'Object': 'Объект',
+    'Observer restarted': 'Наблюдатель перезапущен',
     'Options': 'Опции',
     'Owners': 'Владельцы',
 
