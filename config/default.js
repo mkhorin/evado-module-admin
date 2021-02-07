@@ -21,6 +21,6 @@ module.exports = {
         }
     },
     classes: require('./default-classes'),
-    indexes: [
-    ]
+    indexes: [],
+    sideMenu: require('./default-sideMenu')
 };
