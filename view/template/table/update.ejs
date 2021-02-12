@@ -1,15 +1,8 @@
 <%
-const indexParams = {
-    reindex: _url('indexing/reindex'),
-    create: _url('indexing/create'),
-    delete: _url('indexing/delete'),
-    indexes
-};
 layout(_view.get('_layout/frame/form'), {
     params: {
         jam: 'TableModel',
         id: model.get('name'),
-        delete: null,
         save: false
     }
 });
@@ -22,11 +15,9 @@ block('commands').append(
     // {template: _view.get('_part/tool/delete')}
 );
 %>
-<div data-jam="Indexing" data-params="<%= JSON.stringify(indexParams) %>">
-    <%- include(_view.get('_part/attr/custom'), {
-        attr: 'activeIndexes',
-        content: {
-            template: _view.get('table/_indexes')
-        }
-    }) %>
-</div>
+<%- include(_view.get('_part/attr/custom'), {
+    attr: 'activeIndexes',
+    content: {
+        template: _view.get('table/_indexes')
+    }
+}) %>

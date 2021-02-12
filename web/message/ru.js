@@ -40,6 +40,7 @@ Object.assign(Jam.I18n.defaults, {
     'Create user password': 'Создать пароль пользователя',
 
     'Database': 'База данных',
+    'Delete this index permanently?': 'Удалить этот индекс безвозвратно?',
     'Delivery methods': 'Методы доставки',
     'Deny': 'Запретить',
     'Disabled': 'Отключен',

@@ -33,7 +33,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     getSelectedItems () {
-        return this.$list.find('.selected');
+        return this.$list.find('.active');
     }
 
     reindex () {
@@ -87,8 +87,9 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     onIndex (event) {
-        this.$list.children().removeClass('selected');
-        $(event.currentTarget).addClass('selected');
+        event.preventDefault();
+        this.$list.children().removeClass('active');
+        $(event.currentTarget).addClass('active');
     }
 
     renderItems (items) {

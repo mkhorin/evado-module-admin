@@ -1,5 +1,7 @@
-
-<% block('title', 'Task') %>
-<% block('commands', {template: _view.get('task/_toolRun')}); %>
-
+<%
+block('title', 'Task');
+block('commands', {
+    template: _view.getInternalTemplate('_toolRun')
+});
+%>
 <%- include(_view.getInternalTemplate('_form')) %>
