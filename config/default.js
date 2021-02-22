@@ -15,11 +15,6 @@ module.exports = {
         'rbac': {
         }
     },
-    widgets: {
-        'sideMenu': {
-            Class: require('evado/component/widget/SideMenu')
-        }
-    },
     classes: require('./default-classes'),
     indexes: [],
     sideMenu: require('./default-sideMenu')

@@ -14,7 +14,7 @@ module.exports = class MetaTargetForm extends Base {
         const section = rbac.navMeta?.getSection(model.get('section'));
         return {
             metadataClass: cls,
-            types: this.controller.getMapSelectItems(rbac.VALUE_LABELS.targets),
+            types: SelectHelper.getMapItems(rbac.VALUE_LABELS.targets),
             view: cls?.getView(model.get('view')),
             attr: cls?.getAttr(model.get('attr')),
             state: cls?.getState(model.get('state')),
@@ -24,3 +24,5 @@ module.exports = class MetaTargetForm extends Base {
         };
     }
 };
+
+const SelectHelper = require('evado/component/helper/SelectHelper');
