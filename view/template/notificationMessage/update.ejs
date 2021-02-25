@@ -1,7 +1,7 @@
 <% block('title', 'Notification message') %>
 
 <% if (model.canSend()) { %>
-<% block('commands', {template: _view.get('notification-message/_toolSend')}); %>
+<% block('commands', {template: _view.get('notification-message/_send')}); %>
 <% } %>
 
 <%- include(_view.getInternalTemplate('_form')) %>
