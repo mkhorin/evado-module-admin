@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const Base = require('evado/component/other/Formatter');
+const Base = require('evado/component/misc/Formatter');
 
 module.exports = class Formatter extends Base {
 
