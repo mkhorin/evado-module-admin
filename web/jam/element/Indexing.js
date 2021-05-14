@@ -51,7 +51,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     onCreate () {
-        this.$modal.modal();
+        this.modal = Jam.showModal(this.$modal);
     }
 
     onDelete () {
@@ -122,7 +122,7 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     onDoneSaving (data) {
         this.$list.html(this.renderItems(data));
-        this.$modal.modal('hide');
+        this.modal.hide();
     }
 
     onFailSaving ({responseText}) {

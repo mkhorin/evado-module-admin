@@ -1,3 +1,7 @@
+## 3.0.0
+
+* migration to Bootstrap 5
+
 ## 2.1.0
 
 * config/default-sideMenu
