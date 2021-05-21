@@ -71,10 +71,15 @@ const staticTemplate = _view.get('_part/attr/static');
                     name: 'read',
                     format: 'boolean'
                 },{
-                    name: 'message'
+                    name: 'message',
+                    format: {
+                        name: 'relation',
+                        url: _url('notification-message/update')
+                    }
                 }],
                 link: null,
-                unlink: null
+                unlink: null,
+                create: null
             }
         }
     }, {

@@ -1,3 +1,10 @@
+## 3.1.0
+
+* module/rbac/model/MetaTarget
+    - fix message arguments
+* view/template/notificationMessage/update
+    - fix sending a message
+
 ## 3.0.0
 
 * migration to Bootstrap 5
