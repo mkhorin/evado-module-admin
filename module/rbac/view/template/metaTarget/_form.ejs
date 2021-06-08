@@ -1,12 +1,16 @@
-<% layout(_view.get(_layout)) %>
-<% block('tab', 'Target') %>
+<%
+layout(_view.get(_layout));
+block('tab', 'Target');
 
-<%- include(_view.get('_part/attr/select'), {
+const selectTemplate = _view.get('_part/attr/select');
+%>
+
+<%- include(selectTemplate, {
     attr: 'type',
     items: types
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'class',
     items: null,
     displayValue: metadataClass?.getTitle() || null,
@@ -16,7 +20,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'view',
     items: null,
     displayValue: view ? `${view.label} (${view.name})`: null,
@@ -28,7 +32,7 @@
     },
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'state',
     items: null,
     displayValue: state ? state.getTitle(): null,
@@ -40,7 +44,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'object',
     items: null,
     select2: {
@@ -56,7 +60,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'transition',
     items: null,
     displayValue: transition ? transition.getTitle(): null,
@@ -72,7 +76,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'attr',
     items: null,
     displayValue: attr ? attr.getTitle(): null,
@@ -84,7 +88,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'section',
     items: null,
     displayValue: section ? section.getTitle() : null,
@@ -94,7 +98,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/select'), {
+<%- include(selectTemplate, {
     attr: 'node',
     items: null,
     displayValue: node ? node.getTitle(): null,

@@ -3,4 +3,4 @@
  */
 'use strict';
 
-module.exports = require('../metaTarget/list');
+module.exports = require('../../metaTarget/list');

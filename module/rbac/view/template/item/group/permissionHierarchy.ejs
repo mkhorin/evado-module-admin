@@ -1,0 +1,52 @@
+<%
+const relationTemplate = _view.get('_part/attr/relation');
+%>
+
+<%- include(relationTemplate, {
+    attr: 'childPermissions',
+    extHint: 'Items contained in the current',
+    data: {
+        columns: [{
+            name: 'type',
+            format: 'label',
+            sortable: true
+        },{
+            name: 'name',
+            sortable: true
+        },{
+            name: 'label',
+            sortable: true
+        },{
+            name: 'description'
+        }],
+        order: {name: 1},
+        link: ['select', {list: _url('list-permissions', model)}],
+        update: 'update-permission',
+        delete: null
+    }
+}) %>
+
+<%- include(relationTemplate, {
+    attr: 'parentPermissions',
+    extHint: 'Items containing the current',
+    data: {
+        columns: [{
+            name: 'type',
+            format: 'label',
+            sortable: true
+        },{
+            name: 'name',
+            sortable: true
+        },{
+            name: 'label',
+            sortable: true
+        },{
+            name: 'description'
+        }],
+        order: {name: 1},
+        link: ['select', {list: _url('list-permissions', model)}],
+        update: 'update-permission',
+        delete: null
+    }
+}) %>
+

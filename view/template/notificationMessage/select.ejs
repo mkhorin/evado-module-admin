@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/frame/select')) %>
-
-<% block('title', 'Notification message') %>
+<%
+layout(_view.get('_layout/frame/select'));
+block('title', 'Notification message');
+%>
 
 <%- include(_view.get('_part/list/select'), {
     data: {

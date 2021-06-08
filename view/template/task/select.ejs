@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/frame/select')) %>
-
-<% block('title', 'Task') %>
+<%
+layout(_view.get('_layout/frame/select'));
+block('title', 'Task');
+%>
 
 <%- include(_view.get('_part/list/select'), {
     data: {

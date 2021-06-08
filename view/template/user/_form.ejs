@@ -1,17 +1,18 @@
-<% layout(_view.get(_layout)) %>
-<% block('tab', 'User') %>
-<% block('behaviors', {
-    Class: 'SetAttrValueBehavior',
+<%
+layout(_view.get(_layout));
+block('tab', 'User');
+block('behaviors', {
+    Class: 'DependentValueBehavior',
     source: 'blocked',
     sourceValue: 'on',
     target: 'unlockAt',
     targetValue: ''
-}) %>
-<%
+});
 const checkboxTemplate = _view.get('_part/attr/checkbox');
 const columnTemplate = _view.get('_part/group/columns');
 const stringTemplate = _view.get('_part/attr/string');
 %>
+
 <%- include(columnTemplate, {
     items: [{
         template: stringTemplate,

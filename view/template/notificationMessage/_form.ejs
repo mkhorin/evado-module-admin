@@ -1,7 +1,9 @@
 <%
+layout(_view.get(_layout));
+
 const canSend = model.canSend();
+const relationTemplate = _view.get('_part/attr/relation');
 %>
-<% layout(_view.get(_layout)) %>
 
 <%- include(_view.get('_part/attr/string'), {
     attr: 'subject'
@@ -11,7 +13,7 @@ const canSend = model.canSend();
     attr: 'text'
 }) %>
 
-<%- include(_view.get('_part/attr/relation'), {
+<%- include(relationTemplate, {
     attr: 'notification',
     data: {
         columns: [{
@@ -28,7 +30,7 @@ const canSend = model.canSend();
     }
 }) %>
 
-<%- include(_view.get('_part/attr/relation'), {
+<%- include(relationTemplate, {
     attr: 'recipients',
     extHint: 'If direct recipients empty on message sending then user filters from the notification will be used',
     data: {

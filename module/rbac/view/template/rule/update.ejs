@@ -1,44 +1,25 @@
-<% block('title', 'Rule') %>
+<%
+block('title', 'Rule');
+%>
 
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Owners',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'items',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name'
-                }, {
-                    name: 'description'
-                }],
-                create: null,
-                delete: null
-            }
-        }
+        id: 'main',
+        label: 'Main',
+        active: true,
+        content: _view.getInternalTemplate('group/main'),
+        loadable: true
     }, {
-        id: 'Metadata permissions',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'metaItems',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'type',
-                    escape: false
-                }, {
-                    name: 'actions',
-                    translateData: 'rbac'
-                }, {
-                    name: 'targets',
-                    escape: false
-                }],
-                create: null,
-                delete: null
-            }
-        }
+        id: 'owners',
+        label: 'Owners',
+        content: _view.getInternalTemplate('group/owners'),
+        loadable: true
+    }, {
+        id: 'permissions',
+        label: 'Metadata permissions',
+        content: _view.getInternalTemplate('group/permissions'),
+        loadable: true
     }]
 }) %>

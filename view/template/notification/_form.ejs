@@ -1,9 +1,9 @@
 <%
+layout(_view.get(_layout));
+
 const jsonTemplate = _view.get('_part/attr/json');
-const relationTemplate = _view.get('_part/attr/relation');
 const stringTemplate = _view.get('_part/attr/string');
 %>
-<% layout(_view.get(_layout)) %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
     attr: 'active'
@@ -29,7 +29,7 @@ const stringTemplate = _view.get('_part/attr/string');
 
 <%- include(jsonTemplate, {
     attr: 'recipient',
-    extHint: 'User filter configuration to select recipients when message creating'
+    extHint: 'User filter configuration for selecting recipients when creating a message'
 }) %>
 
 <%- include(jsonTemplate, {
@@ -43,62 +43,23 @@ const stringTemplate = _view.get('_part/attr/string');
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Messages',
+        id: 'messages',
+        label: 'Messages',
         hint: 'Messages created by this notification',
-        content: {
-            template: relationTemplate,
-            attr: 'messages',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'subject'
-                }, {
-                    name: 'text'
-                }, {
-                    name: 'sentAt',
-                    format: 'timestamp'
-                }, {
-                    name: 'createdAt',
-                    format: 'timestamp'
-                }],
-                link: null,
-                unlink: null,
-                create: null
-            }
-        }
+        active: true,
+        content: _view.getInternalTemplate('group/messages'),
+        loadable: true
     }, {
-        id: 'User filters',
-        hint: 'User filters to select recipients when notification sending',
-        content: {
-            template: relationTemplate,
-            attr: 'userFilters',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name'
-                },{
-                    name: 'label'
-                }, {
-                    name: 'description'
-                }],
-                delete: null
-            }
-        }
+        id: 'filters',
+        label: 'User filters',
+        hint: 'Filter recipients when sending this notification',
+        content: _view.getInternalTemplate('group/filters'),
+        loadable: true
     }, {
-        id: 'Users',
+        id: 'users',
+        label: 'Users',
         hint: 'Message recipients for this notification',
-        content: {
-            template: relationTemplate,
-            attr: 'users',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name'
-                }, {
-                    name: 'email'
-                }],
-                delete: null
-            }
-        }
+        content: _view.getInternalTemplate('group/users'),
+        loadable: true
     }]
 }) %>

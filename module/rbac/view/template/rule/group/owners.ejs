@@ -1,0 +1,20 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'items',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'type',
+            format: 'label'
+        },{
+            name: 'name'
+        }, {
+            name: 'label'
+        }, {
+            name: 'description'
+        }],
+        create: null,
+        delete: null
+    }
+}) %>
+

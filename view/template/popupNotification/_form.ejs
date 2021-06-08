@@ -1,10 +1,14 @@
-<% layout(_view.get(_layout)) %>
+<%
+layout(_view.get(_layout));
+
+const relationTemplate = _view.get('_part/attr/relation');
+%>
 
 <%- include(_view.get('_part/attr/checkbox'), {
     attr: 'read'
 }) %>
 
-<%- include(_view.get('_part/attr/relation'), {
+<%- include(relationTemplate, {
     attr: 'message',
     data: {
         columns: [{
@@ -25,7 +29,7 @@
     }
 }) %>
 
-<%- include(_view.get('_part/attr/relation'), {
+<%- include(relationTemplate, {
     attr: 'user',
     data: {
         columns: [{

@@ -27,19 +27,16 @@ module.exports = class RawFileController extends Base {
     }
 
     actionUpdate () {
-        return super.actionUpdate({with: ['creator']});
+        return super.actionUpdate({with: 'creator'});
     }
 
     async actionDelete () {
         const model = await this.getModel();
         if (model.getOwner()) {
-            throw new BadRequest('This file has an owner. Remove it first');
+            throw new BadRequest('This file is associated with some owner');
         }
         await model.delete();
         this.sendText(model.getId());
-    }
-
-    async actionDeleteList () {
     }
 
     async actionDownload () {
@@ -58,6 +55,10 @@ module.exports = class RawFileController extends Base {
         }
         this.setHttpHeader(model.getThumbnailHeaders());
         this.sendFile(file);
+    }
+
+    createDeletionQuery () {
+        return super.createDeletionQuery(...arguments).and({owner: null});
     }
 
     async sendModelFile (model) {

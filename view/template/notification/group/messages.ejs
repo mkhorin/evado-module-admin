@@ -1,0 +1,22 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'messages',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'subject'
+        }, {
+            name: 'text'
+        }, {
+            name: 'sentAt',
+            format: 'timestamp'
+        }, {
+            name: 'createdAt',
+            format: 'timestamp'
+        }],
+        link: null,
+        unlink: null,
+        create: null
+    }
+}) %>
+

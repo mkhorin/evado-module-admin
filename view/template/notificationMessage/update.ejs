@@ -1,8 +1,9 @@
-<% block('title', 'Notification message') %>
-
-<% if (model.canSend()) { %>
-<% block('commands', {template: _view.getInternalTemplate('_send')}); %>
-<% } %>
+<%
+if (model.canSend()) {
+    block('commands', {template: _view.getInternalTemplate('_send')});
+}
+block('title', 'Notification message');
+%>
 
 <%- include(_view.getInternalTemplate('_form')) %>
 

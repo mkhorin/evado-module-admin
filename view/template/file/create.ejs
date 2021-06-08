@@ -1,6 +1,7 @@
-<% layout(_view.get(_layout)) %>
-
-<% block('title', 'Create file') %>
+<%
+layout(_view.get(_layout));
+block('title', 'Create file');
+%>
 
 <%- include(_view.get('_part/attr/file'), {
     attr: 'file',

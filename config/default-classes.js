@@ -22,6 +22,5 @@ module.exports = {
     'model/UserLog': require('../model/UserLog'),
     'model/UserPassword': require('../model/UserPassword'),
 
-    'rbac/model/Assignment': require('../module/rbac/model/Assignment'),
-    'rbac/model/Item': require('../module/rbac/model/Item'),
+    ...require('../module/rbac/config/default-classes')
 };

@@ -1,0 +1,46 @@
+<%
+const relationTemplate = _view.get('_part/attr/relation');
+%>
+
+<%- include(relationTemplate, {
+    attr: 'children',
+    extHint: 'Items contained in the current',
+    data: {
+        columns: [{
+            name: 'type',
+            format: 'label',
+            sortable: true
+        },{
+            name: 'name',
+            sortable: true
+        },{
+            name: 'label',
+            sortable: true
+        }],
+        order: {name: 1},
+        link: ['select', {list: _url('list-free-children', model)}],
+        delete: null
+    }
+}) %>
+
+<%- include(relationTemplate, {
+    attr: 'parents',
+    extHint: 'Items containing the current',
+    data: {
+        columns: [{
+            name: 'type',
+            format: 'label',
+            sortable: true
+        },{
+            name: 'name',
+            sortable: true
+        },{
+            name: 'label',
+            sortable: true
+        }],
+        order: {name: 1},
+        link: ['select', {list: _url('list-free-parents', model)}],
+        delete: null
+    }
+}) %>
+

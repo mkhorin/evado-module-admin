@@ -35,6 +35,6 @@ module.exports = class LogController extends Base {
 };
 module.exports.init(module);
 
-const path = require('path');
 const FileHelper = require('areto/helper/FileHelper');
 const NotFound = require('areto/error/http/NotFound');
+const path = require('path');

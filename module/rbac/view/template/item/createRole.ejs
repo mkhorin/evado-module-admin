@@ -1,6 +1,7 @@
-<% layout(_view.get(_layout)) %>
-
-<% block('title', 'Create role') %>
+<%
+layout(_view.get(_layout));
+block('title', 'Create role');
+%>
 
 <%- include(_view.get('_part/attr/hidden'), {
     attr: 'type',
@@ -25,9 +26,9 @@
         columns: [{
             name: 'name'
         },{
-            name: 'model'
+            name: 'label'
         },{
-            name: 'params'
+            name: 'description'
         }]
     }
 }) %>

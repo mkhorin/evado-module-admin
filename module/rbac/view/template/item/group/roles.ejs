@@ -1,0 +1,20 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'parentRoles',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'name',
+            sortable: true
+        }, {
+            name: 'label',
+            sortable: true
+        }, {
+            name: 'description'
+        }],
+        link: ['select', {list: _url('list-roles', model)}],
+        update: 'update-role',
+        delete: null
+    }
+}) %>
+

@@ -4,11 +4,11 @@
 'use strict';
 
 module.exports = {
-    'model/Assignment': require('../model/Assignment'),
-    'model/AssignmentRule': require('../model/AssignmentRule'),
-    'model/Item': require('../model/Item'),
-    'model/ItemChild': require('../model/ItemChild'),
-    'model/MetaItem': require('../model/MetaItem'),
-    'model/MetaTarget': require('../model/MetaTarget'),
-    'model/Rule': require('../model/Rule')
+    'rbac/model/Assignment': require('../model/Assignment'),
+    'rbac/model/AssignmentRule': require('../model/AssignmentRule'),
+    'rbac/model/Item': require('../model/Item'),
+    'rbac/model/ItemChild': require('../model/ItemChild'),
+    'rbac/model/MetaItem': require('../model/MetaItem'),
+    'rbac/model/MetaTarget': require('../model/MetaTarget'),
+    'rbac/model/Rule': require('../model/Rule')
 };

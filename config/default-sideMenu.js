@@ -60,10 +60,13 @@ module.exports = {
         url: 'admin/log',
         label: 'Logs'
     }, {
-        label: 'Upload',
+        label: 'Uploads',
         children: [{
             url: 'admin/raw-file',
             label: 'Raw files'
+        }, {
+            url: 'admin/s3-file',
+            label: 'S3 files'
         }]
     }]
 };

@@ -1,0 +1,19 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'tasks',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        }, {
+            name: 'name'
+        }, {
+            name: 'description'
+        }, {
+            name: 'job'
+        }],
+        delete: null
+    }
+}) %>
+

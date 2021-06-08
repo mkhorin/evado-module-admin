@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/frame/modelView')) %>
-
-<% block('title', `User`); %>
+<%
+layout(_view.get('_layout/frame/modelView'));
+block('title', `User`);
+%>
 
 <%- include(_view.get('_part/group/columns'), {
     items: [{

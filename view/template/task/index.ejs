@@ -1,7 +1,8 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'Tasks') %>
-<% block('tools', {template: _view.get('_part/tool/refreshScheduler')}); %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Tasks');
+block('tools', {template: _view.get('_part/tool/refreshScheduler')});
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {

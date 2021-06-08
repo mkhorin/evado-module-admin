@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/frame/form')) %>
-
-<% block('title', 'Table') %>
+<%
+layout(_view.get('_layout/frame/form'));
+block('title', 'Table');
+%>
 
 <%- include(_view.get('_part/attr/string'), {
     attr: 'name'

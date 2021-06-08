@@ -1,3 +1,9 @@
+## 4.0.0
+
+* add S3 file management
+* fix tool buttons
+* loadable tabs to speed up form rendering
+
 ## 3.1.0
 
 * module/rbac/model/MetaTarget

@@ -1,0 +1,21 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'popupNotifications',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'read',
+            format: 'boolean'
+        },{
+            name: 'message',
+            format: {
+                name: 'relation',
+                url: _url('notification-message/update')
+            }
+        }],
+        link: null,
+        unlink: null,
+        create: null
+    }
+}) %>
+

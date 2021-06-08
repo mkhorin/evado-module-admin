@@ -1,35 +1,40 @@
-<% layout(_view.get(_layout)) %>
+<%
+layout(_view.get(_layout));
+block('title', 'File');
 
-<% block('title', 'File'); %>
+const columnTemplate = _view.get('_part/group/columns');
+const modelTemplate = _view.get('_part/attr/modelLink');
+const staticTemplate = _view.get('_part/attr/static');
+%>
 
 <%- include(_view.get('_part/attr/string'), {
     attr: 'name'
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
             attr: 'size',
             format: 'bytes'
         }
     }, {
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
-            attr: 'mime'
+            attr: 'type'
         }
     }]
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
             attr: 'createdAt',
             format: 'timestamp'
         }
     }, {
-        template: _view.get('_part/attr/modelLink'),
+        template: modelTemplate,
         params: {
             attr: 'creator',
             url: 'user/update'
@@ -37,15 +42,15 @@
     }]
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
             attr: 'updatedAt',
             format: 'timestamp'
         }
     }, {
-        template: _view.get('_part/attr/modelLink'),
+        template: modelTemplate,
         params: {
             attr: 'editor',
             url: 'user/update'
@@ -62,5 +67,5 @@
 <%- include(_view.get('_part/attr/download'), {
     attr: 'filename',
     label: 'Download',
-    thumbnail: 'large'
+    thumbnail: 'lg'
 }) %>

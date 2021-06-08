@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/frame/select')) %>
-
-<% block('title', 'Event handler') %>
+<%
+layout(_view.get('_layout/frame/select'));
+block('title', 'Event handler');
+%>
 
 <%- include(_view.get('_part/list/select'), {
     data: {
@@ -15,8 +16,6 @@
         },{
             name: 'description',
             searchable: true
-        },{
-            name: 'config'
         }],
         order: {name: 1}
     }

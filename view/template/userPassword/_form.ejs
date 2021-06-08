@@ -1,5 +1,7 @@
-<% layout(_view.get(_layout)); %>
-<% block('tab', 'User password'); %>
+<%
+layout(_view.get(_layout));
+block('tab', 'User password');
+%>
 
 <%- include(_view.get('_part/attr/string'), {
     attr: 'password',

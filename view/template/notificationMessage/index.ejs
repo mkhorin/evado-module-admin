@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'Notification messages') %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Notification messages');
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {

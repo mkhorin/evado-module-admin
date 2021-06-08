@@ -1,8 +1,9 @@
-<% block('title', 'User') %>
 <%
-const relationTemplate = _view.get('_part/attr/relation');
+block('title', 'User');
+
 const staticTemplate = _view.get('_part/attr/static');
 %>
+
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/group/columns'), {
@@ -23,91 +24,25 @@ const staticTemplate = _view.get('_part/attr/static');
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Roles',
-        content: {
-            template: relationTemplate,
-            attr: 'roles',
-            css: 'no-label',
-            relRoute: 'rbac/item',
-            data: {
-                columns: [{
-                    name: 'name'
-                },{
-                    name: 'label'
-                },{
-                    name: 'description'
-                }],
-                order: {name: 1},
-                link: ['rbac/item/select', {list: _url('rbac/item/list-role')}],
-                create: null,
-                delete: null
-            }
-        }
+        id: 'roles',
+        label: 'Roles',
+        active: true,
+        content: _view.getInternalTemplate('group/roles'),
+        loadable: true
     }, {
-        id: 'Passwords',
-        content: {
-            template: relationTemplate,
-            attr: 'userPasswords',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'createdAt',
-                    format: 'timestamp'
-                },{
-                    name: 'hash'
-                }],
-                link: null,
-                unlink: null
-            }
-        }
+        id: 'passwords',
+        label: 'Passwords',
+        content: _view.getInternalTemplate('group/passwords'),
+        loadable: true
     }, {
-        id: 'Notifications',
-        content: {
-            template: relationTemplate,
-            attr: 'popupNotifications',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'read',
-                    format: 'boolean'
-                },{
-                    name: 'message',
-                    format: {
-                        name: 'relation',
-                        url: _url('notification-message/update')
-                    }
-                }],
-                link: null,
-                unlink: null,
-                create: null
-            }
-        }
+        id: 'notifications',
+        label: 'Notifications',
+        content: _view.getInternalTemplate('group/notifications'),
+        loadable: true
     }, {
-        id: 'Logs',
-        content: {
-            template: relationTemplate,
-            attr: 'userLogs',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'event',
-                    searchable: true
-                },{
-                    name: 'time',
-                    format: 'timestamp'
-                },{
-                    name: 'ip',
-                    searchable: true
-                },{
-                    name: 'data'
-                }],
-                create: null,
-                update: null,
-                delete: null,
-                link: null,
-                unlink: null,
-                showTop: true
-            }
-        }
+        id: 'logs',
+        label: 'Logs',
+        content: _view.getInternalTemplate('group/logs'),
+        loadable: true
     }]
 }) %>

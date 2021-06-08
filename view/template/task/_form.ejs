@@ -1,6 +1,12 @@
-<% layout(_view.get(_layout)) %>
+<%
+layout(_view.get(_layout));
 
-<%- include(_view.get('_part/attr/string'), {
+const checkboxTemplate = _view.get('_part/attr/checkbox');
+const columnTemplate = _view.get('_part/group/columns');
+const stringTemplate = _view.get('_part/attr/string');
+%>
+
+<%- include(stringTemplate, {
     attr: 'name'
 }) %>
 
@@ -11,18 +17,18 @@
 
 <%- include(_view.get('_part/group/inline'), {
     items: [{
-        template: _view.get('_part/attr/checkbox'),
+        template: checkboxTemplate,
         params: {
             attr: 'active'
         }
     },{
-        template: _view.get('_part/attr/checkbox'),
+        template: checkboxTemplate,
         params: {
             attr: 'startup',
             hint: 'Execute at server startup'
         }
     },{
-        template: _view.get('_part/attr/checkbox'),
+        template: checkboxTemplate,
         params: {
             attr: 'stopOnFail',
             hint: 'Stop running task on job error'
@@ -30,14 +36,14 @@
     }]
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
         template: _view.get('_part/attr/datetime'),
         params: {
             attr: 'startDate'
         }
     }, {
-        template: _view.get('_part/attr/string'),
+        template: stringTemplate,
         params: {
             attr: 'startTime',
             extHint: 'Start every day at this time',
@@ -46,9 +52,9 @@
     }]
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/string'),
+        template: stringTemplate,
         params: {
             attr: 'period',
             extHint: 'Seconds or ISO 8601 format'

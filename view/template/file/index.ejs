@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'Files') %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Files');
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {
@@ -14,7 +15,7 @@
             searchable: true,
             sortable: true
         },{
-            name: 'mime',
+            name: 'type',
             searchable: true,
             sortable: true
         }, {

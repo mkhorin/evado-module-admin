@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'User filters') %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'User filters');
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {
@@ -15,8 +16,6 @@
         },{
             name: 'description',
             searchable: true
-        },{
-            name: 'config'
         }],
         order: {name: 1},
         filter: {}

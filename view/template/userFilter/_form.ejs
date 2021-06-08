@@ -1,11 +1,15 @@
-<% layout(_view.get(_layout)); %>
-<% block('tab', 'User filter'); %>
+<%
+layout(_view.get(_layout));
+block('tab', 'User filter');
 
-<%- include(_view.get('_part/attr/string'), {
+const stringTemplate = _view.get('_part/attr/string');
+%>
+
+<%- include(stringTemplate, {
     attr: 'name'
 }) %>
 
-<%- include(_view.get('_part/attr/string'), {
+<%- include(stringTemplate, {
     attr: 'label'
 }) %>
 
@@ -19,63 +23,20 @@
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Assignments',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'items',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'type',
-                    format: 'label'
-                },{
-                    name: 'name',
-                    sortable: true
-                }, {
-                    name: 'label',
-                    sortable: true
-                }, {
-                    name: 'description'
-                }],
-                link: 'rbac/item/select',
-                create: null,
-                update: 'rbac/item/update',
-                delete: null
-            }
-        }
+        id: 'assignments',
+        label: 'Assignments',
+        active: true,
+        content: _view.getInternalTemplate('group/assignments'),
+        loadable: true
     }, {
-        id: 'Included users',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'includes',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name'
-                }, {
-                    name: 'email'
-                }],
-                order: {name: 1},
-                create: null,
-                delete: null
-            }
-        }
+        id: 'includes',
+        label: 'Included users',
+        content: _view.getInternalTemplate('group/includes'),
+        loadable: true
     }, {
-        id: 'Excluded users',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'excludes',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name'
-                }, {
-                    name: 'email'
-                }],
-                order: {name: 1},
-                create: null,
-                delete: null
-            }
-        }
+        id: 'excludes',
+        label: 'Excluded users',
+        content: _view.getInternalTemplate('group/excludes'),
+        loadable: true
     }]
 }) %>

@@ -1,16 +1,29 @@
-<% layout(_view.get('_layout/frame/select')) %>
+<%
+layout(_view.get('_layout/frame/select'));
+%>
 
 <%- include(_view.get('_part/list/select'), {
     data: {
         columns: [{
-            name: 'type'
+            name: 'type',
+            escape: false,
+            searchable: true,
+            sortable: true
         },{
-            name: 'actions'
+            name: 'actions',
+            translateData: 'rbac'
         },{
-            name: 'roles'
+            name: 'roles',
+            format: {
+                name: 'relation',
+                url: _url('item/update-role')
+            }
         },{
             name: 'targets',
             escape: false
+        },{
+            name: 'description',
+            searchable: true
         }]
     }
 }) %>

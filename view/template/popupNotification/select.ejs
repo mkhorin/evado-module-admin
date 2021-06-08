@@ -1,8 +1,9 @@
-<% layout(_view.get('_layout/frame/select')) %>
+<%
+layout(_view.get('_layout/frame/select'));
+block('title', 'Select');
+%>
 
-<% block('title', 'Select') %>
-
-<%- nclude(_view.get('_part/list/select'), {
+<%- include(_view.get('_part/list/select'), {
     data: {
         columns: [{
             name: 'read',

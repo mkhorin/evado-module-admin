@@ -1,7 +1,8 @@
-<% layout(_view.get('_layout/frame/form')) %>
-
-<% block('tab', 'Trigger') %>
-<% block('title', 'Trigger events') %>
+<%
+layout(_view.get('_layout/frame/form'));
+block('tab', 'Trigger');
+block('title', 'Trigger events');
+%>
 
 <%- include(_view.get('_part/attr/string'), {
     attr: 'events',

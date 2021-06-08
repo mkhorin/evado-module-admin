@@ -41,9 +41,9 @@ module.exports = class Item extends Base {
             TYPE_ROLE: 'role',
             TYPE_ROUTE: 'route',
             ATTR_LABELS: {
-                children: 'Child items',
-                name: 'Code name',
-                parents: 'Parent items'
+                'children': 'Child items',
+                'name': 'Code name',
+                'parents': 'Parent items'
             },
             ATTR_VALUE_LABELS: {
                 'type': {
@@ -70,17 +70,17 @@ module.exports = class Item extends Base {
     // RELATIONS
 
     relAssignments () {
-        const Class = this.getClass('model/Assignment');
+        const Class = this.getClass('rbac/model/Assignment');
         return this.hasMany(Class, 'item', this.PK);
     }
 
     relAssignmentRules () {
-        const Class = this.getClass('model/AssignmentRule');
+        const Class = this.getClass('rbac/model/AssignmentRule');
         return this.hasMany(Class, Class.PK, 'assignmentRules').viaArray();
     }
 
     relChildItems () {
-        const Class = this.getClass('model/ItemChild');
+        const Class = this.getClass('rbac/model/ItemChild');
         return this.hasMany(Class, 'parent', this.PK);
     }
 
@@ -97,12 +97,12 @@ module.exports = class Item extends Base {
     }
 
     relMetaItems () {
-        const Class = this.getClass('model/MetaItem');
+        const Class = this.getClass('rbac/model/MetaItem');
         return this.hasMany(Class, 'roles', this.PK).viaArray();
     }
 
     relParentItems () {
-        const Class = this.getClass('model/ItemChild');
+        const Class = this.getClass('rbac/model/ItemChild');
         return this.hasMany(Class, 'child', this.PK);
     }
 
@@ -119,7 +119,7 @@ module.exports = class Item extends Base {
     }
 
     relRule () {
-        const Class = this.getClass('model/Rule');
+        const Class = this.getClass('rbac/model/Rule');
         return this.hasOne(Class, Class.PK, 'rule');
     }
 

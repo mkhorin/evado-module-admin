@@ -1,6 +1,7 @@
-<% layout(_view.get('_layout/list')) %>
-
-<% block('title', 'Raw files') %>
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Raw files');
+%>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {
@@ -28,7 +29,6 @@
         }],
         order: {[model.PK]: -1},
         filter: {},
-        create: null,
-        delete: null
+        create: null
     }
 }) %>

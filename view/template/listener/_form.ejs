@@ -1,4 +1,4 @@
-<% layout(_view.get(_layout)) %>
+<% layout(_view.get(_layout)); %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
     attr: 'active'
@@ -16,63 +16,20 @@
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Notifications',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'notifications',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'active',
-                    format: 'boolean'
-                }, {
-                    name: 'subject'
-                }, {
-                    name: 'text'
-                }, {
-                    name: 'types'
-                }],
-                delete: null
-            }
-        }
+        id: 'notifications',
+        label: 'Notifications',
+        active: true,
+        content: _view.getInternalTemplate('group/notifications'),
+        loadable: true
     },{
-        id: 'Tasks',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'tasks',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'active',
-                    format: 'boolean'
-                }, {
-                    name: 'name'
-                }, {
-                    name: 'description'
-                }, {
-                    name: 'job'
-                }],
-                delete: null
-            }
-        }
+        id: 'tasks',
+        label: 'Tasks',
+        content: _view.getInternalTemplate('group/tasks'),
+        loadable: true
     },{
-        id: 'Handlers',
-        content: {
-            template: _view.get('_part/attr/relation'),
-            attr: 'handlers',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name',
-                    sortable: true
-                }, {
-                    name: 'label',
-                    sortable: true
-                }, {
-                    name: 'description'
-                }],
-                delete: null
-            }
-        }
+        id: 'handlers',
+        label: 'Handlers',
+        content: _view.getInternalTemplate('group/handlers'),
+        loadable: true
     }]
 }) %>

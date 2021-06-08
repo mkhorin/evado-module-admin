@@ -1,0 +1,19 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'notifications',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'active',
+            format: 'boolean'
+        }, {
+            name: 'subject'
+        }, {
+            name: 'text'
+        }, {
+            name: 'types'
+        }],
+        delete: null
+    }
+}) %>
+

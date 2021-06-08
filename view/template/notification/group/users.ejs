@@ -1,0 +1,14 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'users',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'name'
+        }, {
+            name: 'email'
+        }],
+        delete: null
+    }
+}) %>
+

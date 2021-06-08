@@ -1,115 +1,37 @@
-<% layout(_view.get(_layout)) %>
-<% block('title', model.getAttrValueLabel('type')) %>
 <%
-const relationTemplate = _view.get('_part/attr/relation');
-const stringTemplate = _view.get('_part/attr/string');
+layout(_view.get(_layout));
+block('title', model.getAttrValueLabel('type'));
 %>
-<%- include(stringTemplate, {
+
+<%- include(_view.get('_part/attr/string'), {
     attr: 'name'
 }) %>
 
-<%- include(stringTemplate, {
+<%- include(_view.get('_part/attr/string'), {
     attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
     items: [{
-        id: 'Main',
+        id: 'main',
+        label: 'Main',
         active: true,
-        content: [{
-            template: _view.get('_part/attr/text'),
-            attr: 'description'
-        }]
+        content: _view.getInternalTemplate('group/main'),
+        loadable: true
     }, {
-        id: 'Roles',
-        content: {
-            template: relationTemplate,
-            attr: 'parentRoles',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name',
-                    sortable: true
-                }, {
-                    name: 'label',
-                    sortable: true
-                }, {
-                    name: 'description'
-                }],
-                link: ['select', {list: _url('list-roles', model)}],
-                update: 'update-role',
-                delete: null
-            }
-        }
+        id: 'roles',
+        label: 'Roles',
+        content: _view.getInternalTemplate('group/roles'),
+        loadable: true
     }, {
-        id: 'Hierarchy',
-        content: [{
-            template: relationTemplate,
-            attr: 'childPermissions',
-            extHint: 'Items contained in the current',
-            data: {
-                columns: [{
-                    name: 'type',
-                    format: 'label',
-                    sortable: true
-                },{
-                    name: 'name',
-                    sortable: true
-                },{
-                    name: 'label',
-                    sortable: true
-                },{
-                    name: 'description'
-                }],
-                order: {name: 1},
-                link: ['select', {list: _url('list-permissions', model)}],
-                update: 'update-permission',
-                delete: null
-            }
-        }, {
-            template: relationTemplate,
-            attr: 'parentPermissions',
-            extHint: 'Items containing the current',
-            data: {
-                columns: [{
-                    name: 'type',
-                    format: 'label',
-                    sortable: true
-                },{
-                    name: 'name',
-                    sortable: true
-                },{
-                    name: 'label',
-                    sortable: true
-                },{
-                    name: 'description'
-                }],
-                order: {name: 1},
-                link: ['select', {list: _url('list-permissions', model)}],
-                update: 'update-permission',
-                delete: null
-            }
-        }]
+        id: 'hierarchy',
+        label: 'Hierarchy',
+        content: _view.getInternalTemplate('group/permissionHierarchy'),
+        loadable: true
     }, {
-        id: 'Rule',
-        content: {
-            template: relationTemplate,
-            attr: 'rule',
-            css: 'no-label',
-            data: {
-                columns: [{
-                    name: 'name',
-                    sortable: true
-                }, {
-                    name: 'label',
-                    sortable: true
-                }, {
-                    name: 'config'
-                }, {
-                    name: 'description'
-                }],
-                delete: null
-            }
-        }
+        id: 'rule',
+        label: 'Rule',
+        content: _view.getInternalTemplate('group/rule'),
+        loadable: true
     }]
 }) %>

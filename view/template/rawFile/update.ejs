@@ -1,28 +1,33 @@
-<% layout(_view.get(_layout)) %>
-<% block('title', 'Raw file'); %>
+<%
+layout(_view.get(_layout), {params: {readOnly: true}});
+block('title', 'Raw file');
 
-<%- include(_view.get('_part/attr/static'), {
-    attr: 'name'
+const columnTemplate = _view.get('_part/group/columns');
+const staticTemplate = _view.get('_part/attr/static');
+%>
+
+<%- include(staticTemplate, {
+    attr: 'file'
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
             attr: 'size',
             format: 'bytes'
         }
     }, {
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
-            attr: 'mime'
+            attr: 'type'
         }
     }]
 }) %>
 
-<%- include(_view.get('_part/group/columns'), {
+<%- include(columnTemplate, {
     items: [{
-        template: _view.get('_part/attr/static'),
+        template: staticTemplate,
         params: {
             attr: 'createdAt',
             format: 'timestamp'
@@ -36,7 +41,7 @@
     }]
 }) %>
 
-<%- include(_view.get('_part/attr/static'), {
+<%- include(staticTemplate, {
     attr: 'owner'
 }) %>
 
@@ -44,7 +49,7 @@
     attr: 'file',
     label: 'Download',
     downloadPath: _url('download'),
-    thumbnail: 'large',
+    thumbnail: 'lg',
     thumbnailPath: _url('thumbnail'),
     css: 'thumbnail-lg'
 }) %>

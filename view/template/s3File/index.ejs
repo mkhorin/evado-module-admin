@@ -1,0 +1,34 @@
+<%
+layout(_view.get('_layout/list'));
+block('title', 'S3 files');
+%>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'name',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'size',
+            format: 'bytes',
+            searchable: true,
+            sortable: true
+        },{
+            name: 'createdAt',
+            format: 'timestamp',
+            sortable: true
+        },{
+            name: 'creator',
+            format: {
+                name: 'relation',
+                url: _url('user/update')
+            }
+        },{
+            name: 'owner'
+        }],
+        order: {[model.PK]: -1},
+        filter: {},
+        create: null
+    }
+}) %>
