@@ -8,7 +8,7 @@ const Base = require('areto/view/ViewModel');
 module.exports = class ItemFilter extends Base {
 
     async resolveTemplateData () {
-        const Item = this.getClass('model/Item');
+        const Item = this.getClass('rbac/model/Item');
         return {
             items: await SelectHelper.queryLabelItems(this.spawn(Item).find())
         };
