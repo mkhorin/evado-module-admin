@@ -1,0 +1,15 @@
+<% layout(_view.get('_layout/frame/list')) %>
+
+<%- include(_view.get('_part/list/sortArray'), {
+    data: {
+        columns: [{
+            name: 'name',
+            sortable: true
+        },{
+            name: 'label',
+            sortable: true
+        },{
+            name: 'description'
+        }]
+    }
+}) %>

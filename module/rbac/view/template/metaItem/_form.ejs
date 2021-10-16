@@ -49,7 +49,8 @@ const relationTemplate = _view.get('_part/attr/relation');
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'rule',
+    attr: 'rules',
+    extHint: 'Restrictive rules of applicability of this permission',
     data: {
         columns: [{
             name: 'name'
@@ -58,7 +59,9 @@ const relationTemplate = _view.get('_part/attr/relation');
         },{
             name: 'description'
         }],
-        delete: null
+        delete: null,
+        modalSort: true,
+        modalSortArray: true
     }
 }) %>
 

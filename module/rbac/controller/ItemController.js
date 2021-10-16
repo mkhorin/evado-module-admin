@@ -9,6 +9,11 @@ module.exports = class ItemController extends Base {
 
     static getConstants () {
         return {
+            ACTIONS: {
+                'sortRelatedArray': {
+                    Class: require('evado/component/action/SortRelatedArrayAction')
+                }
+            },
             METHODS: {
                 'listFreeChildren': ['post'],
                 'listFreeParents': ['post']
@@ -35,7 +40,7 @@ module.exports = class ItemController extends Base {
             childPermissions: nameOrder,
             childRoles: nameOrder,
             parentRoles: nameOrder,
-            rule: true
+            rules: true
         }));
     }
 
@@ -45,7 +50,7 @@ module.exports = class ItemController extends Base {
             children: nameOrder,
             parentPermissions: nameOrder,
             parentRoles: nameOrder,
-            rule: true
+            rules: true
         }));
     }
 

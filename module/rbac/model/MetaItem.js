@@ -15,7 +15,7 @@ module.exports = class MetaItem extends Base {
                 'actions',
                 'description',
                 'roles',
-                'rule'
+                'rules'
             ],
             RULES: [
                 [['type', 'actions'], 'required'],
@@ -27,7 +27,7 @@ module.exports = class MetaItem extends Base {
                 }],
                 ['actions', 'validateActions'],
                 ['description', 'string'],
-                [['roles', 'rule', 'targets'], 'relation']
+                [['roles', 'rules', 'targets'], 'relation']
             ],
             DELETE_ON_UNLINK: [
                 'targets'
@@ -57,8 +57,8 @@ module.exports = class MetaItem extends Base {
         return this.hasMany(Class, Class.PK, 'roles').onlyRoles().viaArray();
     }
 
-    relRule (Class = Rule) {
-        return this.hasOne(Class, Class.PK, 'rule');
+    relRules (Class = Rule) {
+        return this.hasMany(Class, Class.PK, 'rules').viaArray();
     }
 
     relTargets (Class = MetaTarget) {

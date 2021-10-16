@@ -40,11 +40,11 @@ module.exports = class Rule extends Base {
     // RELATIONS
 
     relItems (Class = Item) {
-        return this.hasMany(Class, 'rule', this.PK);
+        return this.hasMany(Class, 'rules', this.PK);
     }
 
     relMetaItems (Class = MetaItem) {
-        return this.hasMany(Class, 'rule', this.PK);
+        return this.hasMany(Class, 'rules', this.PK);
     }
 };
 module.exports.init(module);

@@ -34,9 +34,10 @@ block('title', model.getAttrValueLabel('type'));
         content: _view.getInternalTemplate('group/assignments'),
         loadable: true
     }, {
-        id: 'rule',
-        label: 'Rule',
-        content: _view.getInternalTemplate('group/rule'),
+        id: 'rules',
+        label: 'Rules',
+        hint: 'Restrictive rules of applicability of this role',
+        content: _view.getInternalTemplate('group/rules'),
         loadable: true
     }]
 }) %>

@@ -15,7 +15,7 @@ module.exports = class Item extends Base {
                 'name',
                 'label',
                 'description',
-                'rule',
+                'rules',
                 'assignmentRules'
             ],
             RULES: [
@@ -26,7 +26,7 @@ module.exports = class Item extends Base {
                 ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
                 [['description', 'label'], 'string'],
-                [['childPermissions', 'childRoles', 'parentRoles', 'rule', 'users', 'assignmentRules'], 'relation']
+                [['childPermissions', 'childRoles', 'parentRoles', 'rules', 'users', 'assignmentRules'], 'relation']
             ],
             DELETE_ON_UNLINK: [
                 'assignments',
@@ -118,9 +118,9 @@ module.exports = class Item extends Base {
         return this.relParents().onlyRoles();
     }
 
-    relRule () {
+    relRules () {
         const Class = this.getClass('rbac/model/Rule');
-        return this.hasOne(Class, Class.PK, 'rule');
+        return this.hasMany(Class, Class.PK, 'rules').viaArray();
     }
 
     relUsers () {

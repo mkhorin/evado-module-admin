@@ -1,6 +1,6 @@
 
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'rule',
+    attr: 'rules',
     css: 'no-label',
     data: {
         columns: [{
@@ -10,7 +10,8 @@
         }, {
             name: 'description'
         }],
-        delete: null
+        delete: null,
+        modalSort: true,
+        modalSortArray: true
     }
 }) %>
-
