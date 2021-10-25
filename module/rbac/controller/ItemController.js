@@ -105,5 +105,12 @@ module.exports = class ItemController extends Base {
         }
         return this.sendGridList(query);
     }
+
+    getListRelatedWith (relation) {
+        switch (relation) {
+            case 'metaItems':
+                return 'targets';
+        }
+    }
 };
 module.exports.init(module);

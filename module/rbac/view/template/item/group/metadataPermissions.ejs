@@ -1,0 +1,22 @@
+
+<%- include(_view.get('_part/attr/relation'), {
+    attr: 'metaItems',
+    css: 'no-label',
+    data: {
+        columns: [{
+            name: 'type',
+            escape: false
+        }, {
+            name: 'actions',
+            translateData: 'rbac'
+        }, {
+            name: 'targets',
+            escape: false
+        }, {
+            name: 'description'
+        }],
+        create: null,
+        delete: null
+    }
+}) %>
+
