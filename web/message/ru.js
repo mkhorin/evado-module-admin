@@ -47,7 +47,6 @@ Object.assign(Jam.I18n.defaults, {
     'Disabled': 'Отключен',
     'Direct recipients': 'Прямые получатели',
 
-    'Editor': 'Редактор',
     'Event': 'Событие',
     'Event handler': 'Обработчик события',
     'Event handlers': 'Обработчики событий',
@@ -97,9 +96,9 @@ Object.assign(Jam.I18n.defaults, {
     'Message sent': 'Сообщение отправлено',
     'Message template class configuration': 'Конфигурация класса шаблона сообщения',
     'Message template configuration': 'Конфигурация шаблона сообщения',
-    'Message users': 'Пользователи сообщений',
     'Messages': 'Сообщения',
     'Messages created by this notification': 'Сообщения созданные по данному уведомлению',
+    'Message recipients for this notification': 'Получатели данного уведомления',
     'Metadata entities to which the permission applies': 'Сущности метаданных к которым применяется разрешение',
     'Metadata items': 'Элементы метаданных',
     'Metadata permission': 'Разрешение метаданных',
@@ -147,6 +146,8 @@ Object.assign(Jam.I18n.defaults, {
     'Repeats': 'Повторений',
     'Restart observer': 'Перезапустить наблюдателя',
     'Restart security': 'Перезапустить безопасность',
+    'Restrictive rules of applicability of this permission': 'Ограничительные правила применения данного разрешения',
+    'Restrictive rules of applicability of this role': 'Ограничительные правила применения данной роли',
     'Role': 'Роль',
     'Role will be assigned if at least one rule is allowed': 'Роль будет назначена, если разрешится хотя бы одно правило',
     'Roles': 'Роли',
@@ -170,7 +171,6 @@ Object.assign(Jam.I18n.defaults, {
     'Start every day at this time': 'Начинать каждый день в это время',
     'Start time': 'Время начала',
     'Startup': 'Стартовая',
-    'State': 'Состояние',
     'Stop on fail': 'Остановить при ошибке',
     'Stop running task on job error': 'Прекратить выполнение задачи в случае ошибки',
 
@@ -217,7 +217,9 @@ Jam.I18n.rbac = {
 
     'Read': 'Читать',
 
-    'Update': 'Изменять'
+    'Update': 'Изменять',
+
+    'View history': 'Просмотр истории'
 };
 
 Jam.I18n.user = {

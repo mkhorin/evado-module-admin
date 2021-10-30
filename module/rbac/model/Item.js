@@ -26,7 +26,7 @@ module.exports = class Item extends Base {
                 ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
                 [['description', 'label'], 'string'],
-                [['childPermissions', 'childRoles', 'parentRoles', 'rules', 'users', 'assignmentRules'], 'relation']
+                [['childPermissions', 'childRoles', 'parentRoles', 'metaItems', 'rules', 'users', 'assignmentRules'], 'relation']
             ],
             DELETE_ON_UNLINK: [
                 'assignments',

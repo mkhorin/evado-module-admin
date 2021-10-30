@@ -54,12 +54,12 @@ module.exports = class Indexing extends Base {
 
     async create () {
         if (await this.validate()) {
-            const handler = () => this.getDb().createIndex(this.get('table'), this.getCreateData());
+            const handler = () => this.getDb().createIndex(this.get('table'), this.getCreationData());
             return this.catchError(handler);
         }
     }
 
-    getCreateData () {
+    getCreationData () {
         const data = {
             name: this.get('name') || undefined,
             unique: this.get('unique') || undefined,

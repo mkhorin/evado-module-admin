@@ -27,7 +27,8 @@ module.exports = class MetaItemList extends Base {
         const targets = [];
         for (const target of model.rel('targets')) {
             const type = this.controller.format(targetMap[target.get('type')], 'translatable');
-            targets.push(`${type} (${target.getTargetKey()})`);
+            const key = target.getTargetKey();
+            targets.push(`${type} (${key || '*'})`);
         }
         return targets;
     }

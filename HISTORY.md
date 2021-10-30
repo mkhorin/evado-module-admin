@@ -1,3 +1,9 @@
+## 5.0.0
+
+* add multiple rules to one RBAC item
+* fix item model key
+* view metadata permissions in a role
+
 ## 4.0.0
 
 * add S3 file management

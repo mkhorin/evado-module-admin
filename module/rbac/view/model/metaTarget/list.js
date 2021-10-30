@@ -12,7 +12,7 @@ module.exports = class MetaTargetList extends Base {
         const typeMap = rbac.VALUE_LABELS.targets;
         for (const model of models) {
             model.setAttrValueLabel('type', typeMap);
-            model.setViewAttr('key', model.getTargetKey());
+            model.setViewAttr('key', model.getTargetKey() || '*');
         }
     }
 };

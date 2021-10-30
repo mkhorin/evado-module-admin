@@ -23,7 +23,7 @@ module.exports = class MetaItem extends Base {
                 ['actions', 'filter', {method: 'split'}],
                 ['actions', 'each', {
                     rule: 'range',
-                    params: {values: ['all', 'read', 'create', 'update', 'delete']}
+                    params: {values: ['all', 'read', 'create', 'update', 'delete', 'history']}
                 }],
                 ['actions', 'validateActions'],
                 ['description', 'string'],
@@ -35,12 +35,16 @@ module.exports = class MetaItem extends Base {
         };
     }
 
-    getRbac () {
-        return this.module.getRbac();
+    isAllow () {
+        return this.get('type') === this.getRbac().ALLOW;
     }
 
     isDeny () {
         return this.get('type') === this.getRbac().DENY;
+    }
+
+    getRbac () {
+        return this.module.getRbac();
     }
 
     validateActions (attr) {

@@ -19,7 +19,7 @@ module.exports = class MetaTargetForm extends Base {
             attr: cls?.getAttr(model.get('attr')),
             state: cls?.getState(model.get('state')),
             transition: cls?.getTransition(model.get('transition')),
-            node: section?.section.getNode(model.get('node')),
+            node: section?.getNode(model.get('node')),
             section
         };
     }
