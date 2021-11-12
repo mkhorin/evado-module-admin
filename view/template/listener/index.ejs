@@ -9,7 +9,8 @@ block('tools', {template: _view.get('_part/tool/trigger')});
     data: {
         columns: [{
             name: 'active',
-            format: 'boolean'
+            format: 'boolean',
+            sortable: true
         },{
             name: 'events',
             searchable: true
