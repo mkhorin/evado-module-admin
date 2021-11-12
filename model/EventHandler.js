@@ -15,5 +15,10 @@ module.exports = class EventHandler extends Base {
             }
         };
     }
+
+    relListeners () {
+        const Class = this.getClass('model/Listener');
+        return this.hasMany(Class, 'handlers', this.PK);
+    }
 };
 module.exports.init(module);
