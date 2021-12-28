@@ -18,7 +18,7 @@ module.exports = class MetaItem extends Base {
                 'rules'
             ],
             RULES: [
-                [['type', 'actions'], 'required'],
+                ['type', 'required'],
                 ['type', 'range', {values: ['allow', 'deny']}],
                 ['actions', 'filter', {method: 'split'}],
                 ['actions', 'each', {
