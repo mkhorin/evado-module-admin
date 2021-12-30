@@ -1,3 +1,9 @@
+## 5.1.0
+
+* add related listeners to event handlers
+* make optional actions to disable permission
+* update names of condition operators
+
 ## 5.0.0
 
 * add multiple rules to one RBAC item
