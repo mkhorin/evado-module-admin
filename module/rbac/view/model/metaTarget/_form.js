@@ -13,15 +13,19 @@ module.exports = class MetaTargetForm extends Base {
         const cls = rbac.baseMeta?.getClass(model.get('class'));
         const section = rbac.navMeta?.getSection(model.get('section'));
         return {
-            metadataClass: cls,
+            cls, section,
             types: SelectHelper.getMapItems(rbac.VALUE_LABELS.targets),
             view: cls?.getView(model.get('view')),
             attr: cls?.getAttr(model.get('attr')),
             state: cls?.getState(model.get('state')),
             transition: cls?.getTransition(model.get('transition')),
             node: section?.getNode(model.get('node')),
-            section
+            resolveTitle: this.resolveTitle
         };
+    }
+
+    resolveTitle (item) {
+        return item ? `${item.label} (${item.name})` : null
     }
 };
 

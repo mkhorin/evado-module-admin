@@ -13,7 +13,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'class',
     items: null,
-    displayValue: metadataClass?.getTitle() || null,
+    displayValue: resolveTitle(cls),
     select2: {
         ajax: {url: 'api/base/meta/list-class-select'},
         placeholder: 'All',
@@ -27,7 +27,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'view',
     items: null,
-    displayValue: view ? `${view.label} (${view.name})`: null,
+    displayValue: resolveTitle(view),
     select2: {
         ajax: {url: 'api/base/meta/list-view-select'},
         pageSize: 0,
@@ -44,7 +44,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'state',
     items: null,
-    displayValue: state ? state.getTitle(): null,
+    displayValue: resolveTitle(state),
     select2: {
         ajax: {url: 'api/base/meta/list-state-select'},
         placeholder: 'All',
@@ -60,7 +60,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'transition',
     items: null,
-    displayValue: transition ? transition.getTitle(): null,
+    displayValue: resolveTitle(transition),
     select2: {
         ajax: {url: 'api/base/meta/list-transition-select'},
         placeholder: 'All',
@@ -76,7 +76,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'attr',
     items: null,
-    displayValue: attr ? attr.getTitle(): null,
+    displayValue: resolveTitle(attr),
     select2: {
         ajax: {url: 'api/base/meta/list-attr-select'},
         placeholder: 'All',
@@ -108,7 +108,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'section',
     items: null,
-    displayValue: section ? section.getTitle() : null,
+    displayValue: resolveTitle(section),
     select2: {
         ajax: {url: 'api/navigation/meta/list-section-select'},
         placeholder: 'All',
@@ -122,7 +122,7 @@ const selectTemplate = _view.get('_part/attr/select');
 <%- include(selectTemplate, {
     attr: 'node',
     items: null,
-    displayValue: node ? node.getTitle(): null,
+    displayValue: resolveTitle(node),
     select2: {
         ajax: {url: 'api/navigation/meta/list-node-select'},
         placeholder: 'All',
