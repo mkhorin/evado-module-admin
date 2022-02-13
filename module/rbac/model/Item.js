@@ -63,7 +63,7 @@ module.exports = class Item extends Base {
         return this.get('type') === this.TYPE_PERMISSION;
     }
 
-    isRoute () {       
+    isRoute () {
         return this.get('type') === this.TYPE_ROUTE;
     }
 

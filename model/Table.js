@@ -61,7 +61,7 @@ module.exports = class Table extends Base {
     }
 
     async getListData ({start, length, order, search}) {
-        let names = await this.getDb().getTableNames();      
+        let names = await this.getDb().getTableNames();
         names.sort((a, b) => a.localeCompare(b) * order.name);
         const maxSize = names.length;
         if (search) {

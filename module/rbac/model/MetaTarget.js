@@ -30,7 +30,7 @@ module.exports = class MetaTarget extends Base {
             ATTR_LABELS: {
                 attr: 'Attribute',
                 node: 'Navigation node',
-                section: 'Navigation section'                
+                section: 'Navigation section'
             }
         };
     }

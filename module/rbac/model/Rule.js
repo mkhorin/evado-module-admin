@@ -26,7 +26,7 @@ module.exports = class Rule extends Base {
                 [['items', 'metaItems'], 'relation']
             ],
             UNLINK_ON_DELETE: [
-                'items', 
+                'items',
                 'metaItems'
             ],
             ATTR_LABELS: {

@@ -44,7 +44,7 @@
 ## 1.8.0
 
 * model/Notification
-    - move methods validator to parent class 
+    - move methods validator to parent class
 * module/rbac/controller/ItemController
     - fix query creation
 
