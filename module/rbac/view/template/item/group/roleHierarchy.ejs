@@ -1,52 +1,35 @@
 <%
 const relationTemplate = _view.get('_part/attr/relation');
+const data = {
+    columns: [{
+        name: 'type',
+        format: 'label',
+        sortable: true
+    },{
+        name: 'name',
+        sortable: true
+    },{
+        name: 'label',
+        sortable: true
+    },{
+        name: 'description'
+    }],
+    order: {name: 1},
+    link: ['select', {list: encodeURIComponent(_url('list-roles', model))}],
+    update: 'update-role',
+    delete: null
+};
 %>
 
 <%- include(relationTemplate, {
     attr: 'childRoles',
     extHint: 'Items contained in the current',
-    data: {
-        columns: [{
-            name: 'type',
-            format: 'label',
-            sortable: true
-        },{
-            name: 'name',
-            sortable: true
-        },{
-            name: 'label',
-            sortable: true
-        },{
-            name: 'description'
-        }],
-        order: {name: 1},
-        link: ['select', {list: _url('list-roles', model)}],
-        update: 'update-role',
-        delete: null
-    }
+    data
 }) %>
 
 <%- include(relationTemplate, {
     attr: 'parentRoles',
     extHint: 'Items containing the current',
-    data: {
-        columns: [{
-            name: 'type',
-            format: 'label',
-            sortable: true
-        },{
-            name: 'name',
-            sortable: true
-        },{
-            name: 'label',
-            sortable: true
-        },{
-            name: 'description'
-        }],
-        order: {name: 1},
-        link: ['select', {list: _url('list-roles', model)}],
-        update: 'update-role',
-        delete: null
-    }
+    data
 }) %>
 

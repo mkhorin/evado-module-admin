@@ -18,7 +18,7 @@ const relationTemplate = _view.get('_part/attr/relation');
             sortable: true
         }],
         order: {name: 1},
-        link: ['select', {list: _url('list-free-children', model)}],
+        link: ['select', {list: encodeURIComponent(_url('list-free-children', model))}],
         delete: null
     }
 }) %>
@@ -39,7 +39,7 @@ const relationTemplate = _view.get('_part/attr/relation');
             sortable: true
         }],
         order: {name: 1},
-        link: ['select', {list: _url('list-free-parents', model)}],
+        link: ['select', {list: encodeURIComponent(_url('list-free-parents', model))}],
         delete: null
     }
 }) %>
