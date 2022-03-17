@@ -1,12 +1,16 @@
 <%
 layout(_view.get('_layout/list'));
 block('title', 'Assignment rules');
+block('description', 'Rules check conditions for automatically assigning the specified roles (permissions) to users');
 block('tools', {template: _view.get('_part/tool/restartSecurity')});
 %>
 
 <%- include(_view.get('_part/list/grid'), {
     data: {
         columns: [{
+            name: 'active',
+            format: 'boolean'
+        },{
             name: 'name',
             sortable: true,
             searchable: true

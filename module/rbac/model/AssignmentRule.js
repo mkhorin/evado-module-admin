@@ -11,6 +11,7 @@ module.exports = class AssignmentRule extends Base {
         return {
             TABLE: 'sys_rbac_assignment_rule',
             ATTRS: [
+                'active',
                 'name',
                 'label',
                 'description',
@@ -23,6 +24,7 @@ module.exports = class AssignmentRule extends Base {
                 ['name', 'unique'],
                 [['description', 'label'], 'string'],
                 ['config', 'spawn'],
+                ['active', 'checkbox'],
                 ['items', 'relation']
             ],
             UNLINK_ON_DELETE: [
