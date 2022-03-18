@@ -1,3 +1,10 @@
+## 5.2.0
+
+* add security assignment rule toggle
+* encode URL params
+* normalize metadata titles
+* remove trailing spaces
+
 ## 5.1.0
 
 * add related listeners to event handlers

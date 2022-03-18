@@ -92,7 +92,7 @@ Object.assign(Jam.I18n.defaults, {
     'Logs': 'Логи',
 
     'Main': 'Основные',
-    'Media type': 'Медиа тип',
+    'Media type': 'Тип медиа',
     'Message': 'Сообщение',
     'Message sent': 'Сообщение отправлено',
     'Message template configuration': 'Конфигурация шаблона сообщения',
@@ -154,6 +154,8 @@ Object.assign(Jam.I18n.defaults, {
     'Route': 'Маршрут',
     'Rule': 'Правило',
     'Rules': 'Правила',
+    'Rules check conditions for automatically assigning the specified roles (permissions) to users': 'Правила проверяют условия для автоматического назначения указанных ролей (разрешений) пользователям',
+    'Rules determine the availability of permissions (roles) that contain them': 'Правила определяют доступность разрешений (ролей), которые их содержат',
     'Run task': 'Выполнить задачу',
 
     'S3 files': 'S3 файлы',

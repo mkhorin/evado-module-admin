@@ -69,7 +69,8 @@ const stringTemplate = _view.get('_part/attr/string');
 
 <%- include(_view.get('_part/attr/static'), {
     attr: 'lastDoneAt',
-    value: _format(model.get('lastDoneAt'), 'timestamp')
+    displayValue: _format(model.get('lastDoneAt'), 'timestamp'),
+    escape: false
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
