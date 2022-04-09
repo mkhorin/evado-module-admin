@@ -146,8 +146,6 @@ Object.assign(Jam.I18n.defaults, {
     'Repeats': 'Повторений',
     'Restart observer': 'Перезапустить наблюдателя',
     'Restart security': 'Перезапустить безопасность',
-    'Restrictive rules of applicability of this permission': 'Ограничительные правила применения данного разрешения',
-    'Restrictive rules of applicability of this role': 'Ограничительные правила применения данной роли',
     'Role': 'Роль',
     'Role will be assigned if at least one rule is allowed': 'Роль будет назначена, если разрешится хотя бы одно правило',
     'Roles': 'Роли',
@@ -155,6 +153,8 @@ Object.assign(Jam.I18n.defaults, {
     'Rule': 'Правило',
     'Rules': 'Правила',
     'Rules check conditions for automatically assigning the specified roles (permissions) to users': 'Правила проверяют условия для автоматического назначения указанных ролей (разрешений) пользователям',
+    'Rules check whether to use this permission': 'Правила проверяют, следует ли использовать данное разрешение',
+    'Rules check whether to use this role': 'Правила проверяют, следует ли использовать данную роль',
     'Rules determine the availability of permissions (roles) that contain them': 'Правила определяют доступность разрешений (ролей), которые их содержат',
     'Run task': 'Выполнить задачу',
 
