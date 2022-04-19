@@ -1,0 +1,27 @@
+<%
+layout(_view.get('_layout/list'));
+block('title', 'Login sessions');
+%>
+
+<%- include(_view.get('_part/list/grid'), {
+    data: {
+        columns: [{
+            name: 'expiry',
+            format: 'timestamp'
+        },{
+            name: 'user',
+            searchable: true
+        },{
+            name: 'updatedAt',
+            format: 'timestamp'
+        },{
+            name: 'sid',
+            searchable: true
+        }],
+        key: 'sid',
+        create: null
+    },
+    tools: [{
+        template: _view.get('_part/tool/deleteExpired')
+    }]
+}) %>

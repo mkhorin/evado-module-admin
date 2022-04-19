@@ -1,0 +1,42 @@
+<%
+layout(_view.get('_layout/frame/form'), {
+    params: {
+        save: false,
+        delete: _url('delete'),
+        id: model.get('sid')
+    }
+});
+block('tab', 'Login session');
+block('title', model.get('sid'));
+block('commands').append({
+    template: _view.get('_part/tool/delete')
+});
+
+const staticTemplate = _view.get('_part/attr/static');
+const userId = model.get('user');
+const userUrl = userId ? _format(`/admin/user/update?id=${userId}`, 'url', {
+    className: 'frame-link',
+    text: userId
+}) : null;
+%>
+
+<%- include(staticTemplate, {
+    attr: 'expiry',
+    format: 'timestamp'
+}) %>
+
+<%- include(staticTemplate, {
+    attr: 'user',
+    value: userUrl,
+    escape: false
+}) %>
+
+<%- include(staticTemplate, {
+    attr: 'updatedAt',
+    format: 'timestamp'
+}) %>
+
+<%- include(staticTemplate, {
+    attr: 'data',
+    value: JSON.stringify(model.get('data'), null, ' ')
+}) %>
