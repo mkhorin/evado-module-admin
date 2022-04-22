@@ -11,6 +11,7 @@ module.exports = {
     'model/Indexing': require('../model/Indexing'),
     'model/Listener': require('../model/Listener'),
     'model/Log': require('../model/Log'),
+    'model/LoginSession': require('../model/LoginSession'),
     'model/Notification': require('../model/Notification'),
     'model/NotificationMessage': require('../model/NotificationMessage'),
     'model/PopupNotification': require('../model/PopupNotification'),

@@ -1,6 +1,7 @@
 <%
 layout(_view.get(_layout));
-block('title', model.getAttrValueLabel('type'));
+block('tab', model.getAttrValueLabel('type'));
+block('title', model.getId());
 %>
 
 <%- include(_view.get('_part/attr/string'), {

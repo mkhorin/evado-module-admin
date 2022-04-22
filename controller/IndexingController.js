@@ -38,7 +38,7 @@ module.exports = class IndexingController extends Base {
         model.set('table', this.getPostParam('table'));
         model.set('name', this.getPostParam('name'));
         await model.delete()
-            ? this.sendStatus(200)
+            ? this.sendStatus(Response.OK)
             : this.sendError(model);
     }
 
@@ -48,12 +48,14 @@ module.exports = class IndexingController extends Base {
         model.scenario = 'reindex';
         model.set('table', this.getPostParam('table'));
         await model.reindex()
-            ? this.sendStatus(200)
+            ? this.sendStatus(Response.OK)
             : this.sendError(model);
     }
 
     sendError (model) {
-        this.send(this.translateMessageMap(model.getFirstErrorMap()), 400);
+        this.send(this.translateMessageMap(model.getFirstErrorMap()), Response.BAD_REQUEST);
     }
 };
 module.exports.init(module);
+
+const Response = require('areto/web/Response');

@@ -1,6 +1,7 @@
 <%
 layout(_view.get('_layout/list'));
 block('title', 'Raw files');
+block('description', `Records are created when files are uploaded.<br>Records without an owner are periodically deleted by <code>deleteExpiredFiles</code> task. The owner is an object of a class that implements the file behavior.`);
 %>
 
 <%- include(_view.get('_part/list/grid'), {

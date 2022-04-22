@@ -54,6 +54,9 @@ module.exports = {
         url: 'admin/task',
         label: 'Tasks'
     }, {
+        url: 'admin/login-session',
+        label: 'Login sessions'
+    }, {
         url: 'admin/table',
         label: 'Database'
     }, {

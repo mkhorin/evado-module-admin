@@ -51,10 +51,5 @@ module.exports = class LoginSession extends Base {
         await this.getSession().deleteById(id);
         return true;
     }
-
-    async deleteExpired () {
-        await this.getSession().deleteExpired();
-        return true;
-    }
 };
 module.exports.init(module);

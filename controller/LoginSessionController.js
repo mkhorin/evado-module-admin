@@ -45,14 +45,6 @@ module.exports = class LoginSessionController extends Base {
         }
         this.sendStatus(Response.OK);
     }
-
-    async actionDeleteExpired () {
-        this.checkCsrfToken();
-        const model = this.createModel();
-        await model.deleteExpired()
-            ? this.send('Expired sessions have been deleted')
-            : this.send(model.getFirstError(), Response.BAD_REQUEST);
-    }
 };
 module.exports.init(module);
 

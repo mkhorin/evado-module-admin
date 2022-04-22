@@ -32,29 +32,6 @@ module.exports = class TableController extends Base {
         const data = await model.getListData(this.getPostParams());
         return this.sendJson(data);
     }
-
-    // DISABLED ACTIONS
-
-    async _actionCreate () {
-        const model = this.createModel();
-        if (this.isGetRequest()) {
-            return this.render('create', {model});
-        }
-        model.load(this.getPostParams());
-        if (!await model.create()) {
-            return this.handleModelError(model);
-        }
-        this.sendStatus(200);
-    }
-
-    async _actionDelete () {
-        const model = this.createModel();
-        model.set('name', this.getPostParam('id'));
-        if (!await model.delete()) {
-            return this.handleModelError(model);
-        }
-        this.sendStatus(200);
-    }
 };
 module.exports.init(module);
 

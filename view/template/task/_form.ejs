@@ -1,5 +1,6 @@
 <%
 layout(_view.get(_layout));
+block('tab', 'Task');
 
 const checkboxTemplate = _view.get('_part/attr/checkbox');
 const columnTemplate = _view.get('_part/group/columns');
@@ -12,7 +13,7 @@ const stringTemplate = _view.get('_part/attr/string');
 
 <%- include(_view.get('_part/attr/json'), {
     attr: 'job',
-    extHint: 'Job configuration'
+    extHint: 'Configuration of a job to be done when performing this task'
 }) %>
 
 <%- include(_view.get('_part/group/inline'), {

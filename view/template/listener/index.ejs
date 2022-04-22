@@ -2,7 +2,7 @@
 layout(_view.get('_layout/list'));
 block('title', 'Listeners');
 block('tools', {template: _view.get('_part/tool/restartObserver')});
-block('tools', {template: _view.get('_part/tool/trigger')});
+
 %>
 
 <%- include(_view.get('_part/list/grid'), {
@@ -20,5 +20,6 @@ block('tools', {template: _view.get('_part/tool/trigger')});
         }],
         order: {[model.PK]: -1},
         filter: {}
-    }
+    },
+    tools: [{template: _view.get('_part/tool/trigger')}]
 }) %>

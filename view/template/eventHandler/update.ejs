@@ -1,3 +1,5 @@
+<% block('title', model.getId()); %>
+
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/attr/relation'), {

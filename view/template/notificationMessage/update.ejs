@@ -2,7 +2,7 @@
 if (model.canSend()) {
     block('commands', {template: _view.getInternalTemplate('_send')});
 }
-block('title', 'Notification message');
+block('title', model.getId());
 %>
 
 <%- include(_view.getInternalTemplate('_form')) %>
@@ -14,7 +14,8 @@ block('title', 'Notification message');
 
 <%- include(_view.get('_part/attr/static'), {
     attr: 'sentAt',
-    format: 'timestamp'
+    format: 'timestamp',
+    escape: false
 }) %>
 
 <% if (model.isSent()) { %>

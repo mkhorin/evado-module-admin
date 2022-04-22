@@ -1,5 +1,5 @@
 <%
-block('title', 'User');
+block('title', model.getId());
 
 const staticTemplate = _view.get('_part/attr/static');
 %>
@@ -43,6 +43,11 @@ const staticTemplate = _view.get('_part/attr/static');
         id: 'logs',
         label: 'Logs',
         content: _view.getInternalTemplate('group/logs'),
+        loadable: true
+    }, {
+        id: 'sessions',
+        label: 'Sessions',
+        content: _view.getInternalTemplate('group/sessions'),
         loadable: true
     }]
 }) %>

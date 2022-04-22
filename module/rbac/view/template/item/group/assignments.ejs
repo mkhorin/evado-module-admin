@@ -21,7 +21,7 @@ const relationTemplate = _view.get('_part/attr/relation');
 
 <%- include(relationTemplate, {
     attr: 'assignmentRules',
-    extHint: 'Role will be assigned if at least one rule is allowed',
+    extHint: 'Role will be automatically assigned to users for whom at least one of these rules is allowed',
     data: {
         columns: [{
             name: 'name',

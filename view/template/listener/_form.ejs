@@ -1,4 +1,7 @@
-<% layout(_view.get(_layout)); %>
+<%
+layout(_view.get(_layout));
+block('tab', 'Listener');
+%>
 
 <%- include(_view.get('_part/attr/checkbox'), {
     attr: 'active'
