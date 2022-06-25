@@ -58,12 +58,13 @@ const stringTemplate = _view.get('_part/attr/string');
         template: stringTemplate,
         params: {
             attr: 'period',
-            extHint: 'Seconds or ISO 8601 format'
+            extHint: 'Task repetition period (seconds or ISO 8601 format). Zero is non-repeatability'
         }
     }, {
         template: _view.get('_part/attr/number'),
         params: {
-            attr: 'repeats'
+            attr: 'repeats',
+            extHint: 'Maximum number of task launches (zero is unlimited)'
         }
     }]
 }) %>

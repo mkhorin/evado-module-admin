@@ -9,6 +9,9 @@ module.exports = class Task extends Base {
 
     static getConstants () {
         return {
+            RULES: super.RULES.concat([
+                ['stopOnFail', 'default', {value: true}]
+            ]),
             ATTR_LABELS: {
                 name: 'Code name'
             }

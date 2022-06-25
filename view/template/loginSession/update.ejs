@@ -33,7 +33,8 @@ const userUrl = userId ? _format(`/admin/user/update?id=${userId}`, 'url', {
 
 <%- include(staticTemplate, {
     attr: 'updatedAt',
-    format: 'timestamp'
+    format: 'timestamp',
+    extHint: 'Date of last modification of session'
 }) %>
 
 <%- include(staticTemplate, {
