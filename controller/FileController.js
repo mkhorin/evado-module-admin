@@ -12,11 +12,14 @@ module.exports = class FileController extends Base {
     }
 
     actionList () {
-        return super.actionList(this.createModel().find().with('creator'));
+        const query = this.createModel().find().with('creator');
+        return super.actionList(query);
     }
 
     actionUpdate () {
-        return super.actionUpdate({with: ['creator', 'editor']});
+        return super.actionUpdate({
+            with: ['creator', 'editor']
+        });
     }
 };
 module.exports.init(module);

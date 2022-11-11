@@ -20,14 +20,17 @@ module.exports = class RawFileController extends Base {
     }
 
     actionList () {
-        return super.actionList(this.createModel().find().with('creator'));
+        const query = this.createModel().find().with('creator');
+        return super.actionList(query);
     }
 
     actionCreate () {
     }
 
     actionUpdate () {
-        return super.actionUpdate({with: 'creator'});
+        return super.actionUpdate({
+            with: 'creator'
+        });
     }
 
     async actionDelete () {
@@ -49,7 +52,8 @@ module.exports = class RawFileController extends Base {
         if (model.isSvg()) {
             return this.sendModelFile(model);
         }
-        const file = await model.ensureThumbnail(this.getQueryParam('s'));
+        const {s: size} = this.getQueryParams();
+        const file = await model.ensureThumbnail();
         if (!file) {
             return this.sendStatus(404);
         }
@@ -58,7 +62,9 @@ module.exports = class RawFileController extends Base {
     }
 
     createDeletionQuery () {
-        return super.createDeletionQuery(...arguments).and({owner: null});
+        return super.createDeletionQuery(...arguments).and({
+            owner: null
+        });
     }
 
     async sendModelFile (model) {

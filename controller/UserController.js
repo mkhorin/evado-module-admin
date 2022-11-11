@@ -12,7 +12,8 @@ module.exports = class UserController extends Base {
     }
 
     actionList () {
-        return super.actionList(this.createModel().find().with('roles'));
+        const query = this.createModel().find().with('roles');
+        return super.actionList(query);
     }
 };
 module.exports.init(module);

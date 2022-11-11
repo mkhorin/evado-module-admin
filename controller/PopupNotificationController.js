@@ -12,7 +12,8 @@ module.exports = class PopupNotificationController extends Base {
     }
 
     actionList () {
-        return super.actionList(this.createModel().find().with('message', 'user'));
+        const query = this.createModel().find().with('message', 'user');
+        return super.actionList(query);
     }
 
     getListRelatedWith (relation) {

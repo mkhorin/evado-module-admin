@@ -35,8 +35,9 @@ module.exports = class IndexingController extends Base {
         this.checkCsrfToken();
         const model = this.createModel();
         model.scenario = 'delete';
-        model.set('table', this.getPostParam('table'));
-        model.set('name', this.getPostParam('name'));
+        const {name, table} = this.getPostParams();
+        model.set('name', name);
+        model.set('table', table);
         await model.delete()
             ? this.sendStatus(Response.OK)
             : this.sendError(model);
@@ -46,14 +47,16 @@ module.exports = class IndexingController extends Base {
         this.checkCsrfToken();
         const model = this.createModel();
         model.scenario = 'reindex';
-        model.set('table', this.getPostParam('table'));
+        const {table} = this.getPostParams();
+        model.set('table', table);
         await model.reindex()
             ? this.sendStatus(Response.OK)
             : this.sendError(model);
     }
 
     sendError (model) {
-        this.send(this.translateMessageMap(model.getFirstErrorMap()), Response.BAD_REQUEST);
+        const errors = model.getFirstErrorMap();
+        this.send(this.translateMessageMap(errors), Response.BAD_REQUEST);
     }
 };
 module.exports.init(module);

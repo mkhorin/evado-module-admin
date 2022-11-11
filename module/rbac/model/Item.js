@@ -21,12 +21,22 @@ module.exports = class Item extends Base {
             RULES: [
                 ['name', 'required'],
                 ['type', 'required', {on: 'create'}],
-                ['type', 'range', {values: ['permission', 'role', 'route'], on: 'create'}],
+                ['type', 'range', {
+                    values: ['permission', 'role', 'route'],
+                    on: 'create'
+                }],
                 ['name', 'string', {min: 1, max: 48}],
                 ['name', 'regex', {pattern: /^[0-9a-z-]+$/i}],
                 ['name', 'unique'],
                 [['description', 'label'], 'string'],
-                [['childPermissions', 'childRoles', 'parentRoles', 'metaItems', 'rules', 'users', 'assignmentRules'], 'relation']
+                [[
+                    'childPermissions',
+                    'childRoles',
+                    'parentRoles',
+                    'metaItems',
+                    'rules',
+                    'users',
+                    'assignmentRules'], 'relation']
             ],
             DELETE_ON_UNLINK: [
                 'assignments',
@@ -48,8 +58,7 @@ module.exports = class Item extends Base {
             ATTR_VALUE_LABELS: {
                 'type': {
                     permission: 'Permission',
-                    role: 'Role',
-                    route: 'Route'
+                    role: 'Role'
                 }
             }
         };

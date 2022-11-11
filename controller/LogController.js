@@ -19,7 +19,8 @@ module.exports = class LogController extends Base {
 
     async actionDownload () {
         const model = this.createModel();
-        const file = model.getFileByName(this.getQueryParam('id'));
+        const {id} = this.getQueryParams();
+        const file = model.getFileByName(id);
         if (!file) {
             throw new NotFound;
         }

@@ -8,7 +8,8 @@ const Base = require('../component/base/CrudController');
 module.exports = class AssignmentRuleController extends Base {
 
     actionList () {
-        return super.actionList(this.createModel().find().with('items'));
+        const query = this.createModel().find().with('items');
+        return super.actionList(query);
     }
 };
 module.exports.init(module);

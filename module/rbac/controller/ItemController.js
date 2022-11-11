@@ -27,61 +27,65 @@ module.exports = class ItemController extends Base {
     }
 
     actionRoles () {
-        return this.actionIndex({template: 'roles'});
+        return this.actionIndex({
+            template: 'roles'
+        });
     }
 
     actionPermissions () {
-        return this.actionIndex({template: 'permissions'});
+        return this.actionIndex({
+            template: 'permissions'
+        });
     }
 
     actionListRole () {
-        const nameOrder = query => query.order({name: 1});
-        return this.actionList(this.createModel().find().onlyRoles().with({
-            childPermissions: nameOrder,
-            childRoles: nameOrder,
-            parentRoles: nameOrder,
-            rules: true
-        }));
+        const query = this.createItemQuery().onlyRoles();
+        return this.actionList(query);
     }
 
     actionListPermission () {
-        const nameOrder = query => query.order({name: 1});
-        return this.actionList(this.createModel().find().onlyPermissions().with({
-            children: nameOrder,
-            parentPermissions: nameOrder,
-            parentRoles: nameOrder,
-            rules: true
-        }));
+        const query = this.createItemQuery().onlyPermissions();
+        return this.actionList(query);
     }
 
     actionUpdateRole () {
-        return this.actionUpdate({template: 'updateRole'});
+        return this.actionUpdate({
+            template: 'updateRole'
+        });
     }
 
     actionUpdatePermission () {
-        return this.actionUpdate({template: 'updatePermission'});
+        return this.actionUpdate({
+            template: 'updatePermission'
+        });
     }
 
     actionCreateRole () {
-        return this.actionCreate({template: 'createRole'});
+        return this.actionCreate({
+            template: 'createRole'
+        });
     }
 
     actionCreatePermission () {
-        return this.actionCreate({template: 'createPermission'});
+        return this.actionCreate({
+            template: 'createPermission'
+        });
     }
 
     async actionListRoles () {
         const model = await this.getModel();
         const query = model.find().excludeModel(model).onlyRoles();
         const ids = await model.relParentItems().column('parent');
-        return this.sendGridList(query.andNotIn(model.PK, ids));
+        query.andNotIn(model.PK, ids);
+        return this.sendGridList(query);
     }
 
     async actionListPermissions () {
         const model = await this.getModel();
         const query = model.find().excludeModel(model).onlyPermissions();
         const ids = await model.relParentItems().column('parent');
-        return this.sendGridList(query.andNotIn(model.PK, ids));
+        query.andNotIn(model.PK, ids);
+        return this.sendGridList(query);
     }
 
     async actionListFreeChildren () {
@@ -94,7 +98,8 @@ module.exports = class ItemController extends Base {
             query.exceptRoles();
         }
         const items = await model.relParentItems().column('parent');
-        return this.sendGridList(query.andNotIn(model.PK, items));
+        query.andNotIn(model.PK, items);
+        return this.sendGridList(query);
     }
 
     async actionListFreeParents () {
@@ -104,6 +109,16 @@ module.exports = class ItemController extends Base {
             query.onlyRoles();
         }
         return this.sendGridList(query);
+    }
+
+    createItemQuery () {
+        const nameOrder = query => query.order({name: 1});
+        return this.createModel().find().with({
+            children: nameOrder,
+            parentPermissions: nameOrder,
+            parentRoles: nameOrder,
+            rules: true
+        });
     }
 
     getListRelatedWith (relation) {

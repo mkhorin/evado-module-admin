@@ -23,7 +23,7 @@ const stringTemplate = _view.get('_part/attr/string');
     rows: 4
 }) %>
 
-<%- include(_view.get('_part/attr/checkList'), {
+<%- include(_view.get('_part/attr/checkboxList'), {
     attr: 'methods',
     items: model.constructor.getAttrValueLabels('methods'),
 }) %>

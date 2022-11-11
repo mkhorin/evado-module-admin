@@ -15,7 +15,9 @@ const data = {
         name: 'description'
     }],
     order: {name: 1},
-    link: ['select', {list: encodeURIComponent(_url('list-roles', model))}],
+    link: ['select', {
+        list: encodeURIComponent(_url('list-roles', model))
+    }],
     update: 'update-role',
     delete: null
 };

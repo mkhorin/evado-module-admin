@@ -1,3 +1,7 @@
+## 5.3.0
+
+* add login session control
+
 ## 5.2.0
 
 * add security assignment rule toggle

@@ -18,7 +18,8 @@ module.exports = class TableController extends Base {
 
     async actionUpdate () {
         const model = this.createModel();
-        model.set('name', this.getQueryParam('id'));
+        const {id} = this.getQueryParams();
+        model.set('name', id);
         try {
             const indexes = await model.getIndexes();
             return this.render('update', {model, indexes});

@@ -24,21 +24,24 @@ module.exports = class LoginSessionController extends Base {
 
     async actionUpdate () {
         const model = this.createModel();
-        await model.setBySid(this.getQueryParam('id'));
+        const {id} = this.getQueryParams();
+        await model.setBySid(id);
         return this.render('update', {model});
     }
 
     async actionDelete () {
         this.checkCsrfToken();
         const model = this.createModel();
-        await model.delete(this.getPostParam('id'))
+        const {id} = this.getPostParams();
+        await model.delete(id)
             ? this.sendStatus(Response.OK)
             : this.send(model.getFirstError(), Response.BAD_REQUEST);
     }
 
     async actionDeleteList () {
         this.checkCsrfToken();
-        const ids = String(this.getPostParam('ids')).split(',');
+        let {ids} = this.getPostParams();
+        ids = String(ids).split(',');
         const model = this.createModel();
         for (const id of ids) {
             await model.delete(id);
