@@ -26,9 +26,12 @@ module.exports = class IndexingController extends Base {
         const model = this.createModel();
         model.scenario = 'create';
         model.load(this.getPostParams());
-        await model.create()
-            ? this.sendJson(await model.spawnTable().getIndexes())
-            : this.sendError(model);
+        if (await model.create()) {
+            const data = await model.spawnTable().getIndexes();
+            this.sendJson(data);
+        } else {
+            this.sendError(model);
+        }
     }
 
     async actionDelete () {

@@ -26,9 +26,13 @@ module.exports = class Indexing extends Base {
         return this.module.getDb();
     }
 
+    getTable () {
+        return this.get('table');
+    }
+
     spawnTable () {
         const model = this.spawn('model/Table');
-        model.set('name', this.get('table'));
+        model.set('name', this.getTable());
         return model;
     }
 
@@ -54,9 +58,13 @@ module.exports = class Indexing extends Base {
 
     async create () {
         if (await this.validate()) {
-            const handler = () => this.getDb().createIndex(this.get('table'), this.getCreationData());
-            return this.catchError(handler);
+            return this.catchError(this.executeCreation);
         }
+    }
+
+    executeCreation () {
+        const data = this.getCreationData();
+        return this.getDb().createIndex(this.getTable(), data);
     }
 
     getCreationData () {
@@ -71,20 +79,27 @@ module.exports = class Indexing extends Base {
 
     async delete () {
         if (await this.validate()) {
-            const handler = () => this.getDb().dropIndex(this.get('table'), this.get('name'));
-            return this.catchError(handler);
+            return this.catchError(this.executeDeletion);
         }
+    }
+
+    executeDeletion () {
+        return this.getDb().dropIndex(this.getTable(), this.get('name'));
     }
 
     async reindex () {
         if (await this.validate()) {
-            return this.catchError(() => this.getDb().reindex(this.get('table')));
+            return this.catchError(this.executeReindex);
         }
     }
 
-    async catchError (handler) {
+    executeReindex () {
+        return this.getDb().reindex(this.getTable());
+    }
+
+    async catchError (method) {
         try {
-            await handler();
+            await method.call(this);
             return true;
         } catch (err) {
             this.addError('table', String(err));
