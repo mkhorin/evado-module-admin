@@ -5,34 +5,34 @@ block('title', model.getTitle());
 %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'main',
-        label: 'Main',
-        active: true,
-        content: _view.getInternalTemplate('group/main'),
-        loadable: true
-    }, {
-        id: 'hierarchy',
-        label: 'Hierarchy',
-        content: _view.getInternalTemplate('group/hierarchy'),
-        loadable: true
-    }, {
-        id: 'assignments',
-        label: 'Assignments',
-        content: _view.getInternalTemplate('group/assignments'),
-        loadable: true
-    }, {
-        id: 'rules',
-        label: 'Rules',
-        content: _view.getInternalTemplate('group/rules'),
-        loadable: true
-    }]
+  items: [{
+    id: 'main',
+    label: 'Main',
+    active: true,
+    content: _view.getInternalTemplate('group/main'),
+    loadable: true
+  }, {
+    id: 'hierarchy',
+    label: 'Hierarchy',
+    content: _view.getInternalTemplate('group/hierarchy'),
+    loadable: true
+  }, {
+    id: 'assignments',
+    label: 'Assignments',
+    content: _view.getInternalTemplate('group/assignments'),
+    loadable: true
+  }, {
+    id: 'rules',
+    label: 'Rules',
+    content: _view.getInternalTemplate('group/rules'),
+    loadable: true
+  }]
 }) %>

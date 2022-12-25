@@ -5,21 +5,21 @@ block('title', model.getId());
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'main',
-        label: 'Main',
-        active: true,
-        content: _view.getInternalTemplate('group/main'),
-        loadable: true
-    }, {
-        id: 'owners',
-        label: 'Owners',
-        content: _view.getInternalTemplate('group/owners'),
-        loadable: true
-    }, {
-        id: 'permissions',
-        label: 'Metadata permissions',
-        content: _view.getInternalTemplate('group/permissions'),
-        loadable: true
-    }]
+  items: [{
+    id: 'main',
+    label: 'Main',
+    active: true,
+    content: _view.getInternalTemplate('group/main'),
+    loadable: true
+  }, {
+    id: 'owners',
+    label: 'Owners',
+    content: _view.getInternalTemplate('group/owners'),
+    loadable: true
+  }, {
+    id: 'permissions',
+    label: 'Metadata permissions',
+    content: _view.getInternalTemplate('group/permissions'),
+    loadable: true
+  }]
 }) %>

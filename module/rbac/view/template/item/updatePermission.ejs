@@ -5,35 +5,35 @@ block('title', model.getTitle());
 %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'main',
-        label: 'Main',
-        active: true,
-        content: _view.getInternalTemplate('group/main'),
-        loadable: true
-    }, {
-        id: 'roles',
-        label: 'Roles',
-        content: _view.getInternalTemplate('group/roles'),
-        loadable: true
-    }, {
-        id: 'hierarchy',
-        label: 'Hierarchy',
-        content: _view.getInternalTemplate('group/permissionHierarchy'),
-        loadable: true
-    }, {
-        id: 'rules',
-        label: 'Rules',
-        hint: 'Rules check whether to use this permission',
-        content: _view.getInternalTemplate('group/rules'),
-        loadable: true
-    }]
+  items: [{
+    id: 'main',
+    label: 'Main',
+    active: true,
+    content: _view.getInternalTemplate('group/main'),
+    loadable: true
+  }, {
+    id: 'roles',
+    label: 'Roles',
+    content: _view.getInternalTemplate('group/roles'),
+    loadable: true
+  }, {
+    id: 'hierarchy',
+    label: 'Hierarchy',
+    content: _view.getInternalTemplate('group/permissionHierarchy'),
+    loadable: true
+  }, {
+    id: 'rules',
+    label: 'Rules',
+    hint: 'Rules check whether to use this permission',
+    content: _view.getInternalTemplate('group/rules'),
+    loadable: true
+  }]
 }) %>

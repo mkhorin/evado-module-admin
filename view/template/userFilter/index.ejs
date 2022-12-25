@@ -4,20 +4,20 @@ block('title', 'User filters');
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true,
-            searchable: true
-        },{
-            name: 'label',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'description',
-            searchable: true
-        }],
-        order: {name: 1},
-        filter: {}
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true,
+      searchable: true
+    },{
+      name: 'label',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'description',
+      searchable: true
+    }],
+    order: {name: 1},
+    filter: {}
+  }
 }) %>

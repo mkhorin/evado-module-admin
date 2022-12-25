@@ -4,17 +4,17 @@ block('title', 'Users');
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true,
-            searchable: true,
-            translate: 'user'
-        },{
-            name: 'email',
-            sortable: true,
-            searchable: true
-        }],
-        order: {name: 1}
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true,
+      searchable: true,
+      translate: 'user'
+    },{
+      name: 'email',
+      sortable: true,
+      searchable: true
+    }],
+    order: {name: 1}
+  }
 }) %>

@@ -4,39 +4,39 @@ block('tab', 'Assignment rule');
 %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
-    attr: 'active'
+  attr: 'active'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>
 
 <%- include(_view.get('_part/attr/json'), {
-    attr: 'config'
+  attr: 'config'
 }) %>
 
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'items',
-    data: {
-        columns: [{
-            name: 'type',
-            format: 'label'
-        },{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }],
-        create: null,
-        delete: null
-    }
+  attr: 'items',
+  data: {
+    columns: [{
+      name: 'type',
+      format: 'label'
+    },{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }],
+    create: null,
+    delete: null
+  }
 }) %>

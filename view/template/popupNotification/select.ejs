@@ -4,22 +4,22 @@ block('title', 'Popup notifications');
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'read',
-            format: 'boolean'
-        },{
-            name: 'message',
-            format: {
-                name: 'relation',
-                url: _url('notification-message/update')
-            }
-        },{
-            name: 'user',
-            format: {
-                name: 'relation',
-                url: _url('user/update')
-            }
-        }]
-    }
+  data: {
+    columns: [{
+      name: 'read',
+      format: 'boolean'
+    },{
+      name: 'message',
+      format: {
+        name: 'relation',
+        url: _url('notification-message/update')
+      }
+    },{
+      name: 'user',
+      format: {
+        name: 'relation',
+        url: _url('user/update')
+      }
+    }]
+  }
 }) %>

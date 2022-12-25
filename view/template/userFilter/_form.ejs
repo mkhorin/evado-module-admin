@@ -6,37 +6,37 @@ const stringTemplate = _view.get('_part/attr/string');
 %>
 
 <%- include(stringTemplate, {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(stringTemplate, {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>
 
 <%- include(_view.get('_part/attr/json'), {
-    attr: 'config'
+  attr: 'config'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'assignments',
-        label: 'Assignments',
-        active: true,
-        content: _view.getInternalTemplate('group/assignments'),
-        loadable: true
-    }, {
-        id: 'includes',
-        label: 'Included users',
-        content: _view.getInternalTemplate('group/includes'),
-        loadable: true
-    }, {
-        id: 'excludes',
-        label: 'Excluded users',
-        content: _view.getInternalTemplate('group/excludes'),
-        loadable: true
-    }]
+  items: [{
+    id: 'assignments',
+    label: 'Assignments',
+    active: true,
+    content: _view.getInternalTemplate('group/assignments'),
+    loadable: true
+  }, {
+    id: 'includes',
+    label: 'Included users',
+    content: _view.getInternalTemplate('group/includes'),
+    loadable: true
+  }, {
+    id: 'excludes',
+    label: 'Excluded users',
+    content: _view.getInternalTemplate('group/excludes'),
+    loadable: true
+  }]
 }) %>

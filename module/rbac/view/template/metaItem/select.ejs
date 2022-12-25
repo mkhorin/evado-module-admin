@@ -4,27 +4,27 @@ block('title', 'Metadata permissions');
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'type',
-            escape: false,
-            searchable: true,
-            sortable: true
-        },{
-            name: 'actions',
-            translateData: 'rbac'
-        },{
-            name: 'roles',
-            format: {
-                name: 'relation',
-                url: _url('item/update-role')
-            }
-        },{
-            name: 'targets',
-            escape: false
-        },{
-            name: 'description',
-            searchable: true
-        }]
-    }
+  data: {
+    columns: [{
+      name: 'type',
+      escape: false,
+      searchable: true,
+      sortable: true
+    },{
+      name: 'actions',
+      translateData: 'rbac'
+    },{
+      name: 'roles',
+      format: {
+        name: 'relation',
+        url: _url('item/update-role')
+      }
+    },{
+      name: 'targets',
+      escape: false
+    },{
+      name: 'description',
+      searchable: true
+    }]
+  }
 }) %>

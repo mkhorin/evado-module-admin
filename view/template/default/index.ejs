@@ -2,48 +2,47 @@
 layout(_view.get('_layout/content'));
 block('title', 'Manage application');
 %>
-
 <div class="card">
-    <div class="card-body">
-        <p>
-            The Administration module controls and manages the application.
-        </p>
-        <ul>
-            <li>Assign access rights</li>
-            <li>Control file upload</li>
-            <li>Create tasks</li>
-            <li>Manage users</li>
-            <li>Monitor logs</li>
-            <li>Optimize database</li>
-            <li>Send notifications</li>
-        </ul>
-    </div>
+  <div class="card-body">
+    <p>
+      The Administration module controls and manages the application.
+    </p>
+    <ul>
+      <li>Assign access rights</li>
+      <li>Control file upload</li>
+      <li>Create tasks</li>
+      <li>Manage users</li>
+      <li>Monitor logs</li>
+      <li>Optimize database</li>
+      <li>Send notifications</li>
+    </ul>
+  </div>
 </div>
 
 <div class="card-warning card mt-3">
-    <div class="card-header">
-        Security
-    </div>
-    <div class="card-body">
-        <p>
-            Role-Based Access Control (RBAC) is at the heart of security.
-        </p>
-        <p>
-            A user can be assigned one or more roles. Each role contains permissions that describe what can be done.
-            <br>
-            For example, create an object or access a module.
-        </p>
-        <p>
-            A rule can be imposed on a permission that determines whether the permission will be granted.
-            <br>
-            For example, if for permission to edit an object, impose a rule that checks whether the current user is the
-            creator of the object, then only the author will have the right to edit.
-        </p>
-        <p>
-            By default, the Guest role is automatically assigned to anonymous users.
-        </p>
-        <p>
-            Remember to restart security system for your changes to take effect.
-        </p>
-    </div>
+  <div class="card-header">
+    Security
+  </div>
+  <div class="card-body">
+    <p>
+      Role-Based Access Control (RBAC) is at the heart of security.
+    </p>
+    <p>
+      A user can be assigned one or more roles. Each role contains permissions that describe what can be done.
+      <br>
+      For example, create an object or access a module.
+    </p>
+    <p>
+      A rule can be imposed on a permission that determines whether the permission will be granted.
+      <br>
+      For example, if for permission to edit an object, impose a rule that checks whether the current user is the
+      creator of the object, then only the author will have the right to edit.
+    </p>
+    <p>
+      By default, the Guest role is automatically assigned to anonymous users.
+    </p>
+    <p>
+      Remember to restart security system for your changes to take effect.
+    </p>
+  </div>
 </div>

@@ -6,41 +6,41 @@ const relationTemplate = _view.get('_part/attr/relation');
 %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
-    attr: 'read'
+  attr: 'read'
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'message',
-    data: {
-        columns: [{
-            name: 'notification',
-            format: {
-                name: 'relation',
-                url: _url('notification/update')
-            }
-        },{
-            name: 'subject'
-        }, {
-            name: 'createdAt'
-        }],
-        link: null,
-        unlink: null,
-        create: null,
-        delete: null
-    }
+  attr: 'message',
+  data: {
+    columns: [{
+      name: 'notification',
+      format: {
+        name: 'relation',
+        url: _url('notification/update')
+      }
+    },{
+      name: 'subject'
+    }, {
+      name: 'createdAt'
+    }],
+    link: null,
+    unlink: null,
+    create: null,
+    delete: null
+  }
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'user',
-    data: {
-        columns: [{
-            name: 'name'
-        },{
-            name: 'email'
-        }],
-        link: null,
-        unlink: null,
-        create: null,
-        delete: null
-    }
+  attr: 'user',
+  data: {
+    columns: [{
+      name: 'name'
+    },{
+      name: 'email'
+    }],
+    link: null,
+    unlink: null,
+    create: null,
+    delete: null
+  }
 }) %>

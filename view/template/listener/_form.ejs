@@ -4,35 +4,35 @@ block('tab', 'Listener');
 %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
-    attr: 'active'
+  attr: 'active'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'events',
-    hint: 'Separate events with comma',
-    value: _view.ArrayHelper.join(model.get('events'))
+  attr: 'events',
+  hint: 'Separate events with comma',
+  value: _view.ArrayHelper.join(model.get('events'))
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'notifications',
-        label: 'Notifications',
-        active: true,
-        content: _view.getInternalTemplate('group/notifications'),
-        loadable: true
-    },{
-        id: 'tasks',
-        label: 'Tasks',
-        content: _view.getInternalTemplate('group/tasks'),
-        loadable: true
-    },{
-        id: 'handlers',
-        label: 'Handlers',
-        content: _view.getInternalTemplate('group/handlers'),
-        loadable: true
-    }]
+  items: [{
+    id: 'notifications',
+    label: 'Notifications',
+    active: true,
+    content: _view.getInternalTemplate('group/notifications'),
+    loadable: true
+  },{
+    id: 'tasks',
+    label: 'Tasks',
+    content: _view.getInternalTemplate('group/tasks'),
+    loadable: true
+  },{
+    id: 'handlers',
+    label: 'Handlers',
+    content: _view.getInternalTemplate('group/handlers'),
+    loadable: true
+  }]
 }) %>

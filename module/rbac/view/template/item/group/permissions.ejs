@@ -1,20 +1,18 @@
-
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'childPermissions',
-    css: 'no-label',
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true
-        }, {
-            name: 'label',
-            sortable: true
-        }, {
-            name: 'description'
-        }],
-        link: ['select', {list: encodeURIComponent(_url('list-permissions', model))}],
-        update: 'update-permission',
-        delete: null
-    }
+  attr: 'childPermissions',
+  css: 'no-label',
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true
+    }, {
+      name: 'label',
+      sortable: true
+    }, {
+      name: 'description'
+    }],
+    link: ['select', {list: encodeURIComponent(_url('list-permissions', model))}],
+    update: 'update-permission',
+    delete: null
+  }
 }) %>
-

@@ -5,31 +5,31 @@ block('title', 'Create permission');
 %>
 
 <%- include(_view.get('_part/attr/hidden'), {
-    attr: 'type',
-    value: model.TYPE_PERMISSION
+  attr: 'type',
+  value: model.TYPE_PERMISSION
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>
 
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'rules',
-    data: {
-        columns: [{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }]
-    }
+  attr: 'rules',
+  data: {
+    columns: [{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }]
+  }
 }) %>

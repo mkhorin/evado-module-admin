@@ -1,16 +1,15 @@
-
+<!-- userFilter/group/excludes -->
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'excludes',
-    css: 'no-label',
-    data: {
-        columns: [{
-            name: 'name'
-        }, {
-            name: 'email'
-        }],
-        order: {name: 1},
-        create: null,
-        delete: null
-    }
+  attr: 'excludes',
+  css: 'no-label',
+  data: {
+    columns: [{
+      name: 'name'
+    }, {
+      name: 'email'
+    }],
+    order: {name: 1},
+    create: null,
+    delete: null
+  }
 }) %>
-

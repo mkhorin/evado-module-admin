@@ -3,37 +3,36 @@ const relationTemplate = _view.get('_part/attr/relation');
 %>
 
 <%- include(relationTemplate, {
-    attr: 'users',
-    relRoute: '/admin/user',
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true
-        },{
-            name: 'email',
-            sortable: true
-        }],
-        order: {name: 1},
-        create: null,
-        delete: null
-    }
+  attr: 'users',
+  relRoute: '/admin/user',
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true
+    },{
+      name: 'email',
+      sortable: true
+    }],
+    order: {name: 1},
+    create: null,
+    delete: null
+  }
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'assignmentRules',
-    extHint: 'Role will be automatically assigned to users for whom at least one of these rules is allowed',
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true
-        },{
-            name: 'label',
-            sortable: true
-        },{
-            name: 'description'
-        }],
-        order: {name: 1},
-        delete: null
-    }
+  attr: 'assignmentRules',
+  extHint: 'Role will be automatically assigned to users for whom at least one of these rules is allowed',
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true
+    },{
+      name: 'label',
+      sortable: true
+    },{
+      name: 'description'
+    }],
+    order: {name: 1},
+    delete: null
+  }
 }) %>
-

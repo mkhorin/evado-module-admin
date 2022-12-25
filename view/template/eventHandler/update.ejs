@@ -1,22 +1,23 @@
-<% block('title', model.getId()); %>
-
+<% 
+block('title', model.getId()); 
+%>
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'listeners',
-    data: {
-        columns: [{
-            name: 'active',
-            format: 'boolean',
-            sortable: true
-        }, {
-            name: 'events'
-        }, {
-            name: 'description'
-        }],
-        link: null,
-        unlink: null,
-        create: null,
-        delete: null
-    }
+  attr: 'listeners',
+  data: {
+    columns: [{
+      name: 'active',
+      format: 'boolean',
+      sortable: true
+    }, {
+      name: 'events'
+    }, {
+      name: 'description'
+    }],
+    link: null,
+    unlink: null,
+    create: null,
+    delete: null
+  }
 }) %>

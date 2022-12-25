@@ -7,60 +7,60 @@ const stringTemplate = _view.get('_part/attr/string');
 %>
 
 <%- include(_view.get('_part/attr/checkbox'), {
-    attr: 'active'
+  attr: 'active'
 }) %>
 
 <%- include(stringTemplate, {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(stringTemplate, {
-    attr: 'subject'
+  attr: 'subject'
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'text',
-    rows: 4
+  attr: 'text',
+  rows: 4
 }) %>
 
 <%- include(_view.get('_part/attr/checkboxList'), {
-    attr: 'methods',
-    items: model.constructor.getAttrValueLabels('methods'),
+  attr: 'methods',
+  items: model.constructor.getAttrValueLabels('methods'),
 }) %>
 
 <%- include(jsonTemplate, {
-    attr: 'recipient',
-    extHint: 'User filter configuration for selecting recipients when creating a message'
+  attr: 'recipient',
+  extHint: 'User filter configuration for selecting recipients when creating a message'
 }) %>
 
 <%- include(jsonTemplate, {
-    attr: 'messageTemplate',
-    extHint: 'Configuration for creating a message template'
+  attr: 'messageTemplate',
+  extHint: 'Configuration for creating a message template'
 }) %>
 
 <%- include(jsonTemplate, {
-    attr: 'options'
+  attr: 'options'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'messages',
-        label: 'Messages',
-        hint: 'Messages created by this notification',
-        active: true,
-        content: _view.getInternalTemplate('group/messages'),
-        loadable: true
-    }, {
-        id: 'filters',
-        label: 'User filters',
-        hint: 'Filter recipients when sending this notification',
-        content: _view.getInternalTemplate('group/filters'),
-        loadable: true
-    }, {
-        id: 'users',
-        label: 'Users',
-        hint: 'Message recipients for this notification',
-        content: _view.getInternalTemplate('group/users'),
-        loadable: true
-    }]
+  items: [{
+    id: 'messages',
+    label: 'Messages',
+    hint: 'Messages created by this notification',
+    active: true,
+    content: _view.getInternalTemplate('group/messages'),
+    loadable: true
+  }, {
+    id: 'filters',
+    label: 'User filters',
+    hint: 'Filter recipients when sending this notification',
+    content: _view.getInternalTemplate('group/filters'),
+    loadable: true
+  }, {
+    id: 'users',
+    label: 'Users',
+    hint: 'Message recipients for this notification',
+    content: _view.getInternalTemplate('group/users'),
+    loadable: true
+  }]
 }) %>

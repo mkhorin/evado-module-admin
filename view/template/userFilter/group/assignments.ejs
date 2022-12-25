@@ -1,24 +1,23 @@
-
+<!-- userFilter/group/assignments -->
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'items',
-    css: 'no-label',
-    data: {
-        columns: [{
-            name: 'type',
-            format: 'label'
-        },{
-            name: 'name',
-            sortable: true
-        }, {
-            name: 'label',
-            sortable: true
-        }, {
-            name: 'description'
-        }],
-        link: 'rbac/item/select',
-        create: null,
-        update: 'rbac/item/update',
-        delete: null
-    }
+  attr: 'items',
+  css: 'no-label',
+  data: {
+    columns: [{
+      name: 'type',
+      format: 'label'
+    },{
+      name: 'name',
+      sortable: true
+    }, {
+      name: 'label',
+      sortable: true
+    }, {
+      name: 'description'
+    }],
+    link: 'rbac/item/select',
+    create: null,
+    update: 'rbac/item/update',
+    delete: null
+  }
 }) %>
-

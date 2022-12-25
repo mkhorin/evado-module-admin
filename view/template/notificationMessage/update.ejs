@@ -1,6 +1,8 @@
 <%
 if (model.canSend()) {
-    block('commands', {template: _view.getInternalTemplate('_send')});
+  block('commands', {
+    template: _view.getInternalTemplate('_send')
+  });
 }
 block('title', model.getId());
 %>
@@ -8,33 +10,33 @@ block('title', model.getId());
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/attr/static'), {
-    attr: 'createdAt',
-    format: 'timestamp'
+  attr: 'createdAt',
+  format: 'timestamp'
 }) %>
 
 <%- include(_view.get('_part/attr/static'), {
-    attr: 'sentAt',
-    format: 'timestamp',
-    escape: false
+  attr: 'sentAt',
+  format: 'timestamp',
+  escape: false
 }) %>
 
 <% if (model.isSent()) { %>
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'popupNotifications',
-    data: {
-        columns: [{
-            name: 'read',
-            format: 'boolean'
-        },{
-            name: 'user',
-            format: {
-                name: 'relation',
-                url: _url('user/update')
-            }
-        }],
-        link: null,
-        unlink: null,
-        create: null
-    }
+  attr: 'popupNotifications',
+  data: {
+    columns: [{
+      name: 'read',
+      format: 'boolean'
+    },{
+      name: 'user',
+      format: {
+        name: 'relation',
+        url: _url('user/update')
+      }
+    }],
+    link: null,
+    unlink: null,
+    create: null
+  }
 }) %>
 <% } %>

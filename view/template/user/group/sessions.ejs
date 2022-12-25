@@ -1,28 +1,29 @@
+<!-- user/group/sessions -->
 <%
 const target = _controller.spawn(_module.getClass('model/LoginSession'));
 %>
 <%- include(_view.get('_part/attr/grid'), {
-    attr: 'sessions',
-    css: 'no-label',
-    targetModel: target,
-    data: {
-        columns: [{
-            name: 'expiry',
-            format: 'timestamp'
-        },{
-            name: 'updatedAt',
-            format: 'timestamp'
-        },{
-            name: 'sid',
-            searchable: true
-        }],
-        key: 'sid',
-        list: 'login-session/list',
-        update: 'login-session/update',
-        create: null,
-        delete: null,
-        requestData: {
-            search: model.getId()
-        }
+  attr: 'sessions',
+  css: 'no-label',
+  targetModel: target,
+  data: {
+    columns: [{
+      name: 'expiry',
+      format: 'timestamp'
+    },{
+      name: 'updatedAt',
+      format: 'timestamp'
+    },{
+      name: 'sid',
+      searchable: true
+    }],
+    key: 'sid',
+    list: 'login-session/list',
+    update: 'login-session/update',
+    create: null,
+    delete: null,
+    requestData: {
+      search: model.getId()
     }
+  }
 }) %>

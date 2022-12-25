@@ -4,36 +4,36 @@ block('title', 'Files');
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'name',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'size',
-            format: 'bytes',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'type',
-            searchable: true,
-            sortable: true
-        }, {
-            name: 'createdAt',
-            format: 'timestamp',
-            sortable: true
-        },{
-            name: 'creator',
-            format: {
-                name: 'relation',
-                url: _url('user/update')
-            }
-        },{
-            name: 'updatedAt',
-            format: 'timestamp',
-            sortable: true
-        }],
-        order: {[model.PK]: -1},
-        filter: {}
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'size',
+      format: 'bytes',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'type',
+      searchable: true,
+      sortable: true
+    }, {
+      name: 'createdAt',
+      format: 'timestamp',
+      sortable: true
+    },{
+      name: 'creator',
+      format: {
+        name: 'relation',
+        url: _url('user/update')
+      }
+    },{
+      name: 'updatedAt',
+      format: 'timestamp',
+      sortable: true
+    }],
+    order: {[model.PK]: -1},
+    filter: {}
+  }
 }) %>

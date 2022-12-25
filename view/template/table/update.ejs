@@ -1,23 +1,23 @@
 <%
 layout(_view.get('_layout/frame/form'), {
-    params: {
-        jam: 'TableModel',
-        id: model.get('name'),
-        save: false
-    }
+  params: {
+    jam: 'TableModel',
+    id: model.get('name'),
+    save: false
+  }
 });
 block('tab', 'Table');
 block('title', model.getTitle());
 block('commands').append(
-    {template: _view.get('_part/tool/reindex')},
-    // {template: _view.get('_part/tool/rename')},
-    // {template: _view.get('_part/tool/clone')},
-    // {template: _view.get('_part/tool/delete')}
+  {template: _view.get('_part/tool/reindex')},
+  // {template: _view.get('_part/tool/rename')},
+  // {template: _view.get('_part/tool/clone')},
+  // {template: _view.get('_part/tool/delete')}
 );
 %>
 <%- include(_view.get('_part/attr/custom'), {
-    attr: 'activeIndexes',
-    content: {
-        template: _view.get('table/_indexes')
-    }
+  attr: 'activeIndexes',
+  content: {
+    template: _view.get('table/_indexes')
+  }
 }) %>

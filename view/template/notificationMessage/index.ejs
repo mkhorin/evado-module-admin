@@ -4,29 +4,29 @@ block('title', 'Notification messages');
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'subject',
-            searchable: true
-        },{
-            name: 'text',
-            searchable: true
-        },{
-            name: 'notification',
-            format: {
-                name: 'relation',
-                url: _url('notification/update')
-            }
-        },{
-            name: 'sentAt',
-            format: 'timestamp',
-            sortable: true
-        },{
-            name: 'createdAt',
-            format: 'timestamp',
-            sortable: true
-        }],
-        order: {[model.PK]: -1},
-        filter: {}
-    }
+  data: {
+    columns: [{
+      name: 'subject',
+      searchable: true
+    },{
+      name: 'text',
+      searchable: true
+    },{
+      name: 'notification',
+      format: {
+        name: 'relation',
+        url: _url('notification/update')
+      }
+    },{
+      name: 'sentAt',
+      format: 'timestamp',
+      sortable: true
+    },{
+      name: 'createdAt',
+      format: 'timestamp',
+      sortable: true
+    }],
+    order: {[model.PK]: -1},
+    filter: {}
+  }
 }) %>

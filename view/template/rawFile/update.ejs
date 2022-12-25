@@ -7,49 +7,49 @@ const staticTemplate = _view.get('_part/attr/static');
 %>
 
 <%- include(staticTemplate, {
-    attr: 'file'
+  attr: 'file'
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'size',
-            format: 'bytes'
-        }
-    }, {
-        template: staticTemplate,
-        params: {
-            attr: 'type'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'size',
+      format: 'bytes'
+    }
+  }, {
+    template: staticTemplate,
+    params: {
+      attr: 'type'
+    }
+  }]
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'createdAt',
-            format: 'timestamp'
-        }
-    }, {
-        template: _view.get('_part/attr/modelLink'),
-        params: {
-            attr: 'creator',
-            url: 'user/update'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'createdAt',
+      format: 'timestamp'
+    }
+  }, {
+    template: _view.get('_part/attr/modelLink'),
+    params: {
+      attr: 'creator',
+      url: 'user/update'
+    }
+  }]
 }) %>
 
 <%- include(staticTemplate, {
-    attr: 'owner'
+  attr: 'owner'
 }) %>
 
 <%- include(_view.get('_part/attr/download'), {
-    attr: 'file',
-    label: 'Download',
-    downloadPath: _url('download'),
-    thumbnail: 'lg',
-    thumbnailPath: _url('thumbnail'),
-    css: 'thumbnail-lg'
+  attr: 'file',
+  label: 'Download',
+  downloadPath: _url('download'),
+  thumbnail: 'lg',
+  thumbnailPath: _url('thumbnail'),
+  css: 'thumbnail-lg'
 }) %>

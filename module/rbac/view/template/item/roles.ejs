@@ -5,45 +5,45 @@ block('tools', {template: _view.get('_part/tool/restartSecurity')});
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true,
-            searchable: true
-        },{
-            name: 'label',
-            sortable: true,
-            searchable: true
-        },{
-            name: 'childPermissions',
-            label: 'Permissions',
-            format: {
-                name: 'relation',
-                url: _url('update-permission')
-            }
-        },{
-            name: 'childRoles',
-            format: {
-                name: 'relation',
-                url: _url('update-role')
-            }
-        },{
-            name: 'parentRoles',
-            format: {
-                name: 'relation',
-                url: _url('update-role')
-            }
-        },{
-            name: 'rules',
-            format: {
-                name: 'relation',
-                url: _url('rule/update')
-            }
-        }],
-        order: {name: 1},
-        filter: {},
-        list: 'list-role',
-        create: 'create-role',
-        update: 'update-role'
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true,
+      searchable: true
+    },{
+      name: 'label',
+      sortable: true,
+      searchable: true
+    },{
+      name: 'childPermissions',
+      label: 'Permissions',
+      format: {
+        name: 'relation',
+        url: _url('update-permission')
+      }
+    },{
+      name: 'childRoles',
+      format: {
+        name: 'relation',
+        url: _url('update-role')
+      }
+    },{
+      name: 'parentRoles',
+      format: {
+        name: 'relation',
+        url: _url('update-role')
+      }
+    },{
+      name: 'rules',
+      format: {
+        name: 'relation',
+        url: _url('rule/update')
+      }
+    }],
+    order: {name: 1},
+    filter: {},
+    list: 'list-role',
+    create: 'create-role',
+    update: 'update-role'
+  }
 }) %>

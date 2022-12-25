@@ -8,73 +8,73 @@ const stringTemplate = _view.get('_part/attr/string');
 %>
 
 <%- include(stringTemplate, {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/json'), {
-    attr: 'job',
-    extHint: 'Configuration of a job to be done when performing this task'
+  attr: 'job',
+  extHint: 'Configuration of a job to be done when performing this task'
 }) %>
 
 <%- include(_view.get('_part/group/inline'), {
-    items: [{
-        template: checkboxTemplate,
-        params: {
-            attr: 'active'
-        }
-    },{
-        template: checkboxTemplate,
-        params: {
-            attr: 'startup',
-            extHint: 'Execute at server startup'
-        }
-    },{
-        template: checkboxTemplate,
-        params: {
-            attr: 'stopOnFail',
-            extHint: 'Stop running task on job error'
-        }
-    }]
+  items: [{
+    template: checkboxTemplate,
+    params: {
+      attr: 'active'
+    }
+  },{
+    template: checkboxTemplate,
+    params: {
+      attr: 'startup',
+      extHint: 'Execute at server startup'
+    }
+  },{
+    template: checkboxTemplate,
+    params: {
+      attr: 'stopOnFail',
+      extHint: 'Stop running task on job error'
+    }
+  }]
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: _view.get('_part/attr/datetime'),
-        params: {
-            attr: 'startDate'
-        }
-    }, {
-        template: stringTemplate,
-        params: {
-            attr: 'startTime',
-            extHint: 'Start every day at this time',
-            placeholder: '00:00:00'
-        }
-    }]
+  items: [{
+    template: _view.get('_part/attr/datetime'),
+    params: {
+      attr: 'startDate'
+    }
+  }, {
+    template: stringTemplate,
+    params: {
+      attr: 'startTime',
+      extHint: 'Start every day at this time',
+      placeholder: '00:00:00'
+    }
+  }]
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: stringTemplate,
-        params: {
-            attr: 'period',
-            extHint: 'Task repetition period (seconds or ISO 8601 format). Zero is non-repeatability'
-        }
-    }, {
-        template: _view.get('_part/attr/number'),
-        params: {
-            attr: 'repeats',
-            extHint: 'Maximum number of task launches (zero is unlimited)'
-        }
-    }]
+  items: [{
+    template: stringTemplate,
+    params: {
+      attr: 'period',
+      extHint: 'Task repetition period (seconds or ISO 8601 format). Zero is non-repeatability'
+    }
+  }, {
+    template: _view.get('_part/attr/number'),
+    params: {
+      attr: 'repeats',
+      extHint: 'Maximum number of task launches (zero is unlimited)'
+    }
+  }]
 }) %>
 
 <%- include(_view.get('_part/attr/static'), {
-    attr: 'lastDoneAt',
-    displayValue: _format(model.get('lastDoneAt'), 'timestamp'),
-    escape: false
+  attr: 'lastDoneAt',
+  displayValue: _format(model.get('lastDoneAt'), 'timestamp'),
+  escape: false
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>

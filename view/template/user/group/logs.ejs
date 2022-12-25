@@ -1,26 +1,25 @@
-
+<!-- user/group/logs -->
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'userLogs',
-    css: 'no-label',
-    data: {
-        columns: [{
-            name: 'event',
-            searchable: true
-        },{
-            name: 'time',
-            format: 'timestamp'
-        },{
-            name: 'ip',
-            searchable: true
-        },{
-            name: 'data'
-        }],
-        create: null,
-        update: null,
-        delete: null,
-        link: null,
-        unlink: null,
-        showTop: true
-    }
+  attr: 'userLogs',
+  css: 'no-label',
+  data: {
+    columns: [{
+      name: 'event',
+      searchable: true
+    },{
+      name: 'time',
+      format: 'timestamp'
+    },{
+      name: 'ip',
+      searchable: true
+    },{
+      name: 'data'
+    }],
+    create: null,
+    update: null,
+    delete: null,
+    link: null,
+    unlink: null,
+    showTop: true
+  }
 }) %>
-

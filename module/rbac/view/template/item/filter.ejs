@@ -1,31 +1,30 @@
-
 <%- include(_view.get('_part/list/filter'), {
-    data: {
-        columns: [{
-            name: 'type',
-            type: 'selector',
-            items: 'labels'
-        },{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        },{
-            name: 'children',
-            type: 'selector',
-            relation: 'parents',
-            items
-        },{
-            name: 'parents',
-            type: 'selector',
-            relation: 'children',
-            items
-        },{
-            name: 'users',
-            type: 'selector',
-            url: _url('/admin/user/list-select'),
-            relation: 'roles' // relation of user model
-        }]
-    }
+  data: {
+    columns: [{
+      name: 'type',
+      type: 'selector',
+      items: 'labels'
+    },{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    },{
+      name: 'children',
+      type: 'selector',
+      relation: 'parents',
+      items
+    },{
+      name: 'parents',
+      type: 'selector',
+      relation: 'children',
+      items
+    },{
+      name: 'users',
+      type: 'selector',
+      url: _url('/admin/user/list-select'),
+      relation: 'roles' // relation of user model
+    }]
+  }
 }) %>

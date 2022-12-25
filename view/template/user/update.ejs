@@ -7,47 +7,47 @@ const staticTemplate = _view.get('_part/attr/static');
 <%- include(_view.getInternalTemplate('_form')) %>
 
 <%- include(_view.get('_part/group/columns'), {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'updatedAt',
-            format: 'timestamp'
-        }
-    }, {
-        template: staticTemplate,
-        params: {
-            attr: 'createdAt',
-            format: 'timestamp'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'updatedAt',
+      format: 'timestamp'
+    }
+  }, {
+    template: staticTemplate,
+    params: {
+      attr: 'createdAt',
+      format: 'timestamp'
+    }
+  }]
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'roles',
-        label: 'Roles',
-        active: true,
-        content: _view.getInternalTemplate('group/roles'),
-        loadable: true
-    }, {
-        id: 'passwords',
-        label: 'Passwords',
-        content: _view.getInternalTemplate('group/passwords'),
-        loadable: true
-    }, {
-        id: 'notifications',
-        label: 'Notifications',
-        content: _view.getInternalTemplate('group/notifications'),
-        loadable: true
-    }, {
-        id: 'logs',
-        label: 'Logs',
-        content: _view.getInternalTemplate('group/logs'),
-        loadable: true
-    }, {
-        id: 'sessions',
-        label: 'Sessions',
-        content: _view.getInternalTemplate('group/sessions'),
-        loadable: true
-    }]
+  items: [{
+    id: 'roles',
+    label: 'Roles',
+    active: true,
+    content: _view.getInternalTemplate('group/roles'),
+    loadable: true
+  }, {
+    id: 'passwords',
+    label: 'Passwords',
+    content: _view.getInternalTemplate('group/passwords'),
+    loadable: true
+  }, {
+    id: 'notifications',
+    label: 'Notifications',
+    content: _view.getInternalTemplate('group/notifications'),
+    loadable: true
+  }, {
+    id: 'logs',
+    label: 'Logs',
+    content: _view.getInternalTemplate('group/logs'),
+    loadable: true
+  }, {
+    id: 'sessions',
+    label: 'Sessions',
+    content: _view.getInternalTemplate('group/sessions'),
+    loadable: true
+  }]
 }) %>

@@ -4,6 +4,6 @@ block('tab', 'User password');
 %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'password',
-    placeholder: model.isNew() ? '' : _t('Input new password to replace the current one')
+  attr: 'password',
+  placeholder: model.isNew() ? '' : _t('Input new password to replace the current one')
 }) %>

@@ -5,45 +5,45 @@ block('title', model.getTitle());
 %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'label'
+  attr: 'label'
 }) %>
 
 <%- include(_view.get('_part/group/tabs'), {
-    items: [{
-        id: 'main',
-        label: 'Main',
-        active: true,
-        content: _view.getInternalTemplate('group/main'),
-        loadable: true
-    }, {
-        id: 'metadataPermissions',
-        label: 'Metadata permissions',
-        content: _view.getInternalTemplate('group/metadataPermissions'),
-        loadable: true
-    }, {
-        id: 'permissions',
-        label: 'Permissions',
-        content: _view.getInternalTemplate('group/permissions'),
-        loadable: true
-    }, {
-        id: 'hierarchy',
-        label: 'Hierarchy',
-        content: _view.getInternalTemplate('group/roleHierarchy'),
-        loadable: true
-    }, {
-        id: 'assignments',
-        label: 'Assignments',
-        content: _view.getInternalTemplate('group/assignments'),
-        loadable: true
-    }, {
-        id: 'rules',
-        label: 'Rules',
-        hint: 'Rules check whether to use this role',
-        content: _view.getInternalTemplate('group/rules'),
-        loadable: true
-    }]
+  items: [{
+    id: 'main',
+    label: 'Main',
+    active: true,
+    content: _view.getInternalTemplate('group/main'),
+    loadable: true
+  }, {
+    id: 'metadataPermissions',
+    label: 'Metadata permissions',
+    content: _view.getInternalTemplate('group/metadataPermissions'),
+    loadable: true
+  }, {
+    id: 'permissions',
+    label: 'Permissions',
+    content: _view.getInternalTemplate('group/permissions'),
+    loadable: true
+  }, {
+    id: 'hierarchy',
+    label: 'Hierarchy',
+    content: _view.getInternalTemplate('group/roleHierarchy'),
+    loadable: true
+  }, {
+    id: 'assignments',
+    label: 'Assignments',
+    content: _view.getInternalTemplate('group/assignments'),
+    loadable: true
+  }, {
+    id: 'rules',
+    label: 'Rules',
+    hint: 'Rules check whether to use this role',
+    content: _view.getInternalTemplate('group/rules'),
+    loadable: true
+  }]
 }) %>

@@ -1,25 +1,28 @@
 <%
 layout(_view.get('_layout/list'));
 block('title', 'Listeners');
-block('tools', {template: _view.get('_part/tool/restartObserver')});
-
+block('tools', {
+  template: _view.get('_part/tool/restartObserver')
+});
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'active',
-            format: 'boolean',
-            sortable: true
-        },{
-            name: 'events',
-            searchable: true
-        },{
-            name: 'description',
-            searchable: true
-        }],
-        order: {[model.PK]: -1},
-        filter: {}
-    },
-    tools: [{template: _view.get('_part/tool/trigger')}]
+  data: {
+    columns: [{
+      name: 'active',
+      format: 'boolean',
+      sortable: true
+    },{
+      name: 'events',
+      searchable: true
+    },{
+      name: 'description',
+      searchable: true
+    }],
+    order: {[model.PK]: -1},
+    filter: {}
+  },
+  tools: [{
+    template: _view.get('_part/tool/trigger')
+  }]
 }) %>

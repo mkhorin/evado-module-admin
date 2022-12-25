@@ -6,134 +6,134 @@ const selectTemplate = _view.get('_part/attr/select');
 %>
 
 <%- include(selectTemplate, {
-    attr: 'type',
-    items: types
+  attr: 'type',
+  items: types
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'class',
-    items: null,
-    displayValue: resolveTitle(cls),
-    select2: {
-        ajax: {url: 'api/base/meta/list-class-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    actionBinder: {
-        show: {type: ['class', 'view', 'attr', 'object', 'state', 'transition']}
-    }
+  attr: 'class',
+  items: null,
+  displayValue: resolveTitle(cls),
+  select2: {
+    ajax: {url: 'api/base/meta/list-class-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  actionBinder: {
+    show: {type: ['class', 'view', 'attr', 'object', 'state', 'transition']}
+  }
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'view',
-    items: null,
-    displayValue: resolveTitle(view),
-    select2: {
-        ajax: {url: 'api/base/meta/list-view-select'},
-        pageSize: 0,
-        placeholder: 'All',
-        translate: ''
-    },
-    depends: [{attr: 'class'}],
-    actionBinder: {
-        show: {type: ['view', 'state', 'attr', 'object']},
-        enable: ['notEmpty', 'class']
-    }
+  attr: 'view',
+  items: null,
+  displayValue: resolveTitle(view),
+  select2: {
+    ajax: {url: 'api/base/meta/list-view-select'},
+    pageSize: 0,
+    placeholder: 'All',
+    translate: ''
+  },
+  depends: [{attr: 'class'}],
+  actionBinder: {
+    show: {type: ['view', 'state', 'attr', 'object']},
+    enable: ['notEmpty', 'class']
+  }
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'state',
-    items: null,
-    displayValue: resolveTitle(state),
-    select2: {
-        ajax: {url: 'api/base/meta/list-state-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    depends: [{attr: 'class'}],
-    actionBinder: {
-        show: {type: ['state', 'attr', 'object']},
-        enable: ['notEmpty', 'class']
-    }
+  attr: 'state',
+  items: null,
+  displayValue: resolveTitle(state),
+  select2: {
+    ajax: {url: 'api/base/meta/list-state-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  depends: [{attr: 'class'}],
+  actionBinder: {
+    show: {type: ['state', 'attr', 'object']},
+    enable: ['notEmpty', 'class']
+  }
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'transition',
-    items: null,
-    displayValue: resolveTitle(transition),
-    select2: {
-        ajax: {url: 'api/base/meta/list-transition-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    depends: [{attr: 'class'}],
-    actionBinder: {
-        show: {type: ['transition']},
-        enable: ['notEmpty', 'class']
-    }
+  attr: 'transition',
+  items: null,
+  displayValue: resolveTitle(transition),
+  select2: {
+    ajax: {url: 'api/base/meta/list-transition-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  depends: [{attr: 'class'}],
+  actionBinder: {
+    show: {type: ['transition']},
+    enable: ['notEmpty', 'class']
+  }
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'attr',
-    items: null,
-    displayValue: resolveTitle(attr),
-    select2: {
-        ajax: {url: 'api/base/meta/list-attr-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    depends: [{attr: 'class'}, {attr: 'view'}],
-    actionBinder: {
-        show: {type: ['attr']},
-        enable: ['notEmpty', 'class']
-    }
+  attr: 'attr',
+  items: null,
+  displayValue: resolveTitle(attr),
+  select2: {
+    ajax: {url: 'api/base/meta/list-attr-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  depends: [{attr: 'class'}, {attr: 'view'}],
+  actionBinder: {
+    show: {type: ['attr']},
+    enable: ['notEmpty', 'class']
+  }
 }) %>
 
 <%- include(selectTemplate, {
-    attr: 'object',
-    items: null,
-    select2: {
-        ajax: {url: 'api/base/data/list-select'},
-        placeholder: 'All',
-        minimumResultsForSearch: 2,
-        translate: ''
-    },
-    depends: [{attr: 'class'}, {attr: 'view'}],
-    actionBinder: {
-        show: {type: ['attr', 'object', 'transition']},
-        enable: ['notEmpty', 'class']
-    }
+  attr: 'object',
+  items: null,
+  select2: {
+    ajax: {url: 'api/base/data/list-select'},
+    placeholder: 'All',
+    minimumResultsForSearch: 2,
+    translate: ''
+  },
+  depends: [{attr: 'class'}, {attr: 'view'}],
+  actionBinder: {
+    show: {type: ['attr', 'object', 'transition']},
+    enable: ['notEmpty', 'class']
+  }
 }) %>
 
 <%- include(selectTemplate, {
+  attr: 'section',
+  items: null,
+  displayValue: resolveTitle(section),
+  select2: {
+    ajax: {url: 'api/navigation/meta/list-section-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  actionBinder: {
+    show: {type: ['section', 'node']}
+  }
+}) %>
+
+<%- include(selectTemplate, {
+  attr: 'node',
+  items: null,
+  displayValue: resolveTitle(node),
+  select2: {
+    ajax: {url: 'api/navigation/meta/list-node-select'},
+    placeholder: 'All',
+    translate: ''
+  },
+  depends: [{
     attr: 'section',
-    items: null,
-    displayValue: resolveTitle(section),
-    select2: {
-        ajax: {url: 'api/navigation/meta/list-section-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    actionBinder: {
-        show: {type: ['section', 'node']}
-    }
-}) %>
-
-<%- include(selectTemplate, {
-    attr: 'node',
-    items: null,
-    displayValue: resolveTitle(node),
-    select2: {
-        ajax: {url: 'api/navigation/meta/list-node-select'},
-        placeholder: 'All',
-        translate: ''
-    },
-    depends: [{
-        attr: 'section',
-        param: 'section'
-    }],
-    actionBinder: {
-        show: {type: ['node']},
-        enable: ['notEmpty', 'section']
-    }
+    param: 'section'
+  }],
+  actionBinder: {
+    show: {type: ['node']},
+    enable: ['notEmpty', 'section']
+  }
 }) %>

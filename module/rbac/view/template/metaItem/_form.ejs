@@ -6,65 +6,65 @@ const relationTemplate = _view.get('_part/attr/relation');
 %>
 
 <%- include(_view.get('_part/attr/radioList'), {
-    attr: 'type',
-    items: types
+  attr: 'type',
+  items: types
 }) %>
 
 <%- include(_view.get('_part/attr/checkboxList'), {
-    attr: 'actions',
-    items: actions,
-    allValue: true,
-    translate: 'rbac'
+  attr: 'actions',
+  items: actions,
+  allValue: true,
+  translate: 'rbac'
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'targets',
-    extHint: 'Metadata entities to which the permission applies',
-    data: {
-        columns: [{
-            name: 'key'
-        },{
-            name: 'type',
-            translateData: ''
-        }],
-        link: null,
-        unlink: null
-    }
+  attr: 'targets',
+  extHint: 'Metadata entities to which the permission applies',
+  data: {
+    columns: [{
+      name: 'key'
+    },{
+      name: 'type',
+      translateData: ''
+    }],
+    link: null,
+    unlink: null
+  }
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'roles',
-    data: {
-        columns: [{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }],
-        order: {name: 1},
-        link: ['item/select', {list: _url('item/list-role')}],
-        delete: null
-    }
+  attr: 'roles',
+  data: {
+    columns: [{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }],
+    order: {name: 1},
+    link: ['item/select', {list: _url('item/list-role')}],
+    delete: null
+  }
 }) %>
 
 <%- include(relationTemplate, {
-    attr: 'rules',
-    extHint: 'Rules check whether to use this permission',
-    data: {
-        columns: [{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }],
-        delete: null,
-        modalSort: true,
-        modalSortArray: true
-    }
+  attr: 'rules',
+  extHint: 'Rules check whether to use this permission',
+  data: {
+    columns: [{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }],
+    delete: null,
+    modalSort: true,
+    modalSortArray: true
+  }
 }) %>
 
 <%- include(_view.get('_part/attr/text'), {
-    attr: 'description'
+  attr: 'description'
 }) %>

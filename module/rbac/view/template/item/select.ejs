@@ -3,24 +3,24 @@ layout(_view.get('_layout/frame/select'));
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'type',
-            format: 'label',
-            sortable: true
-        },{
-            name: 'name',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'label',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'description',
-            searchable: true
-        }],
-        filter: {},
-        order: {name: 1}
-    }
+  data: {
+    columns: [{
+      name: 'type',
+      format: 'label',
+      sortable: true
+    },{
+      name: 'name',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'label',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'description',
+      searchable: true
+    }],
+    filter: {},
+    order: {name: 1}
+  }
 }) %>

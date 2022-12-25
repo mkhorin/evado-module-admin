@@ -5,20 +5,20 @@ block('tools', {template: _view.get('_part/tool/restartObserver')});
 %>
 
 <%- include(_view.get('_part/list/grid'), {
-    data: {
-        columns: [{
-            name: 'name',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'label',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'description',
-            searchable: true
-        }],
-        order: {name: 1},
-        filter: {}
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'label',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'description',
+      searchable: true
+    }],
+    order: {name: 1},
+    filter: {}
+  }
 }) %>

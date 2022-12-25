@@ -8,64 +8,64 @@ const staticTemplate = _view.get('_part/attr/static');
 %>
 
 <%- include(_view.get('_part/attr/string'), {
-    attr: 'name'
+  attr: 'name'
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'size',
-            format: 'bytes'
-        }
-    }, {
-        template: staticTemplate,
-        params: {
-            attr: 'type'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'size',
+      format: 'bytes'
+    }
+  }, {
+    template: staticTemplate,
+    params: {
+      attr: 'type'
+    }
+  }]
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'createdAt',
-            format: 'timestamp'
-        }
-    }, {
-        template: modelTemplate,
-        params: {
-            attr: 'creator',
-            url: 'user/update'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'createdAt',
+      format: 'timestamp'
+    }
+  }, {
+    template: modelTemplate,
+    params: {
+      attr: 'creator',
+      url: 'user/update'
+    }
+  }]
 }) %>
 
 <%- include(columnTemplate, {
-    items: [{
-        template: staticTemplate,
-        params: {
-            attr: 'updatedAt',
-            format: 'timestamp'
-        }
-    }, {
-        template: modelTemplate,
-        params: {
-            attr: 'editor',
-            url: 'user/update'
-        }
-    }]
+  items: [{
+    template: staticTemplate,
+    params: {
+      attr: 'updatedAt',
+      format: 'timestamp'
+    }
+  }, {
+    template: modelTemplate,
+    params: {
+      attr: 'editor',
+      url: 'user/update'
+    }
+  }]
 }) %>
 
 <%- include(_view.get('_part/attr/file'), {
-    attr: 'file',
-    required: false,
-    options: {}
+  attr: 'file',
+  required: false,
+  options: {}
 }) %>
 
 <%- include(_view.get('_part/attr/download'), {
-    attr: 'filename',
-    label: 'Download',
-    thumbnail: 'lg'
+  attr: 'filename',
+  label: 'Download',
+  thumbnail: 'lg'
 }) %>

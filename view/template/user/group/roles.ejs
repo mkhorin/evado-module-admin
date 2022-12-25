@@ -1,20 +1,19 @@
-
+<!-- user/group/roles -->
 <%- include(_view.get('_part/attr/relation'), {
-    attr: 'roles',
-    css: 'no-label',
-    relRoute: 'rbac/item',
-    data: {
-        columns: [{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }],
-        order: {name: 1},
-        link: ['rbac/item/select', {list: _url('rbac/item/list-role')}],
-        create: null,
-        delete: null
-    }
+  attr: 'roles',
+  css: 'no-label',
+  relRoute: 'rbac/item',
+  data: {
+    columns: [{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }],
+    order: {name: 1},
+    link: ['rbac/item/select', {list: _url('rbac/item/list-role')}],
+    create: null,
+    delete: null
+  }
 }) %>
-

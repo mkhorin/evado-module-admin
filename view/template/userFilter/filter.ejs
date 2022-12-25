@@ -1,20 +1,19 @@
 <%- include(_view.get('_part/list/filter'), {
-    data: {
-        columns: [{
-            name: 'excludes',
-            type: 'selector',
-            url: _url('user/list-select')
-        },{
-            name: 'includes',
-            type: 'selector',
-            url: _url('user/list-select')
-        },{
-            name: 'name'
-        },{
-            name: 'label'
-        },{
-            name: 'description'
-        }]
-    }
+  data: {
+    columns: [{
+      name: 'excludes',
+      type: 'selector',
+      url: _url('user/list-select')
+    },{
+      name: 'includes',
+      type: 'selector',
+      url: _url('user/list-select')
+    },{
+      name: 'name'
+    },{
+      name: 'label'
+    },{
+      name: 'description'
+    }]
+  }
 }) %>
-

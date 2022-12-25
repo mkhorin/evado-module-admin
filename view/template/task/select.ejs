@@ -4,19 +4,19 @@ block('title', 'Task');
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'active',
-            format: 'boolean'
-        },{
-            name: 'name',
-            searchable: true,
-            sortable: true
-        },{
-            name: 'description',
-            searchable: true
-        },{
-            name: 'job'
-        }]
-    }
+  data: {
+    columns: [{
+      name: 'active',
+      format: 'boolean'
+    },{
+      name: 'name',
+      searchable: true,
+      sortable: true
+    },{
+      name: 'description',
+      searchable: true
+    },{
+      name: 'job'
+    }]
+  }
 }) %>

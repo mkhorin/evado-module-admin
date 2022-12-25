@@ -4,46 +4,46 @@ block('title', `User`);
 %>
 
 <%- include(_view.get('_part/group/columns'), {
-    items: [{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: 'status'
-        }
-    },{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: model.PK
-        }
-    }]
+  items: [{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: 'status'
+    }
+  },{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: model.PK
+    }
+  }]
 }) %>
 
 <%- include(_view.get('_part/group/columns'), {
-    items: [{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: 'name',
-            translate: 'user'
-        }
-    },{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: 'email'
-        }
-    }]
+  items: [{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: 'name',
+      translate: 'user'
+    }
+  },{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: 'email'
+    }
+  }]
 }) %>
 
 <%- include(_view.get('_part/group/columns'), {
-    items: [{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: 'updatedAt',
-            format: 'timestamp'
-        }
-    },{
-        template: _view.get('_part/view/default'),
-        params: {
-            attr: 'createdAt',
-            format: 'timestamp'
-        }
-    }]
+  items: [{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: 'updatedAt',
+      format: 'timestamp'
+    }
+  },{
+    template: _view.get('_part/view/default'),
+    params: {
+      attr: 'createdAt',
+      format: 'timestamp'
+    }
+  }]
 }) %>

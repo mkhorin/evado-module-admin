@@ -4,19 +4,19 @@ block('title', 'Rules');
 %>
 
 <%- include(_view.get('_part/list/select'), {
-    data: {
-        columns: [{
-            name: 'name',
-            sortable: true,
-            searchable: true
-        },{
-            name: 'label',
-            sortable: true,
-            searchable: true
-        },{
-            name: 'description',
-            searchable: true
-        }],
-        order: {name: 1}
-    }
+  data: {
+    columns: [{
+      name: 'name',
+      sortable: true,
+      searchable: true
+    },{
+      name: 'label',
+      sortable: true,
+      searchable: true
+    },{
+      name: 'description',
+      searchable: true
+    }],
+    order: {name: 1}
+  }
 }) %>
