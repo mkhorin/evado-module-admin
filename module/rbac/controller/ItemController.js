@@ -39,12 +39,22 @@ module.exports = class ItemController extends Base {
     }
 
     actionListRole () {
-        const query = this.createItemQuery().onlyRoles();
+        const relations = [
+            'childPermissions',
+            'childRoles',
+            'parentRoles'
+        ];
+        const query = this.createItemQuery(relations).onlyRoles();
         return this.actionList(query);
     }
 
     actionListPermission () {
-        const query = this.createItemQuery().onlyPermissions();
+        const relations = [
+            'children',
+            'parentPermissions',
+            'parentRoles'
+        ];
+        const query = this.createItemQuery(relations).onlyPermissions();
         return this.actionList(query);
     }
 
@@ -111,14 +121,15 @@ module.exports = class ItemController extends Base {
         return this.sendGridList(query);
     }
 
-    createItemQuery () {
-        const nameOrder = query => query.order({name: 1});
-        return this.createModel().find().with({
-            children: nameOrder,
-            parentPermissions: nameOrder,
-            parentRoles: nameOrder,
+    createItemQuery (relations = []) {
+        const params = {
             rules: true
-        });
+        };
+        const nameOrder = query => query.order({name: 1});
+        for (const name of relations) {
+            params[name] = nameOrder;
+        }
+        return this.createModel().find().with(params);
     }
 
     getListRelatedWith (relation) {
