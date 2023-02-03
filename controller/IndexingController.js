@@ -11,8 +11,7 @@ module.exports = class IndexingController extends Base {
         return {
             METHODS: {
                 'create': 'post',
-                'delete': 'post',
-                'reindex': 'post'
+                'delete': 'post'
             }
         };
     }
@@ -42,17 +41,6 @@ module.exports = class IndexingController extends Base {
         model.set('name', name);
         model.set('table', table);
         await model.delete()
-            ? this.sendStatus(Response.OK)
-            : this.sendError(model);
-    }
-
-    async actionReindex () {
-        this.checkCsrfToken();
-        const model = this.createModel();
-        model.scenario = 'reindex';
-        const {table} = this.getPostParams();
-        model.set('table', table);
-        await model.reindex()
             ? this.sendStatus(Response.OK)
             : this.sendError(model);
     }

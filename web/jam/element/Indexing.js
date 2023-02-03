@@ -7,7 +7,8 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     init () {
         this.params = this.$element.data('params');
-        this.model = Jam.Element.getInstance(this.$element.closest('.model'));
+        const $model = this.$element.closest('.model');
+        this.model = Jam.Element.getInstance($model);
         this.alert = this.model.alert;
         this.table = this.model.id;
 
@@ -20,7 +21,8 @@ Jam.Indexing = class Indexing extends Jam.Element {
         this.$list.on('click', '.list-group-item', this.onIndex.bind(this));
 
         // append to body to resolve nested forms
-        this.$modal = $(Jam.Helper.getTemplate('modal', this.$element)).appendTo(document.body);
+        const template = Jam.Helper.getTemplate('modal', this.$element);
+        this.$modal = $(template).appendTo(document.body);
         this.$modal.find('[data-command="save"]').click(this.onSave.bind(this));
         this.$modal.on('show.bs.modal', this.onBeforeShowModal.bind(this));
         this.$form = this.$modal.find('form');
@@ -34,20 +36,6 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     getSelectedItems () {
         return this.$list.find('.active');
-    }
-
-    reindex () {
-        return this.post(this.params.reindex, {table: this.table})
-            .done(this.onDoneIndexing.bind(this))
-            .fail(this.onFailIndexing.bind(this));
-    }
-
-    onDoneIndexing () {
-        this.alert.success('Indexing completed');
-    }
-
-    onFailIndexing ({responseText}) {
-        this.alert.danger(this.getModelError(responseText, 'Indexing failed'));
     }
 
     onCreate () {
@@ -78,7 +66,8 @@ Jam.Indexing = class Indexing extends Jam.Element {
     }
 
     onFailDeletion ({responseText}) {
-        this.alert.danger(this.getModelError(responseText, 'Deletion failed'));
+        const message = this.getModelError(responseText, 'Deletion failed');
+        this.alert.danger(message);
     }
 
     post (url, data) {
@@ -115,18 +104,21 @@ Jam.Indexing = class Indexing extends Jam.Element {
 
     onSave () {
         this.modalAlert.hide();
-        return Jam.post(this.params.create, this.$form.serialize())
+        const data = this.$form.serialize();
+        return Jam.post(this.params.create, data)
             .done(this.onDoneSaving.bind(this))
             .fail(this.onFailSaving.bind(this));
     }
 
     onDoneSaving (data) {
-        this.$list.html(this.renderItems(data));
+        const content = this.renderItems(data);
+        this.$list.html(content);
         this.modal.hide();
     }
 
     onFailSaving ({responseText}) {
-        this.modalAlert.danger(this.getModelError(responseText, 'Failed to save'));
+        const message = this.getModelError(responseText, 'Failed to save');
+        this.modalAlert.danger(message);
     }
 
     getModelError (data, defaults) {

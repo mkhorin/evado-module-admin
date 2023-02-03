@@ -87,16 +87,6 @@ module.exports = class Indexing extends Base {
         return this.getDb().dropIndex(this.getTable(), this.get('name'));
     }
 
-    async reindex () {
-        if (await this.validate()) {
-            return this.catchError(this.executeReindex);
-        }
-    }
-
-    executeReindex () {
-        return this.getDb().reindex(this.getTable());
-    }
-
     async catchError (method) {
         try {
             await method.call(this);
