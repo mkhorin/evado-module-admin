@@ -11,7 +11,10 @@ module.exports = class Table extends Base {
         return {
             RULES: [
                 ['name', 'required'],
-                ['name', 'regex', {pattern: /^[0-9a-zA-Z-_]+$/, except: 'delete'}]
+                ['name', 'regex', {
+                    pattern: /^[0-9a-zA-Z-_]+$/,
+                    except: 'delete'
+                }]
             ]
         };
     }
@@ -25,7 +28,8 @@ module.exports = class Table extends Base {
     }
 
     async getIndexes () {
-        const items = await this.getDb().getIndexes(this.get('name'));
+        const name = this.get('name');
+        const items = await this.getDb().getIndexes(name);
         return items.map(data => ({
             keys: data.key,
             name: data.name,
@@ -40,7 +44,8 @@ module.exports = class Table extends Base {
             return false;
         }
         try {
-            await this.getDb().create(this.get('name'));
+            const name = this.get('name');
+            await this.getDb().create(name);
             return true;
         } catch (err) {
             this.addError('name', err.toString());

@@ -31,8 +31,9 @@ module.exports = class Indexing extends Base {
     }
 
     spawnTable () {
+        const table = this.getTable();
         const model = this.spawn('model/Table');
-        model.set('name', this.getTable());
+        model.set('name', table);
         return model;
     }
 
@@ -63,8 +64,9 @@ module.exports = class Indexing extends Base {
     }
 
     executeCreation () {
+        const table = this.getTable();
         const data = this.getCreationData();
-        return this.getDb().createIndex(this.getTable(), data);
+        return this.getDb().createIndex(table, data);
     }
 
     getCreationData () {
@@ -74,7 +76,8 @@ module.exports = class Indexing extends Base {
             background: this.get('background') || undefined
         };
         ObjectHelper.deleteEmptyProperties(data);
-        return [this.get('keys'), data];
+        const keys = this.get('keys');
+        return [keys, data];
     }
 
     async delete () {
@@ -84,7 +87,9 @@ module.exports = class Indexing extends Base {
     }
 
     executeDeletion () {
-        return this.getDb().dropIndex(this.getTable(), this.get('name'));
+        const table = this.getTable();
+        const name = this.get('name');
+        return this.getDb().dropIndex(table, name);
     }
 
     async catchError (method) {

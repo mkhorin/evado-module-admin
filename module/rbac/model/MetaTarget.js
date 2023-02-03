@@ -25,7 +25,6 @@ module.exports = class MetaTarget extends Base {
             RULES: [
                 ['type', 'required'],
                 [['class', 'view', 'state', 'object', 'attr', 'section', 'node', 'transition'], 'string'],
-                ['type', 'validateType']
             ],
             ATTR_LABELS: {
                 attr: 'Attribute',
@@ -39,17 +38,10 @@ module.exports = class MetaTarget extends Base {
         return this.module.getRbac();
     }
 
-    validateType (attr) {
-        const rbac = this.getRbac();
-        const type = this.get(attr);
-        if (type !== rbac.ALL && type === rbac.TARGET_OBJECT && type === rbac.TARGET_TRANSITION) {
-            return this.validateItem(type);
-        }
-    }
-
     validateItem (attr) {
         if (!this.get(attr)) {
-            this.addError(attr, new Message(I18n.CORE_SOURCE, 'Value cannot be blank'));
+            const message = new Message(I18n.CORE_SOURCE, 'Value cannot be blank');
+            this.addError(attr, message);
         }
     }
 

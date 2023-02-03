@@ -21,22 +21,21 @@ module.exports = class Log extends Base {
 
     async getItems () {
         const items = [];
-        for (const store of Object.values(this.getLogger().stores)) {
-            items.push(...await this.getStoreItems(store));
+        const stores = this.getLogger().stores;
+        for (const store of Object.values(stores)) {
+            const data = await this.getStoreItems(store);
+            items.push(...data);
         }
         return items;
     }
 
     async getStoreItems (store) {
-        const items = [];
-        for (const {name, stat} of await store.getFiles()) {
-            items.push({
-                name,
-                size: stat.size,
-                updatedAt: stat.mtime.toISOString()
-            });
-        }
-        return items;
+        const files = await store.getFiles();
+        return files.map(({name, stat}) => ({
+            name,
+            size: stat.size,
+            updatedAt: stat.mtime.toISOString()
+        }));
     }
 };
 module.exports.init(module);

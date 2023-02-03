@@ -12,21 +12,27 @@ module.exports = class MetaItemList extends Base {
         const actionMap = rbac.VALUE_LABELS.actions;
         const targetMap = rbac.VALUE_LABELS.targets;
         for (const model of models) {
-            model.setViewAttr('type', this.controller.format(model.get('type'), 'permissionType'));
-            model.setViewAttr('actions', this.getActions(model, actionMap));
-            model.setViewAttr('targets', this.getTargets(model, targetMap));
+            const type = this.controller.format(model.get('type'), 'permissionType');
+            model.setViewAttr('type', type);
+            const actions = this.getActions(model, actionMap);
+            model.setViewAttr('actions', actions);
+            const targets = this.getTargets(model, targetMap);
+            model.setViewAttr('targets', targets);
         }
     }
 
     getActions (model, actionMap) {
         const actions = model.get('actions');
-        return Array.isArray(actions) ? actions.map(key => actionMap[key]) : actions;
+        return Array.isArray(actions)
+            ? actions.map(key => actionMap[key])
+            : actions;
     }
 
     getTargets (model, targetMap) {
         const targets = [];
         for (const target of model.rel('targets')) {
-            const type = this.controller.format(targetMap[target.get('type')], 'translatable');
+            const label = targetMap[target.get('type')];
+            const type = this.controller.format(label, 'translatable');
             const key = target.getTargetKey();
             targets.push(`${type} (${key || '*'})`);
         }

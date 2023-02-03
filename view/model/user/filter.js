@@ -9,9 +9,9 @@ module.exports = class UserFilter extends Base {
 
     async resolveTemplateData () {
         const Item = this.getClass('rbac/model/Item');
-        return {
-            roles: await SelectHelper.queryLabelItems(this.spawn(Item).find().onlyRoles())
-        };
+        const roleQuery = this.spawn(Item).find().onlyRoles();
+        const roles = await SelectHelper.queryLabelItems(roleQuery);
+        return {roles};
     }
 };
 

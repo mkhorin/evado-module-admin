@@ -20,7 +20,8 @@ module.exports = class NotificationController extends Base {
         if (!await model.load(this.getPostParams()).validate()) {
             return this.handleModelError(model);
         }
-        await this.module.getNotifier().createMessage(notification, model.getData());
+        const data = model.getData();
+        await this.module.getNotifier().createMessage(notification, data);
         if (notification.hasError()) {
             return this.handleModelError(notification);
         }

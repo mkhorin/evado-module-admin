@@ -9,9 +9,9 @@ module.exports = class ItemFilter extends Base {
 
     async resolveTemplateData () {
         const Item = this.getClass('rbac/model/Item');
-        return {
-            items: await SelectHelper.queryLabelItems(this.spawn(Item).find())
-        };
+        const itemQuery = this.spawn(Item).find();
+        const items = await SelectHelper.queryLabelItems(itemQuery);
+        return {items};
     }
 };
 

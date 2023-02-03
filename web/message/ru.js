@@ -43,7 +43,7 @@ Object.assign(Jam.I18n.defaults, {
     'Create user password': 'Создать пароль пользователя',
 
     'Database': 'База данных',
-    'Date of last modification of session': 'Дата последнего изменения сессии',
+    'Date of the last session change': 'Дата последнего изменения сессии',
     'Delete expired sessions': 'Удалить истёкшие сессии',
     'Delete this index permanently?': 'Удалить этот индекс безвозвратно?',
     'Delivery methods': 'Методы доставки',
@@ -151,7 +151,6 @@ Object.assign(Jam.I18n.defaults, {
     'Records are created when files are uploaded.<br>Records without an owner are periodically deleted by <code>deleteExpiredFiles</code> task. The owner is an object of a class that implements the file behavior.': 'Записи создаются в момент загрузки файлов.<br>Записи без владельца периодически удаляются задачей <code>deleteExpiredFiles</code>. Владельцем является объект класса, реализующего файловое поведение.',
     'Refresh scheduler': 'Обновить планировщик',
     'Refuse to drop the system index': 'Отказать в удалении системного индекса',
-    'Reindex': 'Переиндексировать',
     'Rename': 'Переименовать',
     'Repeats': 'Повторений',
     'Restart observer': 'Перезапустить наблюдателя',

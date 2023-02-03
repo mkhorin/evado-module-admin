@@ -47,7 +47,8 @@ module.exports = class IndexingController extends Base {
 
     sendError (model) {
         const errors = model.getFirstErrorMap();
-        this.send(this.translateMessageMap(errors), Response.BAD_REQUEST);
+        const messages = this.translateMessageMap(errors);
+        this.send(messages, Response.BAD_REQUEST);
     }
 };
 module.exports.init(module);
