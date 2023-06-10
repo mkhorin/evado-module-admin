@@ -29,13 +29,14 @@ module.exports = class MetaItemList extends Base {
     }
 
     getTargets (model, targetMap) {
-        const targets = [];
-        for (const target of model.rel('targets')) {
+        const result = [];
+        const targets = model.rel('targets');
+        for (const target of targets) {
             const label = targetMap[target.get('type')];
             const type = this.controller.format(label, 'translatable');
             const key = target.getTargetKey();
-            targets.push(`${type} (${key || '*'})`);
+            result.push(`${type} (${key || '*'})`);
         }
-        return targets;
+        return result;
     }
 };

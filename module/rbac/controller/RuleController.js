@@ -9,8 +9,9 @@ module.exports = class RuleController extends Base {
 
     getListRelatedWith (relation) {
         switch (relation) {
-            case 'metaItems':
+            case 'metaItems': {
                 return 'targets';
+            }
         }
     }
 };

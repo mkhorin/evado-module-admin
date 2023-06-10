@@ -134,8 +134,9 @@ module.exports = class ItemController extends Base {
 
     getListRelatedWith (relation) {
         switch (relation) {
-            case 'metaItems':
+            case 'metaItems': {
                 return 'targets';
+            }
         }
     }
 };

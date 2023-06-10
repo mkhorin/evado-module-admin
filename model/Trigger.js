@@ -20,7 +20,8 @@ module.exports = class Trigger extends Base {
     async execute () {
         if (await this.validate()) {
             const data = CommonHelper.parseJson(this.get('data'));
-            for (const event of this.get('events')) {
+            const events = this.get('events');
+            for (const event of events) {
                 await this.module.emit(event, data);
             }
             return true;
