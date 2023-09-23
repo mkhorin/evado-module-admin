@@ -70,7 +70,7 @@ Object.assign(Jam.I18n.defaults, {
     'Filename': 'Имя файла',
     'Files': 'Файлы',
     'Filter': 'Фильтр',
-    'Filter recipients when sending this notification': 'Фильтр получателей при отправке сообщения',
+    'Filters of message recipients': 'Фильтры получателей сообщений',
 
     'Hash': 'Хэш',
     'Handler': 'Обработчик',
