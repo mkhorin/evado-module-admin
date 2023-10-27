@@ -9,11 +9,12 @@ module.exports = class User extends Base {
 
     static getConstants () {
         return {
-            RULES: super.RULES.concat([
+            RULES: [
+                ...super.RULES,
                 ['password', 'required', {on: 'create'}],
                 ['password', 'validator/PasswordValidator'],
                 [['roles', 'userPasswords'], 'relation']
-            ]),
+            ],
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },

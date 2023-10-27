@@ -9,9 +9,10 @@ module.exports = class NotificationMessage extends Base {
 
     static getConstants () {
         return {
-            RULES: super.RULES.concat([
+            RULES: [
+                ...super.RULES,
                 [['notification', 'recipients'], 'relation']
-            ]),
+            ],
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
                 timestamp: require('areto/behavior/TimestampBehavior')

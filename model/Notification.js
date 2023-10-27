@@ -9,10 +9,11 @@ module.exports = class Notification extends Base {
 
     static getConstants () {
         return {
-            RULES: super.RULES.concat([
+            RULES: [
+                ...super.RULES,
                 ['active', 'checkbox'],
                 [['users', 'userFilters', 'messages'], 'relation']
-            ]),
+            ],
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },

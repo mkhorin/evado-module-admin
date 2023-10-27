@@ -9,9 +9,10 @@ module.exports = class UserPassword extends Base {
 
     static getConstants () {
         return {
-            RULES: super.RULES.concat([
+            RULES: [
+                ...super.RULES,
                 ['password', 'required']
-            ])
+            ]
         };
     }
 };

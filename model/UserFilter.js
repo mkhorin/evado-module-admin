@@ -9,9 +9,10 @@ module.exports = class UserFilter extends Base {
 
     static getConstants () {
         return {
-            RULES: super.RULES.concat([
+            RULES: [
+                ...super.RULES,
                 [['items', 'includes', 'excludes'], 'relation']
-            ]),
+            ],
             BEHAVIORS: {
                 relationChange: require('areto/behavior/RelationChangeBehavior'),
             },

@@ -10,6 +10,8 @@ block('behaviors', {
 });
 const checkboxTemplate = _view.get('_part/attr/checkbox');
 const columnTemplate = _view.get('_part/group/columns');
+const datetimeTemplate = _view.get('_part/attr/datetime');
+const inlineTemplate = _view.get('_part/group/inline');
 const stringTemplate = _view.get('_part/attr/string');
 %>
 
@@ -28,7 +30,7 @@ const stringTemplate = _view.get('_part/attr/string');
   }]
 }) %>
 
-<%- include(_view.get('_part/group/inline'), {
+<%- include(inlineTemplate, {
   items: [{
     template: checkboxTemplate,
     params: {
@@ -49,7 +51,7 @@ const stringTemplate = _view.get('_part/attr/string');
 
 <%- include(columnTemplate, {
   items: [{
-    template: _view.get('_part/attr/datetime'),
+    template: datetimeTemplate,
     params: {
       attr: 'unlockAt',
       utc: false
