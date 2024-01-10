@@ -156,7 +156,7 @@ Object.assign(Jam.I18n.defaults, {
     'Restart observer': 'Перезапустить наблюдателя',
     'Restart security': 'Перезапустить безопасность',
     'Role': 'Роль',
-    'Role will be automatically assigned to users for whom at least one of these rules is allowed': 'Роль будет автоматические назначена пользователям, для которых разрешится хотя бы одно из правил',
+    'Role will be automatically assigned to users for whom at least one of these rules is allowed': 'Роль будет автоматически назначена пользователям, для которых разрешится хотя бы одно из правил',
     'Roles': 'Роли',
     'Route': 'Маршрут',
     'Rule': 'Правило',

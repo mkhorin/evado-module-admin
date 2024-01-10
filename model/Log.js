@@ -21,7 +21,7 @@ module.exports = class Log extends Base {
 
     async getItems () {
         const items = [];
-        const stores = this.getLogger().stores;
+        const {stores} = this.getLogger();
         for (const store of Object.values(stores)) {
             const data = await this.getStoreItems(store);
             items.push(...data);

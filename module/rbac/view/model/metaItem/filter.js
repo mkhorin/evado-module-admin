@@ -8,7 +8,7 @@ const Base = require('areto/view/ViewModel');
 module.exports = class ClassFilter extends Base {
 
     async resolveTemplateData () {
-        const model = this.data.model;
+        const {model} = this.data;
         const rbac = this.module.getRbac();
         const query = this.spawn('rbac/model/Item').find().onlyRoles();
         const roles = await SelectHelper.queryLabelItems(query);

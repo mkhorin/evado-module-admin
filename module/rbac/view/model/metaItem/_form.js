@@ -8,7 +8,7 @@ const Base = require('areto/view/ViewModel');
 module.exports = class MetaItemForm extends Base {
 
     resolveTemplateData () {
-        const model = this.data.model;
+        const {model} = this.data;
         const rbac = model.getRbac();
         return {
             types: rbac.VALUE_LABELS.types,
